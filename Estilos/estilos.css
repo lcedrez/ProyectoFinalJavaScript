@@ -89,6 +89,10 @@ a:hover {
 
 }
 
+.container{
+    padding-bottom: 100px;
+}
+
 .container-all-hist p{
     font-family: "Open Sans", sans-serif;
     font-size: large;

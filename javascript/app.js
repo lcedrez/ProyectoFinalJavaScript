@@ -19,9 +19,9 @@ class Usuario{
 }
 
 
-const articulo1= new Articulo("1144","Let It Be Photo White Hoodie",12500,0)
-const articulo2= new Articulo("2244","Let It Be-Mobile Ornament",7800,0)
-const articulo3= new Articulo("3344","The Beatles: Get Back Book",15400,0)
+const articulo1= new Articulo("1144","Let It Be Special Edition – Standard LP<",2500,0)
+const articulo2= new Articulo("2244","Let It Be Embroidered Blue Crewneck",4200,0)
+const articulo3= new Articulo("3344","Let It Be Photo Red Crewneck",5200,0)
 const articulo4= new Articulo("4444","Let It Be Silver Vintage Black T-Shirt",8250,0)
 
 const usuario1=new Usuario("Luciano","Cedrez","lcedrez","12345678")
@@ -72,7 +72,7 @@ function ValidarUsuario(variable)
 }
 
 
-
+/*
 function Validar(variable)
 {
     if(variable === ''){
@@ -94,8 +94,8 @@ function Validar(variable)
 
        }
 }
-
-function validarCantidades(cantidad)
+*/
+function validar(cantidad)
 {
     if(cantidad === '')
     {
@@ -145,10 +145,10 @@ if(usuSistema.some((variable)=>variable.user== usuarioIngresado)==true)
     
 
    
-    if(usuSistema.find((pass)=>pass.password==clave && pass.nombre==usuarioIngresado))
+    if(usuSistema.find((pass)=>pass.password==clave))
     {
         
-        alert("Hola "+pass.nombre+"\n"+"Bienvenido a la Tienda THE BEATLES")
+        alert("Bienvenido a la Tienda THE BEATLES")
         alert("A continuación un listado de nuestros Articulos")
 
         alert("Codigo: " +articulo1.cod_articulo+"\n" +"Descricpion: "+ articulo1.descripcion+"\n"+"Precio: "+"$"+articulo1.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo2.cod_articulo+"\n" +"Descricpion: "+ articulo2.descripcion+"\n"+"Precio: "+"$"+articulo2.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo3.cod_articulo+"\n" +"Descricpion: "+ articulo3.descripcion+"\n"+"Precio: "+"$"+articulo3.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo4.cod_articulo+"\n" +"Descricpion: "+ articulo4.descripcion+"\n"+"Precio: "+"$"+articulo4.precio+"\n"+"------------------------------------"+"\n")
@@ -162,7 +162,7 @@ if(usuSistema.some((variable)=>variable.user== usuarioIngresado)==true)
                 codIngresado=prompt("Ingrese Codigo del Articulo:")
             
                 
-            while( Validar(codIngresado)==false)
+            while(validar(codIngresado)==false)
             {
                 codIngresado=prompt("Ingrese Codigo del Articulo:")
             }
@@ -178,7 +178,7 @@ if(usuSistema.some((variable)=>variable.user== usuarioIngresado)==true)
                     {
 
                         cantIngresada=prompt("Ingrese Cantidad:")
-                        while(validarCantidades(cantIngresada)==false)
+                        while(validar(cantIngresada)==false)
                         {
                             
                             cantIngresada=prompt("Ingrese Cantidad:")
