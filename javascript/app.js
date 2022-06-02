@@ -168,11 +168,11 @@ if(usuSistema.some((variable)=>variable.user== usuarioIngresado)==true)
             }
 
             
-            
-            if(artVentas.some((art)=>art.cod_articulo==codIngresado)==true)
+            const resultado = artVentas.find(auxiliar => auxiliar.cod_articulo==codIngresado);
+            if(resultado != null)
             {
                 
-                    const resultado = artVentas.find(auxiliar => auxiliar.cod_articulo==codIngresado);
+                    
                     alert("El Articulo elegido es"+ " " +resultado.descripcion + "\n" + "Su precio es :$"+resultado.precio+"\n"+"\n"+"---------------------------------------")
                     confirm("Desea Agregar este Articulo al carrito?")
                     {
