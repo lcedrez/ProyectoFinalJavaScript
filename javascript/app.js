@@ -38,7 +38,7 @@ const carrito=[]
 
 
 
-function ValidarClave(claverecibida)
+function ValidarClave(claverecibida,usurecibido)
 {
     if(claverecibida===''){
         alert("El campo esta vacío");
@@ -47,7 +47,17 @@ function ValidarClave(claverecibida)
     }
     else
     {
-        return true
+        const resultado = usuSistema.find(auxiliar => auxiliar.user==usurecibido);
+
+      if(resultado.password===claverecibida)
+        {
+
+            return true
+        }
+        else
+        {
+            return false
+        }
     }
     
 
@@ -136,17 +146,16 @@ if(usuSistema.some((variable)=>variable.user== usuarioIngresado)==true)
 {
 
     clave=prompt("Ingrese Clave : ")
-    while( ValidarClave(clave)==false)
+    while( ValidarClave(clave,usuarioIngresado)==false)
     {
         
-        password=prompt("Ingrese Clave : ")
+        clave=prompt("Ingrese Clave : ")
     }
 
     
 
    
-    if(usuSistema.find((pass)=>pass.password==clave))
-    {
+    
         
         alert("Bienvenido a la Tienda THE BEATLES")
         alert("A continuación un listado de nuestros Articulos")
@@ -203,15 +212,11 @@ if(usuSistema.some((variable)=>variable.user== usuarioIngresado)==true)
             }
             else
             {
-                alert("Clave Incorrecta!!")
+                alert("No existe Usuario!!")
             }
 
-        }
-        else
-        {
-            alert("Usuario No existe")
-
-        }
+        
+      
         
 }
  
