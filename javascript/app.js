@@ -78,7 +78,9 @@ function ValidarRegistro(nombre,apellido,usuario,password,password2)
     }
     else
     {
-        usuSistema.push(nombre,apellido,usuario,password)
+        const usuariosis=new Usuario(nombre,apellido,usuario,password)
+        usuSistema.push(usuariosis)
+        console.log(usuSistema)
         return true;
     }
 
@@ -175,16 +177,22 @@ function recogerdatosRegistro(){
     let usuIngresado=document.getElementById("usuario").value;
     let passIngresado=document.getElementById("password").value;
     let passIngresado2=document.getElementById("password2").value;
-
+    usuIngresado=usuIngresado.toLowerCase();
+    console.log(usuIngresado)
 if(ValidarRegistro(nomIngresado,apeIngresado,usuIngresado,passIngresado,passIngresado2)==false)
 {
 alert("Ingrese los datos Nuevamente")
 }
 else
 {
-    const bienVenida=`Bienvenido ${nomIngresado} ${apeIngresado} tu usuario para poder loguearte a la tienda es : ${usuIngresado}`
+    const bienVenida=`Bienvenido ${nomIngresado} ${apeIngresado} tu usuario para poder loguearte a la tienda es : ${usuIngresado} Clave : ${passIngresado}`
     alert("Gracias por Registrarse")
     alert(bienVenida)
+     nomIngresado=document.getElementById("nombre").value="";
+     apeIngresado=document.getElementById("apellido").value="";
+     usuIngresado=document.getElementById("usuario").value="";
+     passIngresado=document.getElementById("password").value="";
+     passIngresado2=document.getElementById("password2").value="";
 }
 
     
