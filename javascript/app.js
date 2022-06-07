@@ -25,8 +25,8 @@ const articulo2= new Articulo("2244","Let It Be Embroidered Blue Crewneck",4200,
 const articulo3= new Articulo("3344","Let It Be Photo Red Crewneck",5200,0)
 const articulo4= new Articulo("4444","Let It Be Silver Vintage Black T-Shirt",8250,0)
 
-const usuario1=new Usuario("Luciano","Cedrez","lcedrez","12345678")
-const usuario2=new Usuario("Juan","Perez","jperez","87654321")
+const usuario1=new Usuario("Luciano","Cedrez","lcedrez","Luciano1234")
+const usuario2=new Usuario("Juan","Perez","jperez","Juan1234567")
 const usuario3=new Usuario("Carlos","Gonzalez","cgonzalez","Carlos2487")
 const usuario4=new Usuario("Luis","Martinez","lmartinez","Luis4545")
 
@@ -55,9 +55,25 @@ function ValidarRegistro(nombre,apellido,usuario,password,password2)
         return false;
         
     }
+    else if(password.length<=6)
+    {
+        alert("La Clave debe tener mas de 6 caracteres!");
+        return false;
+
+    }
     else if(password!=password2)
     {
         alert("Las Claves no coinciden!!");
+        return false;
+    }
+    else if( tieneMinusculas(password)==0)
+    {
+        alert("Debe Tener al menos una minuscula!")
+        return false;
+    }
+    else if(tieneMayusculas(password)==0)
+    {
+        alert("Debe Tener al menos una mayúscula!")
         return false;
     }
     else
@@ -68,6 +84,28 @@ function ValidarRegistro(nombre,apellido,usuario,password,password2)
 
 }
 
+
+function tieneMinusculas(texto){
+    let letras="abcdefghyjklmnñopqrstuvwxyz";
+    for(i=0; i<texto.length; i++){
+       if (letras.indexOf(texto.charAt(i),0)!=-1){
+          return 1;
+       }
+    }
+    return 0;
+ }
+
+ function tieneMayusculas(texto){
+
+    let letrasMayus="ABCDEFGHYJKLMNÑOPQRSTUVWXYZ";
+
+    for(i=0; i<texto.length; i++){
+       if (letrasMayus.indexOf(texto.charAt(i),0)!=-1){
+          return 1;
+       }
+    }
+    return 0;
+ }
 
 
 function ValidarIngreso(usuarioIngresado,passIngresado)
@@ -140,7 +178,7 @@ function recogerdatosRegistro(){
 
 if(ValidarRegistro(nomIngresado,apeIngresado,usuIngresado,passIngresado,passIngresado2)==false)
 {
-
+alert("Ingrese los datos Nuevamente")
 }
 else
 {
