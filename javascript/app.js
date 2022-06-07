@@ -214,59 +214,8 @@ if( ValidarIngreso(usuIngresado,IngresoPass)==false)
   else
   {
     window.location.href = "Paginas/Tienda.html";
-    alert("Bienvenido a la Tienda THE BEATLES")
-    alert("A continuación un listado de nuestros Articulos")
-
-    alert("Codigo: " +articulo1.cod_articulo+"\n" +"Descricpion: "+ articulo1.descripcion+"\n"+"Precio: "+"$"+articulo1.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo2.cod_articulo+"\n" +"Descricpion: "+ articulo2.descripcion+"\n"+"Precio: "+"$"+articulo2.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo3.cod_articulo+"\n" +"Descricpion: "+ articulo3.descripcion+"\n"+"Precio: "+"$"+articulo3.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo4.cod_articulo+"\n" +"Descricpion: "+ articulo4.descripcion+"\n"+"Precio: "+"$"+articulo4.precio+"\n"+"------------------------------------"+"\n")
-
-
-
-    while (confirm("Desea comprar algun Articulo?"))
-        {
-        true;
-            
-            codIngresado=prompt("Ingrese Codigo del Articulo:")
-        
-            
-        while(validar(codIngresado)==false)
-        {
-            codIngresado=prompt("Ingrese Codigo del Articulo:")
-        }
-
-        
-        let resultado = artVentas.find(auxiliar => auxiliar.cod_articulo==codIngresado);
-        if(resultado != null)
-        {
-            
-                
-                alert("El Articulo elegido es"+ " " +resultado.descripcion + "\n" + "Su precio es :$"+resultado.precio+"\n"+"\n"+"---------------------------------------")
-                confirm("Desea Agregar este Articulo al carrito?")
-                {
-
-                    cantIngresada=prompt("Ingrese Cantidad:")
-                    while(validar(cantIngresada)==false)
-                    {
-                        
-                        cantIngresada=prompt("Ingrese Cantidad:")
-                    }
-                    let total= resultado.precio *cantIngresada
-
-                    alert("El precio total de la compra es : $"+total)
-                    totalFinal +=total
-                    
-                }
-        }    
-        else
-        {
-            alert("ESTE ARTICULO NO EXISTE!!")
-        }    
-
-        }
-        
-        alert("El Total a pagar es de $ " + " "+ totalFinal )
-
   }
-
+  
   
   
   
@@ -278,10 +227,62 @@ if( ValidarIngreso(usuIngresado,IngresoPass)==false)
 
 
 
+/*
+alert("Bienvenido a la Tienda THE BEATLES")
+alert("A continuación un listado de nuestros Articulos")
+
+alert("Codigo: " +articulo1.cod_articulo+"\n" +"Descricpion: "+ articulo1.descripcion+"\n"+"Precio: "+"$"+articulo1.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo2.cod_articulo+"\n" +"Descricpion: "+ articulo2.descripcion+"\n"+"Precio: "+"$"+articulo2.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo3.cod_articulo+"\n" +"Descricpion: "+ articulo3.descripcion+"\n"+"Precio: "+"$"+articulo3.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo4.cod_articulo+"\n" +"Descricpion: "+ articulo4.descripcion+"\n"+"Precio: "+"$"+articulo4.precio+"\n"+"------------------------------------"+"\n")
 
 
 
+while (confirm("Desea comprar algun Articulo?"))
+    {
+    true;
+        
+        codIngresado=prompt("Ingrese Codigo del Articulo:")
+    
+        
+    while(validar(codIngresado)==false)
+    {
+        codIngresado=prompt("Ingrese Codigo del Articulo:")
+    }
 
+    
+    let resultado = artVentas.find(auxiliar => auxiliar.cod_articulo==codIngresado);
+    if(resultado != null)
+    {
+        
+            
+            alert("El Articulo elegido es"+ " " +resultado.descripcion + "\n" + "Su precio es :$"+resultado.precio+"\n"+"\n"+"---------------------------------------")
+            confirm("Desea Agregar este Articulo al carrito?")
+            {
+
+                cantIngresada=prompt("Ingrese Cantidad:")
+                while(validar(cantIngresada)==false)
+                {
+                    
+                    cantIngresada=prompt("Ingrese Cantidad:")
+                }
+                let total= resultado.precio *cantIngresada
+
+                alert("El precio total de la compra es : $"+total)
+                totalFinal +=total
+                
+            }
+    }    
+    else
+    {
+        alert("ESTE ARTICULO NO EXISTE!!")
+    }    
+
+    }
+    
+    alert("El Total a pagar es de $ " + " "+ totalFinal )
+
+}
+
+
+*/
 
 
 /*
