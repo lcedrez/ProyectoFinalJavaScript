@@ -54,8 +54,9 @@ function ValidarIngreso(usuarioIngresado,passIngresado)
         if(resultado==undefined)
         {
             alert("Usuario No existe!!")
+            return false
         }
-        else if(resultado.password===passIngresado)
+        else if(resultado.user==usuarioIngresado && resultado.password===passIngresado )
         {
          return true
         }
@@ -110,9 +111,7 @@ function recogerDatos(){
 
     
 
-
-
-  if( ValidarIngreso(usuIngresado,IngresoPass)==false)
+if( ValidarIngreso(usuIngresado,IngresoPass)==false)
   {
     alert("Usuario o Clave Incorrecta!!")
    
@@ -178,7 +177,6 @@ function recogerDatos(){
   
     
 }
-
 
 
 

@@ -27,11 +27,12 @@
                         <form action="">
                             <p>
                                 <label>Usuario</label>
-                                <input id="IngresoUser" type="text" name="fullname">
+                                <input id="IngresoUser" type="text" name="fullname" onkeyup="if(event.keyCode == 13) recogerDatos()">
                             </p>
                             <p>
                                 <label>Password</label>
-                                <input id="IngresoPass" type="password" name="password">
+                                <input id="IngresoPass" type="password" name="password"onkeyup="if(event.keyCode == 13) recogerDatos()">
+                                
                             </p>
                            
                             <p class="areaMensaje">
@@ -42,8 +43,9 @@
                           </p>
                           <p class="areaMensaje">
                             
-                            <button type="button">
+                            <button type="button" onclick="location.href='Paginas/Registro.html'">
                               Registrarme
+                              
                           </button>
                       </p>
                             </p>
