@@ -39,48 +39,42 @@ const carrito=[]
 
 
 
-function ValidarClave(claverecibida,usurecibido)
+
+
+function ValidarIngreso(usuarioIngresado,passIngresado)
 {
-    if(claverecibida===''){
-        alert("El campo esta vacío");
-        return false;
-        
-    }
-    else
+    if(usuarioIngresado === '' || passIngresado === '')
     {
-        const resultado = usuSistema.find(auxiliar => auxiliar.user==usurecibido);
-
-      if(resultado.password===claverecibida)
+        alert("Uno de los campos está vacío");
+       return false;
+    }
+     else 
+    {
+        const resultado = usuSistema.find(auxiliar => auxiliar.user==usuarioIngresado)
+        if(resultado==undefined)
         {
-
-            return true
+            alert("Usuario No existe!!")
+        }
+        else if(resultado.password===passIngresado)
+        {
+         return true
         }
         else
         {
             return false
         }
-    }
-    
-
-}
-
-
-
-
-function ValidarUsuario(variable)
-{
-    
-    if(variable === '')
-    {
-        alert("El campo esta vacío");
-       return false;
-    }
-    else
-    {
-            return true;
+        
+       
     }
        
+
+
 }
+
+
+
+
+
 
 function validar(cantidad)
 {
@@ -114,25 +108,77 @@ function recogerDatos(){
     let usuIngresado=document.getElementById("IngresoUser").value;
     let IngresoPass=document.getElementById("IngresoPass").value;
 
-  if( ValidarClave(IngresoPass,usuIngresado)==true)
+    
+
+
+
+  if( ValidarIngreso(usuIngresado,IngresoPass)==false)
   {
-    alert("Funciiona!!")
+    alert("Usuario o Clave Incorrecta!!")
+   
   }
   else
   {
-    alert("Usuario o Clave Incorrecta!!")
+    alert("Bienvenido a la Tienda THE BEATLES")
+    alert("A continuación un listado de nuestros Articulos")
+
+    alert("Codigo: " +articulo1.cod_articulo+"\n" +"Descricpion: "+ articulo1.descripcion+"\n"+"Precio: "+"$"+articulo1.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo2.cod_articulo+"\n" +"Descricpion: "+ articulo2.descripcion+"\n"+"Precio: "+"$"+articulo2.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo3.cod_articulo+"\n" +"Descricpion: "+ articulo3.descripcion+"\n"+"Precio: "+"$"+articulo3.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo4.cod_articulo+"\n" +"Descricpion: "+ articulo4.descripcion+"\n"+"Precio: "+"$"+articulo4.precio+"\n"+"------------------------------------"+"\n")
+
+
+
+    while (confirm("Desea comprar algun Articulo?"))
+        {
+        true;
+            
+            codIngresado=prompt("Ingrese Codigo del Articulo:")
+        
+            
+        while(validar(codIngresado)==false)
+        {
+            codIngresado=prompt("Ingrese Codigo del Articulo:")
+        }
+
+        
+        let resultado = artVentas.find(auxiliar => auxiliar.cod_articulo==codIngresado);
+        if(resultado != null)
+        {
+            
+                
+                alert("El Articulo elegido es"+ " " +resultado.descripcion + "\n" + "Su precio es :$"+resultado.precio+"\n"+"\n"+"---------------------------------------")
+                confirm("Desea Agregar este Articulo al carrito?")
+                {
+
+                    cantIngresada=prompt("Ingrese Cantidad:")
+                    while(validar(cantIngresada)==false)
+                    {
+                        
+                        cantIngresada=prompt("Ingrese Cantidad:")
+                    }
+                    let total= resultado.precio *cantIngresada
+
+                    alert("El precio total de la compra es : $"+total)
+                    totalFinal +=total
+                    
+                }
+        }    
+        else
+        {
+            alert("ESTE ARTICULO NO EXISTE!!")
+        }    
+
+        }
+        
+        alert("El Total a pagar es de $ " + " "+ totalFinal )
 
   }
+
+  
+  
+  
   
     
 }
 
-
-const getValueInput = () =>{
-  let inputValue = document.getElementById("IngresoUser").value; 
-  document.getElementById("IngresoUser").innerHTML = inputValue; 
-  console.log(inputValue);
-}
 
 
 
