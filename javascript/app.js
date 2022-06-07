@@ -1,4 +1,5 @@
 
+
 class Articulo{
     constructor(cod_articulo,descripcion,precio,descuento){
         this.cod_articulo=cod_articulo;
@@ -81,30 +82,6 @@ function ValidarUsuario(variable)
        
 }
 
-
-/*
-function Validar(variable)
-{
-    if(variable === ''){
-        alert("El campo esta vacío");
-       return false;
-       }
-       else
-       {
-        if(isNaN(variable))
-        {
-            alert("Debe Ingresar un Número")
-
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-
-       }
-}
-*/
 function validar(cantidad)
 {
     if(cantidad === '')
@@ -132,6 +109,39 @@ function validar(cantidad)
         return true
     }
 }
+
+function recogerDatos(){
+    let usuIngresado=document.getElementById("IngresoUser").value;
+    let IngresoPass=document.getElementById("IngresoPass").value;
+
+  if( ValidarClave(IngresoPass,usuIngresado)==true)
+  {
+    alert("Funciiona!!")
+  }
+  else
+  {
+    alert("Usuario o Clave Incorrecta!!")
+
+  }
+  
+    
+}
+
+
+const getValueInput = () =>{
+  let inputValue = document.getElementById("IngresoUser").value; 
+  document.getElementById("IngresoUser").innerHTML = inputValue; 
+  console.log(inputValue);
+}
+
+
+
+
+
+
+
+
+/*
 while(confirm("Desea Loguearse al Sistema de Tienda??"))
 {
 usuarioIngresado=prompt("Ingrese Usuario : ")
@@ -177,7 +187,7 @@ if(usuSistema.some((variable)=>variable.user== usuarioIngresado)==true)
             }
 
             
-            const resultado = artVentas.find(auxiliar => auxiliar.cod_articulo==codIngresado);
+            let resultado = artVentas.find(auxiliar => auxiliar.cod_articulo==codIngresado);
             if(resultado != null)
             {
                 
