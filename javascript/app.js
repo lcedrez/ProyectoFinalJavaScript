@@ -213,7 +213,7 @@ if( ValidarIngreso(usuIngresado,IngresoPass)==false)
   }
   else
   {
-      
+    window.location.href = "Paginas/Tienda.html";
     alert("Bienvenido a la Tienda THE BEATLES")
     alert("A continuación un listado de nuestros Articulos")
 
