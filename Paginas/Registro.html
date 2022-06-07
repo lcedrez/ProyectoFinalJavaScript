@@ -86,7 +86,7 @@
                                     </p>
                                     <p>
                                         <label>Usuario</label>
-                                        <input id="usuario" type="text" >
+                                        <input id="usuario" type="text" onkeyup="if(event.keyCode==13) recogerdatosRegistro()" >
                                     </p>
                                     <p> 
                                        
@@ -97,12 +97,12 @@
                                     </p>
                                     <p> 
                                         <label>Confirmación</label>
-                                        <input id="password2" type="password" name="Password">
+                                        <input id="password2" type="password" name="Password" onkeyup="if(event.keyCode == 13) recogerdatosRegistro()">
                                     </p>
                                   
                                    
                                     <p class="areaMensaje">
-                                        <button type="button" onclick="recogerdatosRegistro()">
+                                        <button type="button" onclick="recogerdatosRegistro()" onkeyup="if(event.keyCode == 13) recogerdatosRegistro()">
                                             Guardar
                                         </button>
                                     </p>

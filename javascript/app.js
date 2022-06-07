@@ -144,8 +144,9 @@ if(ValidarRegistro(nomIngresado,apeIngresado,usuIngresado,passIngresado,passIngr
 }
 else
 {
+    const bienVenida=`Bienvenido ${nomIngresado} ${apeIngresado} tu usuario para poder loguearte a la tienda es : ${usuIngresado}`
     alert("Gracias por Registrarse")
-    console.log(usuSistema)
+    alert(bienVenida)
 }
 
     
