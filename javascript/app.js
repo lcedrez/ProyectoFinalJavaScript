@@ -187,6 +187,9 @@ function recogerDatos(){
 
 
 
+
+
+
 /*
 while(confirm("Desea Loguearse al Sistema de Tienda??"))
 {
