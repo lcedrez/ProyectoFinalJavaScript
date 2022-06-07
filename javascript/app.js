@@ -40,6 +40,35 @@ const carrito=[]
 
 
 
+function ValidarRegistro(nombre,apellido,usuario,password,password2)
+{
+   
+
+    if(nombre === '' || apellido === ''||usuario===''||password==='')
+    {
+        alert("Uno de los campos está vacío");
+       return false;
+    }
+    else if((usuSistema.some((variable)=>variable.user== usuario)==true) )
+    {
+        alert("Este Usuario ya existe!!");
+        return false;
+        
+    }
+    else if(password!=password2)
+    {
+        alert("Las Claves no coinciden!!");
+        return false;
+    }
+    else
+    {
+        usuSistema.push(nombre,apellido,usuario,password)
+        return true;
+    }
+
+}
+
+
 
 function ValidarIngreso(usuarioIngresado,passIngresado)
 {
@@ -62,7 +91,7 @@ function ValidarIngreso(usuarioIngresado,passIngresado)
         }
         else
         {
-            return false
+        return false
         }
         
        
@@ -71,10 +100,6 @@ function ValidarIngreso(usuarioIngresado,passIngresado)
 
 
 }
-
-
-
-
 
 
 function validar(cantidad)
@@ -105,9 +130,32 @@ function validar(cantidad)
     }
 }
 
+function recogerdatosRegistro(){
+
+    let nomIngresado=document.getElementById("nombre").value;
+    let apeIngresado=document.getElementById("apellido").value;
+    let usuIngresado=document.getElementById("usuario").value;
+    let passIngresado=document.getElementById("password").value;
+    let passIngresado2=document.getElementById("password2").value;
+
+if(ValidarRegistro(nomIngresado,apeIngresado,usuIngresado,passIngresado,passIngresado2)==false)
+{
+
+}
+else
+{
+    alert("Gracias por Registrarse")
+    console.log(usuSistema)
+}
+
+    
+
+}
+
 function recogerDatos(){
     let usuIngresado=document.getElementById("IngresoUser").value;
     let IngresoPass=document.getElementById("IngresoPass").value;
+    
 
     
 
@@ -118,6 +166,7 @@ if( ValidarIngreso(usuIngresado,IngresoPass)==false)
   }
   else
   {
+      
     alert("Bienvenido a la Tienda THE BEATLES")
     alert("A continuación un listado de nuestros Articulos")
 

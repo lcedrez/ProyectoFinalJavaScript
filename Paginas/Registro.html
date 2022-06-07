@@ -78,26 +78,41 @@
                                 <form action="">
                                     <p>
                                         <label>Nombre</label>
-                                        <input type="text" name="fullname" >
+                                        <input id="nombre" type="text" name="fullname" >
                                     </p>
                                     <p>
                                         <label>Apellido</label>
-                                        <input type="text" name="fullname">
+                                        <input id="apellido" type="text" name="fullname">
                                     </p>
                                     <p>
                                         <label>Usuario</label>
-                                        <input type="text" >
+                                        <input id="usuario" type="text" >
+                                    </p>
+                                    <p> 
+                                       
                                     </p>
                                     <p> 
                                         <label>Password</label>
-                                        <input type="password" name="Password">
+                                        <input id="password" type="password" name="Password">
                                     </p>
+                                    <p> 
+                                        <label>Confirmación</label>
+                                        <input id="password2" type="password" name="Password">
+                                    </p>
+                                  
                                    
                                     <p class="areaMensaje">
-                                        <button type="submit">
+                                        <button type="button" onclick="recogerdatosRegistro()">
                                             Guardar
                                         </button>
                                     </p>
+                                    <p class="areaMensaje">
+                            
+                                        <button type="button" onclick="location.href='../index.html'">
+                                          Log In
+                                          
+                                      </button>
+                                      </p>
                                 </form>
 
                             </div>
@@ -161,5 +176,6 @@
             </footer>
         </div>
     </div>
+    <script src="../javascript/app.js"></script>
 </body>
 </html>
