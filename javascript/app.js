@@ -1,11 +1,12 @@
 
 
 class Articulo{
-    constructor(cod_articulo,descripcion,precio,descuento){
+    constructor(cod_articulo,descripcion,precio,descuento,imagen){
         this.cod_articulo=cod_articulo;
         this.descripcion=descripcion;
         this.precio=precio;
         this.descuento=descuento;
+        this.imagen=imagen
     }
 }
 
@@ -20,10 +21,10 @@ class Usuario{
 }
 
 
-const articulo1= new Articulo("1144","Let It Be Special Edition – Standard LP<",2500,0)
-const articulo2= new Articulo("2244","Let It Be Embroidered Blue Crewneck",4200,0)
-const articulo3= new Articulo("3344","Let It Be Photo Red Crewneck",5200,0)
-const articulo4= new Articulo("4444","Let It Be Silver Vintage Black T-Shirt",8250,0)
+const articulo1= new Articulo("1144","Let It Be Special Edition – Standard LP<",2500,0,"Imagenes/E-Commerce/LetitbeCD.jpg")
+const articulo2= new Articulo("2244","Let It Be Embroidered Blue Crewneck",4200,0,"Imagenes/E-Commerce/LetitBeCanguro.jfif")
+const articulo3= new Articulo("3344","Let It Be Photo Red Crewneck",5200,0,"Imagenes/E-Commerce/LetItbeCanguroRojojfif.jfif")
+const articulo4= new Articulo("4444","Let It Be Silver Vintage Black T-Shirt",8250,0,"Imagenes/E-Commerce/LetItbeCanguroRojojfif.jfif")
 
 const usuario1=new Usuario("Luciano","Cedrez","lcedrez","Luciano1234")
 const usuario2=new Usuario("Juan","Perez","jperez","Juan1234567")
@@ -214,6 +215,26 @@ if( ValidarIngreso(usuIngresado,IngresoPass)==false)
   else
   {
     window.location.href = "Paginas/Tienda.html";
+
+    const contCard=document.querySelector('#cardcont')
+
+    artVentas.forEach((prod)=>{
+        const card=document.createElement('div')
+        card.className='card-body'
+        card.innerHTML=`<h4 class="card-title">${prod.descripcion}</h4>
+        <img src=${prod.imagen}" class="card-img-top" alt="Let It Be Special Edition – Standard LP">
+       
+        <p class="card-text">${prod.precio}</p>
+
+         <a href="" class="btn btn-primary">Agregar</a>
+        
+      </div>
+    </div>     
+         `
+        contCard.append(card)
+    })
+
+    
   }
   
   
