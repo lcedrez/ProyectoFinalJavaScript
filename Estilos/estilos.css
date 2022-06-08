@@ -1778,6 +1778,7 @@ font-size: 70px;
 
 }
 /*De aqui apra abajo*/
+/*
 body {
     margin: 0;
     font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
@@ -1788,7 +1789,7 @@ body {
     text-align: left;
     background-color: #2196F3;
 }
-
+*/
 .mt-50{
 
     margin-top: 50px;
