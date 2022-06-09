@@ -82,7 +82,7 @@ const carrito=[]
         const producto = artVentas.find((producto) => producto.cod_articulo == productoElegido)
         // Una vez tenemos todo el objeto, lo enviamos al carrito y ya tenemos nuestro primer producto seleccionado!
         carrito.push(producto)
-        imprimirCarrito()
+        imprimirCarrito2()
         localStorage.setItem('carrito', JSON.stringify(carrito))
     }
 
@@ -90,6 +90,28 @@ const carrito=[]
     botonesCompra.forEach((botonCompra) => {
     botonCompra.addEventListener('click', agregarProducto)
 })
+
+
+const imprimirCarrito2 = () => {
+    cardContainer.innerHTML = ''
+    carrito.forEach((producto)=>{
+        //creamos el elemento
+        const cartRow=document.createElement('div')
+        cartRow.className='card'
+        //asignarle algo a la card
+        cartRow.innerHTML=`
+        <blockquote class="blockquote mb-0">
+        <img src=${producto.imagen} alt="">
+        <h5>${producto.descripcion}</h5>
+        <h5>Precio : ${producto.precio} </h5>
+      </blockquote>
+    </div>`
+
+        cardContainer.append(cartRow)
+    })
+} 
+
+    
 
     //Arreglar esta impresion   
     const imprimirCarrito = () => {
