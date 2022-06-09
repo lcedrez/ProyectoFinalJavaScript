@@ -89,7 +89,7 @@ const carrito=[]
     const botonesCompra = document.querySelectorAll('.btn')
     botonesCompra.forEach((botonCompra) => {
     botonCompra.addEventListener('click', agregarProducto)
-})
+    })
 
 
 const imprimirCarrito = () => {
@@ -103,13 +103,29 @@ const imprimirCarrito = () => {
         <img src=${producto.imagen} alt="">
         <h5>${producto.descripcion}</h5>
         <h5>Precio : ${producto.precio} </h5>
+        <div id="contbasura">
+              <img id="basura" src="Imagenes/E-Commerce/basura.png"  alt="">
+              <button id="btn2" codigo="${producto.cod_articulo}" type="button" onclick="removeItemCarrito()" class="btn btn-primary"> Eliminar</button>
+              </div>
       </blockquote>`
 
         cardContainer.append(cartRow)
     })
 } 
 
-    
+
+
+
+const vaciarCarrito = () => {
+    if (localStorage.getItem('carrito')) {
+        localStorage.removeItem('carrito')
+    }
+  
+    carrito = [];
+    imprimirCarrito()
+}
+
+
 
 
 
