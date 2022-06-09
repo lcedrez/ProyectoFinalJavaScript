@@ -82,7 +82,7 @@ const carrito=[]
         const producto = artVentas.find((producto) => producto.cod_articulo == productoElegido)
         // Una vez tenemos todo el objeto, lo enviamos al carrito y ya tenemos nuestro primer producto seleccionado!
         carrito.push(producto)
-        imprimirCarrito2()
+        imprimirCarrito()
         localStorage.setItem('carrito', JSON.stringify(carrito))
     }
 
@@ -92,20 +92,18 @@ const carrito=[]
 })
 
 
-const imprimirCarrito2 = () => {
+const imprimirCarrito = () => {
     cardContainer.innerHTML = ''
     carrito.forEach((producto)=>{
-        //creamos el elemento
         const cartRow=document.createElement('div')
         cartRow.className='card'
-        //asignarle algo a la card
+       
         cartRow.innerHTML=`
         <blockquote class="blockquote mb-0">
         <img src=${producto.imagen} alt="">
         <h5>${producto.descripcion}</h5>
         <h5>Precio : ${producto.precio} </h5>
-      </blockquote>
-    </div>`
+      </blockquote>`
 
         cardContainer.append(cartRow)
     })
@@ -113,22 +111,6 @@ const imprimirCarrito2 = () => {
 
     
 
-    //Arreglar esta impresion   
-    const imprimirCarrito = () => {
-        cardContainer.innerHTML = ''
-        carrito.forEach((producto) => {
-            const cartRow = document.createElement('div')
-            cartRow.className = 'cartRow'
-            cartRow.innerHTML = `
-            <h4 class="card-title">${producto.descripcion}</h4>
-            <img src=${producto.imagen} alt="${producto.descripcion}">
-            <p class="card-text">$${producto.precio}</p>
-           <p class="card-text"></p>
-           </div>
-            `
-            cardContainer.append(cartRow)
-        })
-    } 
 
 
 function ValidarRegistro(nombre,apellido,usuario,password,password2)
