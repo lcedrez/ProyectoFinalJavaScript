@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+.nav img{
+    width: 10px;
+    height: 10px;
+    
+}
+
+
 .navbar-brand img{
     width: 50px;
     height: 55px;
@@ -1528,6 +1535,8 @@ font-size: 70px;
         font-family: 'Courier New', Courier, monospace;
     }
     
+
+
     .contactInfo img{
         width:20px;
     }
@@ -1777,6 +1786,28 @@ font-size: 70px;
     }
 
 }
+/*cards carrito*/
+
+.card-body2{
+    padding-left: 200px;
+}
+
+.blockquote img{
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+
+.blockquote h5{
+    padding-top: 20px;
+    text-align: left;
+}
+
+
+
+
+
+
 /*De aqui apra abajo*/
 /*
 body {
@@ -1819,6 +1850,11 @@ body {
 .card-img-actions {
     position: relative;
 }
+
+#nuevacard{
+    text-align: left;
+}
+
 .card-body {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;

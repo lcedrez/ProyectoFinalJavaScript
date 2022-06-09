@@ -25,7 +25,7 @@ const articulo1= new Articulo("1144","Let It Be Special Edition – Standard LP"
 const articulo2= new Articulo("2244","Let It Be Embroidered Blue Crewneck",4200,0,"Imagenes/E-Commerce/LetitBeCanguro.jfif")
 const articulo3= new Articulo("3344","Let It Be Photo Red Crewneck",5200,0,"Imagenes/E-Commerce/LetItbeCanguroRojojfif.jfif")
 const articulo4= new Articulo("4444","Launchera - The Beatles",8250,0,"Imagenes/E-Commerce/Launchera.jfif")
-const articulo5=new Articulo("5544","Beatles Playing Cards - Special Edition Box Set",1250,0,"Imagenes/E-Commerce/BeatlesCard.jpg")
+const articulo5=new Articulo("5544","Beatles Playing Cards - Special Edition",1250,0,"Imagenes/E-Commerce/BeatlesCard.jpg")
 const articulo6=new Articulo("6644","Abbey Road Ukulele",17500,0,"Imagenes/E-Commerce/UkuleleAbbey.jfif")
 const articulo7=new Articulo("7744","Yellow Submarine Port Hole Beanie",1500,0,"Imagenes/E-Commerce/gorroYsub.jfif")
 const articulo8=new Articulo("8844","I Love The Beatles Pin",200,0,"Imagenes/E-Commerce/PIN.jfif")
@@ -62,10 +62,11 @@ const carrito=[]
         <h4 class="card-title">${producto.descripcion}</h4>
         <img src=${producto.imagen} alt="${producto.descripcion}">
         <p class="card-text">$${producto.precio}</p>
+        
        
         <p class="card-text"></p>
-
-         <a href="" class="btn btn-primary">Agregar</a>
+        <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
+        
         
       </div>`
 
@@ -73,7 +74,39 @@ const carrito=[]
         cardContainer.append(card)
     } );
 
+  
+    const agregarProducto = (e) => {
+        // Al acceder a target accedemos al nodo (etiqueta button) y con getAttribute accedemos al atributo donde nosotros guardamos el valor de referencia (conviene siempre que sea un id unico)
+        const productoElegido = e.target.getAttribute('codigo')
+        // Una vez que tenemos el valor de referencia que guardamos en el boton (en este ejemplo la marca del monitor) hacemos una busqueda (find) en el array original de productos (el mismo que usamos para mostrarlos) y este nos va a devolver todo el objeto que coincida con la busqueda (buscar por el mismo dato que enviamos a data-id)
+        const producto = artVentas.find((producto) => producto.cod_articulo == productoElegido)
+        // Una vez tenemos todo el objeto, lo enviamos al carrito y ya tenemos nuestro primer producto seleccionado!
+        carrito.push(producto)
+        imprimirCarrito()
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+    }
 
+    const botonesCompra = document.querySelectorAll('.btn')
+    botonesCompra.forEach((botonCompra) => {
+    botonCompra.addEventListener('click', agregarProducto)
+})
+
+    //Arreglar esta impresion   
+    const imprimirCarrito = () => {
+        cardContainer.innerHTML = ''
+        carrito.forEach((producto) => {
+            const cartRow = document.createElement('div')
+            cartRow.className = 'cartRow'
+            cartRow.innerHTML = `
+            <h4 class="card-title">${producto.descripcion}</h4>
+            <img src=${producto.imagen} alt="${producto.descripcion}">
+            <p class="card-text">$${producto.precio}</p>
+           <p class="card-text"></p>
+           </div>
+            `
+            cardContainer.append(cartRow)
+        })
+    } 
 
 
 function ValidarRegistro(nombre,apellido,usuario,password,password2)
@@ -217,7 +250,7 @@ function recogerdatosRegistro(){
     let passIngresado=document.getElementById("password").value;
     let passIngresado2=document.getElementById("password2").value;
     usuIngresado=usuIngresado.toLowerCase();
-    console.log(usuIngresado)
+    
 if(ValidarRegistro(nomIngresado,apeIngresado,usuIngresado,passIngresado,passIngresado2)==false)
 {
 alert("Ingrese los datos Nuevamente")
