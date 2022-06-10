@@ -11,11 +11,14 @@
 }
 
 
+
 .navbar-brand img{
     width: 50px;
     height: 55px;
     
 }
+
+
 /*---------------------------------------------------------------*/
 
 /*Login*/
@@ -202,7 +205,7 @@ color: white;
     border-radius: 6px;
     overflow: hidden;
 }
-/*
+
 .card-body{
    width:100%;
 }
@@ -213,9 +216,9 @@ color: white;
     
     
 }
-*/
 
-/*
+
+
 .card-text{
     font-size: 30px;
 }
@@ -227,7 +230,7 @@ color: white;
     -webkit-transform:scale(2);
     transform:scale(2);
 }
-*/
+
 .asideHistoria{
     background-image: url(../Imagenes/fondo1366x768.jpg);
     text-align: center;
@@ -1851,7 +1854,7 @@ body {
 
 
 
-.card {
+#contenedorCards {
     position: relative;
     display: -ms-flexbox;
     display: flex;
