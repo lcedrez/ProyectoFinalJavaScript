@@ -4,61 +4,63 @@
 
 
 let totalFinal=0
-const artVentas=[articulo1,articulo2,articulo3,articulo4,articulo5,articulo6,articulo7,articulo8,articulo9,articulo10,articulo11,articulo12]
+const artVentas=[articulo1,articulo2,articulo3,articulo4]
 const usuSistema=[usuario1,usuario2,usuario3,usuario4]
 let carrito=[]
 
-
-
-
 //Query De Elementos
 //-------------------------------------------------------------------------------------------------------
-
-const listadoArticulos=document.querySelector('.container')
-const cardContainer=document.getElementById('container');
-  
-  console.log(cardContainer)
-
+const listadoProductos=document.querySelector('#contenedorCards')
 
 
 //Funciones
 //---------------------------------------------------------------------------------------------------------
-const renderizarListaArticulos=()=>{
-    artVentas.forEach((arti)=>{
-        const artContenedor=document.createElement('div')
-        artContenedor.className='card-body'
-        artContenedor.innerHTML=`
-                    <div class="card-body">
-                    
-                        <h4 class="card-title">${arti.descripcion}</h4>
-                                            <img src=${arti.imagen} alt="${arti.descripcion}">
-                                            <p class="card-text">$${arti.precio}</p>
-                                            
-                                            
-                                            <p class="card-text"></p>
-                                            <button codigo="${arti.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
-                    </div>  
-                
+
+const renderizarListProductos=()=>{
+    artVentas.forEach((producto)=>{
+        const artDiv = document.createElement('div')
+         
+        artDiv.className='card-body'
+        artDiv.innerHTML=`<h4 class="card-title">${producto.descripcion}</h4>
+        <img src=${producto.imagen} alt="${producto.descripcion}">
+            <p class="card-text">$${producto.precio}</p>
+            <p class="card-text"></p>
+        <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
+        
+        
+      </div>
         `
-                    //Una vez insertado esto debemos agregarlo a la constante creada
-                    listadoArticulos.append(artContenedor)
+
+        listadoProductos.append(artDiv)
     })
+
+        agregarListennersBtns()
+
+
 }
 
+const renderizarArticulos=(event)=>{
+    console.log(event.target)
+
+
+}
+
+const agregarListennersBtns =()=>{
+
+    const articuloBoton=document.querySelectorAll('.btn')
+    articuloBoton.forEach((boton)=>{
+        boton.addEventListener('click',renderizarArticulos)
+    })
+   
+
+
+}
 
 //EventListeners    
 //---------------------------------------------------------------------------------------------------------
 
 
 
-
 //Ejecuciones   
 //---------------------------------------------------------------------------------------------------------
-renderizarListaArticulos()
-
-
-
-
-
-    
-   
+renderizarListProductos()

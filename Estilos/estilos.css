@@ -217,6 +217,7 @@ color: white;
     border-radius: 6px;
     overflow: hidden;
 }
+/*
 
 .card-body{
    width:100%;
@@ -228,8 +229,21 @@ color: white;
     
     
 }
+*/
 
+#cardCarrito img{
+    width: 100px;
+    float:left;
+    margin: 0;
+    padding: 0;
+}
 
+#tituloCard{
+    text-align: left;
+}
+#cardPrecio{
+    text-align: left;
+}
 
 .card-text{
     font-size: 30px;
@@ -1928,7 +1942,6 @@ a{
 
     text-decoration: none !important;
 }
-
 
 
 

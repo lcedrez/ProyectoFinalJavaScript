@@ -89,6 +89,7 @@ const carrito=[]
     const botonesCompra = document.querySelectorAll('.btn')
     botonesCompra.forEach((botonCompra) => {
     botonCompra.addEventListener('click', agregarProducto)
+    console.log(botonesCompra)
     })
     
 
@@ -107,7 +108,7 @@ const imprimirCarrito = () => {
         <h5>Precio : ${producto.precio} </h5>
         <div id="contbasura">
               <img id="basura" src="Imagenes/E-Commerce/basura.png"  alt="">
-              <button id="btn2" codigo="${producto.cod_articulo}"  class="btn btn-primary"> Eliminar</button>
+              <button id="btn" codigo="${producto.cod_articulo}"  class="btn btn-primary"> Eliminar</button>
               </div>
       </blockquote>`
 
