@@ -11,6 +11,9 @@ let carrito=[]
 //Query De Elementos
 //-------------------------------------------------------------------------------------------------------
 const listadoProductos=document.querySelector('#contenedorCards')
+const titulo1=document.querySelector('#titulo1')
+const titulo2=document.querySelector('#titulo2')
+const titulo3=document.querySelector('#titulo3')
 
 
 //Funciones
@@ -39,10 +42,13 @@ const renderizarListProductos=()=>{
 
 }
 
-const renderizarArticulos=(event)=>{
-    console.log(event.target)
+const renderizarArticulos= (e) => {
+ const idSeleccionado = e.target.getAttribute('codigo')
+const artiSeleccionado  =artVentas.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
 
-
+titulo1.textContent=artiSeleccionado.descripcion 
+titulo2.textContent="$ " +artiSeleccionado.precio
+titulo3.textContent="Codigo Articulo : " +artiSeleccionado.cod_articulo
 }
 
 const agregarListennersBtns =()=>{
