@@ -231,12 +231,14 @@ color: white;
 }
 */
 
-#cardCarrito img{
+#cardImagen {
     width: 100px;
     float:left;
     margin: 0;
     padding: 0;
 }
+
+
 
 #tituloCard{
     text-align: left;
@@ -1796,6 +1798,10 @@ font-size: 70px;
     background-attachment: fixed;
 }
 
+#contenedorCards{
+    display: flex;
+    flex-direction: row;
+}
 
 
 .container-all img{
@@ -1880,18 +1886,11 @@ body {
 
 
 
-#contenedorCards {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .1875rem;
+#contenedorCarro{
+
+    border-color: #aaaaaa;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .card-img-actions {
