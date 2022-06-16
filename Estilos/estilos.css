@@ -247,6 +247,22 @@ color: white;
     padding-left: 300px;
 }
 
+.cuadroNumero{
+
+    width: 50px;
+    height: 30px;
+    font-size: 20px;
+    
+}
+
+.cantidadCompra{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+}
+
 #contenedorCarro{
     margin: 1rem;
   padding: 1rem;
@@ -327,6 +343,36 @@ body{
 }
    */         
 
+.btn2{
+    background-color: rgb(0, 0, 0);
+    border-width: 1px;
+  border-style: solid;
+  border-color: black;  
+  color: white;
+
+}
+
+.btn:hover{
+    background:#fff;
+    color:black;
+    transition:background-color 1s ease-out;
+    outline:0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;  
+
+
+}
+.btn:focus{
+    background:#fff;
+    color:black;
+    transition:background-color 1s ease-out;
+    outline:0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;  
+
+}
 
 
 .btn{
