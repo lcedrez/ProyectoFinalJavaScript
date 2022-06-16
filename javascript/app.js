@@ -21,7 +21,7 @@ const listadoCarrito=document.querySelector('#contenedorCarro')
 const renderizarListProductos=()=>{
     
     artVentas.forEach((producto)=>{
-        carrito = JSON.parse(localStorage.getItem('claveCarro'))
+       
         const artDiv = document.createElement('div')
         
         artDiv.className='card-body'
@@ -80,6 +80,12 @@ const agregaBtnsEliminar =()=>{
     })
    
 
+
+}
+
+const recuperarCarrito=()=>{
+    carrito = JSON.parse(localStorage.getItem('claveCarro'))
+    imprimirCarro()
 
 }
 
@@ -143,3 +149,4 @@ console.log( arreglo );
 //Ejecuciones   
 //---------------------------------------------------------------------------------------------------------
 renderizarListProductos()
+recuperarCarrito()
