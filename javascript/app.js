@@ -70,14 +70,10 @@ const imprimirCarro=()=>{
           
             artDiv.className='card-body'
             artDiv.innerHTML=`<img id="cardImagen" src=${producto.imagen} alt="The Beatles">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+         
             <h3 id="tituloCard" class="card-title">${producto.descripcion}</h5>
-                <h4 id="tituloCard" class="card-title">$ ${producto.precio}</h4>
-                    <h5 id="tituloCard" class="card-title">Codigo : ${producto.cod_articulo}</h5>
+            <h4 id="tituloCard" class="card-title">$ ${producto.precio}</h4>
+            <h5 id="tituloCard" class="card-title">Codigo : ${producto.cod_articulo}</h5>
     </div>    
             `
     

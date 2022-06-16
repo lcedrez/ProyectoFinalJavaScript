@@ -239,6 +239,21 @@ color: white;
 }
 
 
+#ContCarro{
+    padding-left: 400px;
+}
+
+#contenedorCarro{
+    margin: 1rem;
+  padding: 1rem;
+
+  /* IMPORTANTE */
+    text-align: center;
+    border-style: solid;
+    width: 70%;
+   
+}
+
 
 #tituloCard{
     text-align: left;
@@ -1886,12 +1901,7 @@ body {
 
 
 
-#contenedorCarro{
 
-    border-color: #aaaaaa;
-    border-width: 1px;
-    border-style: solid;
-}
 
 .card-img-actions {
     position: relative;
