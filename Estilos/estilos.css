@@ -238,9 +238,13 @@ color: white;
     padding: 0;
 }
 
+#btnBorrado{
+
+    float:right;
+}
 
 #ContCarro{
-    padding-left: 400px;
+    padding-left: 300px;
 }
 
 #contenedorCarro{

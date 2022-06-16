@@ -45,18 +45,26 @@ const renderizarListProductos=()=>{
 }
 
 const renderizarArticulos= (e) => {
- const idSeleccionado = e.target.getAttribute('codigo')
-const artiSeleccionado  =artVentas.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
+    const idSeleccionado = e.target.getAttribute('codigo')
+    const artiSeleccionado  =artVentas.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
 
-carrito.push(artiSeleccionado)
-imprimirCarro()
+            if(ExisteArtenCarro(artiSeleccionado)==true)
+                {
+                    
+                }
+                else
+                {
+
+                    carrito.push(artiSeleccionado)
+                    imprimirCarro()
+                }
 }
 
 const agregarListennersBtns =()=>{
 
     const articuloBoton=document.querySelectorAll('.btn')
     articuloBoton.forEach((boton)=>{
-        boton.addEventListener('click',renderizarArticulos)
+    boton.addEventListener('click',renderizarArticulos)
     })
    
 
@@ -70,10 +78,11 @@ const imprimirCarro=()=>{
           
             artDiv.className='card-body'
             artDiv.innerHTML=`<img id="cardImagen" src=${producto.imagen} alt="The Beatles">
-         
+            <input id="btnBorrado" type="reset" value="X" class="btn btn-primary"> 
             <h3 id="tituloCard" class="card-title">${producto.descripcion}</h5>
             <h4 id="tituloCard" class="card-title">$ ${producto.precio}</h4>
             <h5 id="tituloCard" class="card-title">Codigo : ${producto.cod_articulo}</h5>
+            
     </div>    
             `
     
@@ -81,6 +90,10 @@ const imprimirCarro=()=>{
         })
 }
 
+const ExisteArtenCarro=(artrecibido)=>{
+    const variable = carrito.some((aux)=>aux.cod_articulo==artrecibido.cod_articulo)
+    return variable
+}
 
 
 
