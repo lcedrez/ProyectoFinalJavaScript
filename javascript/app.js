@@ -14,11 +14,14 @@ const listadoProductos=document.querySelector('#contenedorCards')
 
 const listadoCarrito=document.querySelector('#contenedorCarro')
 
+
 //Funciones
 //---------------------------------------------------------------------------------------------------------
 
 const renderizarListProductos=()=>{
+    
     artVentas.forEach((producto)=>{
+        carrito = JSON.parse(localStorage.getItem('claveCarro'))
         const artDiv = document.createElement('div')
         
         artDiv.className='card-body'
@@ -34,8 +37,9 @@ const renderizarListProductos=()=>{
 
         listadoProductos.append(artDiv)
     })
-
+  
         agregarListennersBtns()
+
 
 
 }
@@ -80,6 +84,8 @@ const agregaBtnsEliminar =()=>{
 }
 
 const imprimirCarro=()=>{
+
+            
             listadoCarrito.innerHTML=""
             carrito.forEach((producto)=>{
             const artDiv = document.createElement('div')
@@ -99,6 +105,7 @@ const imprimirCarro=()=>{
             `
     
             listadoCarrito.append(artDiv)
+            localStorage.setItem('claveCarro',JSON.stringify(carrito))
         })
         agregaBtnsEliminar()
 }
