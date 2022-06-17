@@ -92,6 +92,7 @@ const agregaBtnsEliminar =()=>{
 
 //creo una funcion para recuperar el carrito del local storage y poder mostrarlo
 const recuperarCarrito=()=>{
+    
     carrito = JSON.parse(localStorage.getItem('claveCarro'))
     imprimirCarro()
 
@@ -154,4 +155,6 @@ const EliminarDeCarrito=(e)=>{
 //Ejecuciones   
 //---------------------------------------------------------------------------------------------------------
 renderizarListProductos()
+if (localStorage.getItem('claveCarro') !== null) {
 recuperarCarrito()
+}
