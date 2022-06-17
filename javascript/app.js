@@ -18,6 +18,8 @@ const listadoCarrito=document.querySelector('#contenedorCarro')
 //Funciones
 //---------------------------------------------------------------------------------------------------------
 
+
+//Creo funcion para mostrar todos los articulos del array artVentas
 const renderizarListProductos=()=>{
     
     artVentas.forEach((producto)=>{
@@ -44,6 +46,9 @@ const renderizarListProductos=()=>{
 
 }
 
+
+//Con esta funcion tomo el atributo del boton el codigo del artiuclo hago un find para obtener el objeto y llamo a la funcion
+//ExisteArtenCarro en el que pregunto si este articulo fue agregado si es asi no hace nada y sino lo agrga y muestra el carrito
 const renderizarArticulos= (e) => {
     const idSeleccionado = e.target.getAttribute('codigo')
     const artiSeleccionado  =artVentas.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
@@ -72,6 +77,7 @@ const agregarListennersBtns =()=>{
 
 }
 
+//creo funcion para eliminar articulos del carrito
 const agregaBtnsEliminar =()=>{
 
     const eliminaBoton=document.querySelectorAll('.btn2')
@@ -83,12 +89,15 @@ const agregaBtnsEliminar =()=>{
 
 }
 
+
+//creo una funcion para recuperar el carrito del local storage y poder mostrarlo
 const recuperarCarrito=()=>{
     carrito = JSON.parse(localStorage.getItem('claveCarro'))
     imprimirCarro()
 
 }
 
+//funcion para mostrar el carrito
 const imprimirCarro=()=>{
 
             
@@ -97,14 +106,16 @@ const imprimirCarro=()=>{
             const artDiv = document.createElement('div')
           
             artDiv.className='card-body'
-            artDiv.innerHTML=`<img id="cardImagen" src=${producto.imagen} alt="The Beatles">
-            <input codigo="${producto.cod_articulo}" type="reset" value="X" class="btn2 btn-primary"> 
-            <h3 id="tituloCard" class="card-title">${producto.descripcion}</h5>
-            <h4 id="tituloCard" class="card-title">$ ${producto.precio}</h4>
-            <h5 id="tituloCard" class="card-title">Codigo : ${producto.cod_articulo}</h5>
+            artDiv.innerHTML=`<div class="imagenCarr"><img id="cardImagen" src=${producto.imagen} alt="The Beatles"></div>
+           
+            <h3 id="tituloDesc" class="card-title">${producto.descripcion}</h5>
+            <h4 id="tituloPrec" class="card-title">$ ${producto.precio}</h4>
+            <h5 id="tituloCod" class="card-title">Codigo : ${producto.cod_articulo}</h5>
             <div class="cantidadCompra">
             <h5>Cantidad</h5>
             <input type="number" class="cuadroNumero"> 
+            <br>
+            <input codigo="${producto.cod_articulo}" type="reset" value="X" class="btn2 btn-primary"> 
             </div> 
             
     </div>    
@@ -132,14 +143,7 @@ const EliminarDeCarrito=(e)=>{
 
 
 }
-/*
-var arreglo = [1,2,3,4,5];
 
-var indice = arreglo.indexOf(3); // obtenemos el indice
-arreglo.splice(indice, 1); // 1 es la cantidad de elemento a eliminar
-
-console.log( arreglo );
-*/
 
 //EventListeners    
 //---------------------------------------------------------------------------------------------------------

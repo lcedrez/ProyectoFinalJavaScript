@@ -259,8 +259,8 @@ color: white;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-around;
+    align-content: flex-start;
+    justify-content: space-evenly
 }
 
 #contenedorCarro{
@@ -274,11 +274,26 @@ color: white;
    
 }
 
+#tituloPrec{
+    font-size: 30px;
+    text-align: left;
+    
+}
 
+
+#tituloCod{
+    text-align: left;
+}
+
+#tituloDesc{
+    font-size: 30px;
+    text-align: left;
+}
 #tituloCard{
     text-align: left;
 }
 #cardPrecio{
+   
     text-align: left;
 }
 
@@ -374,6 +389,9 @@ body{
 
 }
 
+.imagenCarr{
+    float: left;
+}
 
 .btn{
     background-color: rgb(0, 0, 0);
