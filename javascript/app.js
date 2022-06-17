@@ -139,6 +139,7 @@ const EliminarDeCarrito=(e)=>{
     let indice = carrito.indexOf(artiSeleccionado)//obtengo Indice
 
     carrito.splice(indice,1)
+    localStorage.setItem('claveCarro', JSON.stringify(carrito))       
    imprimirCarro()
 
 
