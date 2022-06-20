@@ -29,7 +29,7 @@ const renderizarListProductos=()=>{
         artDiv.className='card-body'
         artDiv.innerHTML=`<h4 class="card-title">${producto.nombre}</h4>
         <img src=${producto.imagen} alt="${producto.descripcion}">
-            <p class="card-text">U$S ${producto.precio}</p>
+            <p class="card-text">U$s ${producto.precio}</p>
             <p class="card-text"></p>
         <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
         
@@ -79,7 +79,7 @@ const agregarListennersBtns =()=>{
 //creo funcion para eliminar articulos del carrito
 const agregaBtnsEliminar =()=>{
 
-    const eliminaBoton=document.querySelectorAll('.btn2')
+    const eliminaBoton=document.querySelectorAll('.imgPapelera')
     eliminaBoton.forEach((boton)=>{
     boton.addEventListener('click',EliminarDeCarrito)
     })
@@ -106,24 +106,62 @@ const imprimirCarro=()=>{
             carrito.forEach((producto)=>{
             const artDiv = document.createElement('div')
           
-            artDiv.className='card-body'
-            artDiv.innerHTML=`<div class="imagenCarr"><img id="cardImagen" src=${producto.imagen} alt="The Beatles"></div>
-             <div id="divcard">   
-             <h4 id="tituloPrec" class="card-title">$ ${producto.precio}</h4>
-            </div>
-           
-            <h5 id="tituloCard" class="card-title">${producto.descripcion}</h5>
-            <input type="number" class="cuadroNumero">  
-            <br>
-            <h5 id="tituloCod" class="card-title">Codigo : ${producto.cod_articulo}</h5>
+            artDiv.className='contenedorPadre'
+            artDiv.innerHTML=` <div class="contenedorPadre">
+            <div id="contenedorCarrito" class="contieneTodoElCarrito">
+                
+                    <div class="contTodoCarro">
+                            <div class="conedorDeItems">
+                                <div class="itemImagen"> <img src=${producto.imagen} alt="" class="imgCarrrito"></div>
+                                <div class="itemsGral">
+                                        <h2 class="item_name">
+                                        <a href="">
+                                        ${producto.descripcion} </a>
+                                        </h2>
+                                        <div class="itemDescripcion">
+                                            <ul class="itemListado">
+                                                <li>
+                                                Codigo : <em>${producto.cod_articulo}</em>
+                                                </li>
+                                                <li>
+                                                Categoria : <em>${producto.categoria}</em>
+                                                </li>
+                                                <li>
+                                                Color :
+                                                <em>${producto.color}</em>
+                                                </li>
+                                                </ul>
+                                        </div>
+                                        <div class="itemsContador">
+                                            <div class="masMenos">
+                                                <button class="btn" type="button" id="menos">-</button>
+                                                <input id="cantidad" type="text" style="text-align: center;" value="1">
+                                                <button class="btn" type="button" id="mas" >+</button>
+        
+                                            </div>
+        
+                                            <div class="eliminar">
+                                                <div class="papeleraBtn" codigo="${producto.cod_articulo}"> <img src="Imagenes/E-Commerce/papelera.png" alt="" class="imgPapelera"></div>
+                                                
+                                            </div>
+                                        </div>
+        
+                                            <div class="precio">
+                                                <span class="carritoPrecio">
+                                                    <span class="precioDolar">
+                                                   U$S  ${producto.precio}</span>
+                                                
+                                                    </span>
+                                            </div>
+                                </div>
+        
+        
+                            </div>
+        
+                            
+                    </div>            
             
-           
-            
-            <br>
-            <input codigo="${producto.cod_articulo}" type="reset" value="X" class="btn2 btn-primary"> 
-            </div> 
-            
-    </div>    
+        </div>  
             `
     
             listadoCarrito.append(artDiv)

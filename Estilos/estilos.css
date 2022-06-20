@@ -249,7 +249,12 @@ color: white;
 }
 
 #ContCarro{
-    padding-left: 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .contenedorPadre{
@@ -261,7 +266,14 @@ color: white;
     align-items: center;
 }
 .carritoTitulo{
+  
+    display: flex;
     font-size: 40px;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 662px;
     padding-bottom: 20px;
 }
 
@@ -355,12 +367,11 @@ flex-direction: row;
 }
 
 #contenedorCarro{
-    margin: 1rem;
-  padding: 1rem;
+ 
 
   /* IMPORTANTE */
     text-align: center;
-    border-style: solid;
+    
     width: 70%;
    
 }
@@ -2112,6 +2123,9 @@ font-size: 70px;
     width:30px;
   margin-left: 20px;
   cursor: pointer;
+}
+.tarjetas{
+    width: 200px;
 }
 
 .btnFinalizar{
