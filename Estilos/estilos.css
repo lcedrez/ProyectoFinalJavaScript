@@ -255,12 +255,80 @@ color: white;
     
 }
 
-.cantidadCompra{
+.msgOrden{
+    display:flex;
+}
+
+.itemimg{
+    width:170px;
+}
+
+.itemOptions{
+    list-style: none;
+  
+    
+}
+
+.itemOptions li{
+    display:inline;
+    padding: 20px;
+    padding-left: 0;
+    font-size: 18px;
+}
+
+.express{
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: space-evenly
+}
+.itemPrecio{
+    display: flex;
+    font-size: 20px;
+    
+    justify-content: space-evenly;
+    align-items: flex-end;
+    flex-direction: column-reverse;
+}
+
+.precioTotal{
+    display: flex;
+    font-size: 25px;
+    
+    justify-content: space-evenly;
+    align-items: flex-end;
+    flex-direction: column-reverse;
+}
+
+.itemCarro{
+    display: flex;
+}
+#cantidad1{
+    width: 50px;
+}
+
+.item_operations{
+
+display: flex;
+}
+.Item_container{
+
+display:flex;
+margin-bottom: 35px;
+flex-direction: row;
+
+}
+.eliminar{
+    display:flex;
+}
+.itemCarro{
+    display:flex;
+}
+
+.itemDescription{
+    display:flex;
+
+}
+
+.itemDescription ul{
+    display:inline;
 }
 
 #contenedorCarro{

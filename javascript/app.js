@@ -27,7 +27,7 @@ const renderizarListProductos=()=>{
         const artDiv = document.createElement('div')
         
         artDiv.className='card-body'
-        artDiv.innerHTML=`<h4 class="card-title">${producto.descripcion}</h4>
+        artDiv.innerHTML=`<h4 class="card-title">${producto.nombre}</h4>
         <img src=${producto.imagen} alt="${producto.descripcion}">
             <p class="card-text">$${producto.precio}</p>
             <p class="card-text"></p>
@@ -47,8 +47,7 @@ const renderizarListProductos=()=>{
 }
 
 
-//Con esta funcion tomo el atributo del boton el codigo del artiuclo hago un find para obtener el objeto y llamo a la funcion
-//ExisteArtenCarro en el que pregunto si este articulo fue agregado si es asi no hace nada y sino lo agrga y muestra el carrito
+
 const renderizarArticulos= (e) => {
     const idSeleccionado = e.target.getAttribute('codigo')
     const artiSeleccionado  =artVentas.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
@@ -99,6 +98,8 @@ const recuperarCarrito=()=>{
 }
 
 //funcion para mostrar el carrito
+
+/*
 const imprimirCarro=()=>{
 
             
@@ -108,13 +109,17 @@ const imprimirCarro=()=>{
           
             artDiv.className='card-body'
             artDiv.innerHTML=`<div class="imagenCarr"><img id="cardImagen" src=${producto.imagen} alt="The Beatles"></div>
+             <div id="divcard">   
+             <h4 id="tituloPrec" class="card-title">$ ${producto.precio}</h4>
+            </div>
            
-            <h3 id="tituloDesc" class="card-title">${producto.descripcion}</h5>
-            <h4 id="tituloPrec" class="card-title">$ ${producto.precio}</h4>
+            <h5 id="tituloCard" class="card-title">${producto.descripcion}</h5>
+            <input type="number" class="cuadroNumero">  
+            <br>
             <h5 id="tituloCod" class="card-title">Codigo : ${producto.cod_articulo}</h5>
-            <div class="cantidadCompra">
-            <h5>Cantidad</h5>
-            <input type="number" class="cuadroNumero"> 
+            
+           
+            
             <br>
             <input codigo="${producto.cod_articulo}" type="reset" value="X" class="btn2 btn-primary"> 
             </div> 
@@ -127,7 +132,7 @@ const imprimirCarro=()=>{
         })
         agregaBtnsEliminar()
 }
-
+*/
 const ExisteArtenCarro=(artrecibido)=>{
     const variable = carrito.some((aux)=>aux.cod_articulo==artrecibido.cod_articulo)
     return variable
