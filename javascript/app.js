@@ -4,7 +4,7 @@
 
 
 let totalFinal=0
-const artVentas=[articulo1,articulo2,articulo3,articulo4,articulo5,articulo6,articulo7,articulo8]
+const artVentas=[articulo1,articulo2,articulo3,articulo4,articulo5,articulo6,articulo7,articulo11]
 const usuSistema=[usuario1,usuario2,usuario3,usuario4]
 let carrito=[]
 
@@ -29,7 +29,7 @@ const renderizarListProductos=()=>{
         artDiv.className='card-body'
         artDiv.innerHTML=`<h4 class="card-title">${producto.nombre}</h4>
         <img src=${producto.imagen} alt="${producto.descripcion}">
-            <p class="card-text">$${producto.precio}</p>
+            <p class="card-text">U$S ${producto.precio}</p>
             <p class="card-text"></p>
         <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
         
@@ -99,7 +99,6 @@ const recuperarCarrito=()=>{
 
 //funcion para mostrar el carrito
 
-/*
 const imprimirCarro=()=>{
 
             
@@ -132,7 +131,7 @@ const imprimirCarro=()=>{
         })
         agregaBtnsEliminar()
 }
-*/
+
 const ExisteArtenCarro=(artrecibido)=>{
     const variable = carrito.some((aux)=>aux.cod_articulo==artrecibido.cod_articulo)
     return variable

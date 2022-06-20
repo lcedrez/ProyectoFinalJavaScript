@@ -217,6 +217,11 @@ color: white;
     border-radius: 6px;
     overflow: hidden;
 }
+
+.card-body3{
+    display:flex;
+    margin-bottom: 35px;
+}
 /*
 
 .card-body{
@@ -245,6 +250,23 @@ color: white;
 
 #ContCarro{
     padding-left: 300px;
+}
+
+.contenedorPadre{
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+}
+.carritoTitulo{
+    font-size: 40px;
+    padding-bottom: 20px;
+}
+
+.continuarComprando{
+    font-size: 25px;
 }
 
 .cuadroNumero{
@@ -287,6 +309,7 @@ color: white;
     align-items: flex-end;
     flex-direction: column-reverse;
 }
+
 
 .precioTotal{
     display: flex;
@@ -370,11 +393,11 @@ flex-direction: row;
 }
 
 .card-body img:hover{
-    -webkit-transition: all 0.7s ease;
-    transition: all 0.7s ease;
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
     border-radius: 15px;
     -webkit-transform:scale(2);
-    transform:scale(2);
+    transform:scale(2   );
 }
 
 .asideHistoria{
@@ -458,6 +481,7 @@ body{
 }
 
 .imagenCarr{
+    
     float: left;
 }
 
@@ -2007,6 +2031,110 @@ font-size: 70px;
     text-align: left;
 }
 
+/*Estrucutra para Carrito*/
+
+.conedorDeItems{
+    display: flex;
+    text-align: center;
+    border-style: solid;
+   
+}
+
+.itemDescripcion{
+    display:flex;
+}
+
+.itemsContador{
+
+    display:flex;
+    align-items: flex-end;
+
+}
+
+.masMenos{
+    display:flex;
+}
+
+.eliminar{
+
+    display: flex;
+}
+
+.itemImagen img{
+   width: 190px;
+}
+
+.precio{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+
+.itemDescripcion ul li{
+
+    list-style: none;
+	padding: 0;
+	margin: 0;  
+    text-align: center;
+    display: inline;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 20px;
+    
+}
+
+
+.contTodoCarro{
+    display: flex   ;
+}
+
+
+
+.precioDolar{
+    font-size: 30px;
+    padding-right: 10px;
+}
+
+.item_name{
+    font-size: 28px;
+    text-align: justify;
+    padding-right: 10px;
+}
+
+.contenedorResumen{
+    display: flex;
+    margin-left: 15px;
+    border-style: solid;
+}
+
+.imgPapelera{
+    width:30px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.btnFinalizar{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: space-around;
+}
+
+#cantidad
+{
+    width:50px;
+}
+#menos{
+    width:30px;
+}
+#mas{
+    width:30px;
+}
+
+
+
 
 
 
@@ -2052,6 +2180,7 @@ body {
     flex: 1 1 auto;
     padding: 1.25rem;
     text-align: center;
+    
 }
 
 .card-img{
