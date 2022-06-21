@@ -68,7 +68,10 @@ const renderizarArticulos= (e) => {
                    
                    
                     carrito.push(artiSeleccionado)
+                   
+
                     ActualizarTotal(artiSeleccionado.precio,cantidad)
+                    localStorage.setItem('TotalFinal',totalFinal)
 
                     imprimirCarro()
                    
@@ -106,10 +109,18 @@ const agregaBtnsEliminar =()=>{
 
 //creo una funcion para recuperar el carrito del local storage y poder mostrarlo
 const recuperarCarrito=()=>{
-    
+       
     carrito = JSON.parse(localStorage.getItem('claveCarro'))
+    
     imprimirCarro()
 
+}
+
+const recuperarTotal=()=>{
+    
+    totalFinal = JSON.parse(localStorage.getItem('TotalFinal'))
+    
+    document.getElementById('spanTotal').textContent=totalFinal
 }
 
 //funcion para mostrar el carrito
@@ -183,6 +194,7 @@ const imprimirCarro=()=>{
             listadoCarrito.append(artDiv)
             localStorage.setItem('claveCarro',JSON.stringify(carrito))
             
+            
 
             
         })
@@ -217,16 +229,20 @@ let precioEliminar=articulo.precio*cantidadInput
 let totalEliminar=totalFinal-precioEliminar
 totalFinal=totalEliminar
 document.getElementById('spanTotal').textContent=totalFinal 
+localStorage.setItem('TotalFinal',totalFinal)
+
+
 
 }
 
 const ActualizarTotal=(precio,cantidadRecibida)=>{
     
-
+    
 let total= precio * cantidadRecibida
  totalFinal+=total
 
 document.getElementById('spanTotal').textContent=totalFinal 
+
 
    
 }
@@ -238,7 +254,9 @@ document.getElementById('spanTotal').textContent=totalFinal
 
 //Ejecuciones   
 //---------------------------------------------------------------------------------------------------------
+
 renderizarListProductos()
 if (localStorage.getItem('claveCarro') !== null) {
 recuperarCarrito()
+recuperarTotal()
 }
