@@ -106,6 +106,33 @@ const agregaBtnsEliminar =()=>{
 
 }
 
+const agregaBtnsCantidad =()=>{
+
+    const btnCantidad=document.querySelectorAll('.btnCant')
+ 
+    btnCantidad.forEach((boton)=>{
+    boton.addEventListener('change',ActualizaTotalCarrito)
+    
+    })
+   
+
+
+}
+
+const ActualizaTotalCarrito =()=>{
+
+    
+    const cantidadSeleccionada = document.getElementById('cantidad').value
+    //tengo que obtener precio
+    const precioDolar=document.getElementsByClassName('precioDolar')
+
+    
+    console.log(precioDolar)
+    
+
+    
+}
+
 
 //creo una funcion para recuperar el carrito del local storage y poder mostrarlo
 const recuperarCarrito=()=>{
@@ -209,7 +236,7 @@ const ExisteArtenCarro=(artrecibido)=>{
 
 const EliminarDeCarrito=(e)=>{
     const idSeleccionado = e.target.getAttribute('codigo')
-    console.log(idSeleccionado)
+    
     const artiSeleccionado =carrito.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
 
     let indice = carrito.indexOf(artiSeleccionado)//obtengo Indice
@@ -259,4 +286,5 @@ renderizarListProductos()
 if (localStorage.getItem('claveCarro') !== null) {
 recuperarCarrito()
 recuperarTotal()
+agregaBtnsCantidad()
 }
