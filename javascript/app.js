@@ -54,28 +54,15 @@ const renderizarListProductos=()=>{
     
 
 
-const renderizarArticulos= (e) => {
+    const renderizarArticulos= (e) => {
     const idSeleccionado = e.target.getAttribute('codigo')
     const artiSeleccionado  =artVentas.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
 
-            if(ExisteArtenCarro(artiSeleccionado)==true)
-                {
-                    
-                }
-                else
-                {
 
-                   
-                   
-                    carrito.push(artiSeleccionado)
-                   
+        
+        !ExisteArtenCarro(artiSeleccionado)&& carrito.push(artiSeleccionado) && ActualizarTotal(artiSeleccionado.precio,cantidad) &&localStorage.setItem('TotalFinal',totalFinal),localStorage.setItem('TotalFinal',totalFinal)
+        imprimirCarro()
 
-                    ActualizarTotal(artiSeleccionado.precio,cantidad)
-                    localStorage.setItem('TotalFinal',totalFinal)
-
-                    imprimirCarro()
-                   
-                }
 }
 
 
@@ -108,6 +95,7 @@ const agregaBtnsEliminar =()=>{
 
 const agregaBtnsCantidad =()=>{
 
+   
     const btnCantidad=document.querySelectorAll('.btnCant')
  
     btnCantidad.forEach((boton)=>{
@@ -137,7 +125,7 @@ const ActualizaTotalCarrito =()=>{
 //creo una funcion para recuperar el carrito del local storage y poder mostrarlo
 const recuperarCarrito=()=>{
        
-    carrito = JSON.parse(localStorage.getItem('claveCarro'))
+    carrito = JSON.parse(localStorage.getItem('claveCarro')) ||  []
     
     imprimirCarro()
 
@@ -145,7 +133,7 @@ const recuperarCarrito=()=>{
 
 const recuperarTotal=()=>{
     
-    totalFinal = JSON.parse(localStorage.getItem('TotalFinal'))
+    totalFinal = JSON.parse(localStorage.getItem('TotalFinal')) 
     
     document.getElementById('spanTotal').textContent=totalFinal
 }
@@ -283,8 +271,7 @@ document.getElementById('spanTotal').textContent=totalFinal
 //---------------------------------------------------------------------------------------------------------
 
 renderizarListProductos()
-if (localStorage.getItem('claveCarro') !== null) {
-recuperarCarrito()
-recuperarTotal()
-agregaBtnsCantidad()
-}
+localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() || agregaBtnsCantidad()
+
+
+
