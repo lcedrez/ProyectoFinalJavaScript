@@ -4,6 +4,7 @@
 
 
 let totalFinal=0
+let cantidad=1
 const artVentas=[articulo1,articulo2,articulo3,articulo4,articulo5,articulo6,articulo7,articulo11]
 const usuSistema=[usuario1,usuario2,usuario3,usuario4]
 let carrito=[]
@@ -13,6 +14,10 @@ let carrito=[]
 const listadoProductos=document.querySelector('#contenedorCards')
 
 const listadoCarrito=document.querySelector('#contenedorCarro')
+const cuotas=document.querySelector('.parrafoCuotas')
+const subTotal=document.querySelector('#spanTotal')
+const cantidades=document.querySelectorAll('#cantidad')
+
 
 
 //Funciones
@@ -46,6 +51,7 @@ const renderizarListProductos=()=>{
 
 }
 
+    
 
 
 const renderizarArticulos= (e) => {
@@ -59,11 +65,19 @@ const renderizarArticulos= (e) => {
                 else
                 {
 
+                   
+                   
                     carrito.push(artiSeleccionado)
+                    ActualizarTotal(artiSeleccionado.precio,cantidad)
+
                     imprimirCarro()
                    
                 }
 }
+
+
+
+
 
 const agregarListennersBtns =()=>{
 
@@ -80,6 +94,7 @@ const agregarListennersBtns =()=>{
 const agregaBtnsEliminar =()=>{
 
     const eliminaBoton=document.querySelectorAll('.imgPapelera')
+ 
     eliminaBoton.forEach((boton)=>{
     boton.addEventListener('click',EliminarDeCarrito)
     })
@@ -134,14 +149,14 @@ const imprimirCarro=()=>{
                                         </div>
                                         <div class="itemsContador">
                                             <div class="masMenos">
-                                                <button class="btn" type="button" id="menos">-</button>
-                                                <input id="cantidad" type="text" style="text-align: center;" value="1">
-                                                <button class="btn" type="button" id="mas" >+</button>
+                                             
+                                                <input id="cantidad" class="btnCant"  type="number" style="text-align: center;" value=${cantidad} >
+                                               
         
                                             </div>
         
                                             <div class="eliminar">
-                                                <div class="papeleraBtn" codigo="${producto.cod_articulo}"> <img src="Imagenes/E-Commerce/papelera.png" alt="" class="imgPapelera"></div>
+                                                <div class="papeleraBtn" codigo="${producto.cod_articulo}"> <img src="Imagenes/E-Commerce/papelera.png" alt="" class="imgPapelera" codigo="${producto.cod_articulo}"></div>
                                                 
                                             </div>
                                         </div>
@@ -163,11 +178,16 @@ const imprimirCarro=()=>{
             
         </div>  
             `
+            
     
             listadoCarrito.append(artDiv)
             localStorage.setItem('claveCarro',JSON.stringify(carrito))
+            
+
+            
         })
         agregaBtnsEliminar()
+        
 }
 
 const ExisteArtenCarro=(artrecibido)=>{
@@ -177,17 +197,39 @@ const ExisteArtenCarro=(artrecibido)=>{
 
 const EliminarDeCarrito=(e)=>{
     const idSeleccionado = e.target.getAttribute('codigo')
+    console.log(idSeleccionado)
     const artiSeleccionado =carrito.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
 
     let indice = carrito.indexOf(artiSeleccionado)//obtengo Indice
 
     carrito.splice(indice,1)
-    localStorage.setItem('claveCarro', JSON.stringify(carrito))       
-   imprimirCarro()
+    localStorage.setItem('claveCarro', JSON.stringify(carrito)) 
+    EliminarValorTotalCarrito(artiSeleccionado)
+    imprimirCarro()
 
 
 }
 
+const EliminarValorTotalCarrito=(articulo)=>{
+let cantidadInput=document.getElementById('cantidad').value
+
+let precioEliminar=articulo.precio*cantidadInput
+let totalEliminar=totalFinal-precioEliminar
+totalFinal=totalEliminar
+document.getElementById('spanTotal').textContent=totalFinal 
+
+}
+
+const ActualizarTotal=(precio,cantidadRecibida)=>{
+    
+
+let total= precio * cantidadRecibida
+ totalFinal+=total
+
+document.getElementById('spanTotal').textContent=totalFinal 
+
+   
+}
 
 //EventListeners    
 //---------------------------------------------------------------------------------------------------------

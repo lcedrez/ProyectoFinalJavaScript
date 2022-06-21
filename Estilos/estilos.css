@@ -259,11 +259,7 @@ color: white;
 
 .contenedorPadre{
     display: flex;
-    flex-direction: column-reverse;
-    flex-wrap: nowrap;
-    align-content: stretch;
-    justify-content: center;
-    align-items: center;
+
 }
 .carritoTitulo{
   
@@ -368,7 +364,7 @@ flex-direction: row;
 
 #contenedorCarro{
  
-
+    border-style: solid;
   /* IMPORTANTE */
     text-align: center;
     
@@ -2047,7 +2043,7 @@ font-size: 70px;
 .conedorDeItems{
     display: flex;
     text-align: center;
-    border-style: solid;
+    
    
 }
 
@@ -2064,6 +2060,7 @@ font-size: 70px;
 
 .masMenos{
     display:flex;
+    padding-left: 20px;
 }
 
 .eliminar{
@@ -2072,7 +2069,7 @@ font-size: 70px;
 }
 
 .itemImagen img{
-   width: 190px;
+   width: 140px;
 }
 
 .precio{
@@ -2108,7 +2105,7 @@ font-size: 70px;
 }
 
 .item_name{
-    font-size: 28px;
+    font-size: 23px;
     text-align: justify;
     padding-right: 10px;
 }
