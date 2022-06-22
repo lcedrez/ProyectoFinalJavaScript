@@ -61,6 +61,7 @@ const renderizarListProductos=()=>{
 
         
         !ExisteArtenCarro(artiSeleccionado)&& carrito.push(artiSeleccionado) && ActualizarTotal(artiSeleccionado.precio,cantidad) &&localStorage.setItem('TotalFinal',totalFinal),localStorage.setItem('TotalFinal',totalFinal)
+        toastCarrito()
         imprimirCarro()
 
 }
@@ -307,6 +308,18 @@ const AlertaDescuentos=()=>{
 }
 
 
+toastCarrito=()=>{
+    Toastify({
+
+        text: "Articulo Agregado" ,
+        position: "left",   
+        duration: 2000,
+        style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+          }
+        }).showToast();
+}
+
 //EventListeners    
 //---------------------------------------------------------------------------------------------------------
 
@@ -316,7 +329,6 @@ const AlertaDescuentos=()=>{
 //---------------------------------------------------------------------------------------------------------
 
 renderizarListProductos()
-localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() || agregaBtnsCantidad() ||  AlertaDescuentos()  
-
+localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() || agregaBtnsCantidad() ||  AlertaDescuentos()
 
 
