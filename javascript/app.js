@@ -92,10 +92,33 @@ const agregaBtnsEliminar =()=>{
 
 
 }
+//Este es boton de prueba mas menos
+const agregaBtnsMas =()=>{
+
+    const btnMas=document.querySelectorAll('.btn2')
+ 
+    btnMas.forEach((boton)=>{
+    boton.addEventListener('click',actualizoMas)
+        
+    })
+   
+
+
+}
+//aca es donde toy haceindo pruebas mas
+const actualizoMas=()=>{
+    let numero = Number(mas.value.trim(" "));
+    numero = !isNaN( numero ) ? numero + 1 : 1;
+  
+    mas.value = numero;
+    console.log(numero)
+}
+
+
+
 
 const agregaBtnsCantidad =()=>{
-
-   
+    
     const btnCantidad=document.querySelectorAll('.btnCant')
  
     btnCantidad.forEach((boton)=>{
@@ -107,16 +130,13 @@ const agregaBtnsCantidad =()=>{
 
 }
 
-const ActualizaTotalCarrito =()=>{
-
+const ActualizaTotalCarrito =(e)=>{
+    
+    const precioArt = e.target.getAttribute('precio')
     
     const cantidadSeleccionada = document.getElementById('cantidad').value
-    //tengo que obtener precio
-    const precioDolar=document.getElementsByClassName('precioDolar')
-
-    
-    console.log(precioDolar)
-    
+   
+    ActualizarTotal(precioArt,cantidadSeleccionada)
 
     
 }
@@ -176,10 +196,16 @@ const imprimirCarro=()=>{
                                         <div class="itemsContador">
                                             <div class="masMenos">
                                              
-                                                <input id="cantidad" class="btnCant"  type="number" style="text-align: center;" value=${cantidad} >
+                                                <input id="cantidad" class="btnCant"  type="number" style="text-align: center;" value=${cantidad} precio="${producto.precio}" readonly>
                                                
         
                                             </div>
+
+
+                                            <button class="btn2" type="button" id="menos" menos="${producto.precio}">-</button>
+                                                <input id="cantidad1" type="number" style="text-align: center;" value="${cantidad}">
+                                            <button class="btn2" type="button" id="mas" precio="${producto.precio}">+</button>
+
         
                                             <div class="eliminar">
                                                 <div class="papeleraBtn" codigo="${producto.cod_articulo}"> <img src="Imagenes/E-Commerce/papelera.png" alt="" class="imgPapelera" codigo="${producto.cod_articulo}"></div>
@@ -214,6 +240,7 @@ const imprimirCarro=()=>{
             
         })
         agregaBtnsEliminar()
+        agregaBtnsMas()
         
 }
 
@@ -262,6 +289,24 @@ document.getElementById('spanTotal').textContent=totalFinal
    
 }
 
+
+const AlertaDescuentos=()=>{
+  
+    Swal.fire({
+        title: '15 % OFF!',
+        text: 'En todas las prendas Outlet',
+        imageUrl: 'Imagenes/E-Commerce/Outlet.jpg',
+        imageWidth: 600,
+        imageHeight: 340,
+        imageAlt: 'Outlet',
+        confirmButton: false,
+        showConfirmButton:false,
+        allowEnterKey:true, 
+        allowOutsideClick:true,
+        })
+}
+
+
 //EventListeners    
 //---------------------------------------------------------------------------------------------------------
 
@@ -271,7 +316,7 @@ document.getElementById('spanTotal').textContent=totalFinal
 //---------------------------------------------------------------------------------------------------------
 
 renderizarListProductos()
-localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() || agregaBtnsCantidad()
+localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() || agregaBtnsCantidad() ||  AlertaDescuentos()  
 
 
 
