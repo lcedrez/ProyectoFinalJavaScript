@@ -65,7 +65,6 @@ const renderizarListProductos=()=>{
             carrito.push(artiSeleccionado)
            
             ActualizarTotal(artiSeleccionado)
-            localStorage.setItem('TotalFinal',totalFinal)
             toastCarrito()
             imprimirCarro()
         }
@@ -268,8 +267,8 @@ const EliminarDeCarrito=(e)=>{
 
 
 const ActualizarTotal=(artrecibido)=>{
-    
-totalFinal=+ artrecibido.precio
+totalFinal+= artrecibido.precio
+localStorage.setItem('TotalFinal',totalFinal)   
 document.getElementById('spanTotal').textContent=totalFinal 
 }
 
