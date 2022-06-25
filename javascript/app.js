@@ -227,6 +227,7 @@ const imprimirCarro=()=>{
     
             listadoCarrito.append(artDiv)
             localStorage.setItem('claveCarro',JSON.stringify(carrito))
+            cantidadElegidaCarr() 
             
            
         
@@ -336,8 +337,8 @@ const   ultimoItemCarrito = (art) => {
 //---------------------------------------------------------------------------------------------------------
 
 renderizarListProductos()
-localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() ||  AlertaDescuentos() || 
-cantidadElegidaCarr() 
+localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() ||  AlertaDescuentos() 
+
   
 
 
