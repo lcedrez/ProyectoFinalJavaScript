@@ -5,9 +5,12 @@
 
 let totalFinal=0
 let cantidad=1
+let cantidadMas=1
+let precioPorCantidad=0
 const artVentas=[articulo1,articulo2,articulo3,articulo4,articulo5,articulo6,articulo7,articulo11]
 const usuSistema=[usuario1,usuario2,usuario3,usuario4]
 let carrito=[]
+let totales=[]
 
 //Query De Elementos
 //-------------------------------------------------------------------------------------------------------
@@ -44,7 +47,6 @@ const renderizarListProductos=()=>{
 
         listadoProductos.append(artDiv)
     })
-  
         agregarListennersBtns()
 
 
@@ -57,14 +59,23 @@ const renderizarListProductos=()=>{
     const renderizarArticulos= (e) => {
     const idSeleccionado = e.target.getAttribute('codigo')
     const artiSeleccionado  =artVentas.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
-
-
         
-        !ExisteArtenCarro(artiSeleccionado)&& carrito.push(artiSeleccionado) && ActualizarTotal(artiSeleccionado.precio,cantidad) &&localStorage.setItem('TotalFinal',totalFinal),localStorage.setItem('TotalFinal',totalFinal)
+        if(!ExisteArtenCarro(artiSeleccionado))
+        {
+            carrito.push(artiSeleccionado)
+           
+            ActualizarTotal(artiSeleccionado)
+            localStorage.setItem('TotalFinal',totalFinal)
+            toastCarrito()
+            imprimirCarro()
+        }
+        /*
+        !ExisteArtenCarro(artiSeleccionado)&& carrito.push(artiSeleccionado) && totales.push(artiSeleccionado.cod_articulo,artiSeleccionado.precio,cantidad,precioPorCantidad) && ActualizarTotal(artiSeleccionado.precio,cantidad) &&localStorage.setItem('TotalFinal',totalFinal)
         toastCarrito()
         imprimirCarro()
-
-}
+        */
+        console.log(totales)
+}   
 
 
 
@@ -93,43 +104,25 @@ const agregaBtnsEliminar =()=>{
 
 
 }
-//Este es boton de prueba mas menos
-const agregaBtnsMas =()=>{
 
-    const btnMas=document.querySelectorAll('.btn2')
- 
-    btnMas.forEach((boton)=>{
-    boton.addEventListener('click',actualizoMas)
-        
-    })
-   
-
-
-}
-//aca es donde toy haceindo pruebas mas
-const actualizoMas=()=>{
-    let numero = Number(mas.value.trim(" "));
-    numero = !isNaN( numero ) ? numero + 1 : 1;
-  
-    mas.value = numero;
-    console.log(numero)
-}
-
-
-
-
-const agregaBtnsCantidad =()=>{
+const cantidadElegidaCarr=()=>{
     
-    const btnCantidad=document.querySelectorAll('.btnCant')
- 
-    btnCantidad.forEach((boton)=>{
-    boton.addEventListener('change',ActualizaTotalCarrito)
+    const cantElig=document.querySelectorAll('.cantCarr')
+    cantElig.forEach((cant)=>{
+        cant.addEventListener('change',prueba)
+        })
+       
     
-    })
-   
-
-
+ 
 }
+
+// creo esta funcion para actualizar el la cantidad y el total del pedido
+
+const prueba=()=>{
+console.log('prueba OK')
+}
+
+
 
 const ActualizaTotalCarrito =(e)=>{
     
@@ -194,19 +187,18 @@ const imprimirCarro=()=>{
                                                 </li>
                                                 </ul>
                                         </div>
-                                        <div class="itemsContador">
-                                            <div class="masMenos">
-                                             
-                                                <input id="cantidad" class="btnCant"  type="number" style="text-align: center;" value=${cantidad} precio="${producto.precio}" readonly>
-                                               
-        
-                                            </div>
+                                 
 
 
-                                            <button class="btn2" type="button" id="menos" menos="${producto.precio}">-</button>
-                                                <input id="cantidad1" type="number" style="text-align: center;" value="${cantidad}">
-                                            <button class="btn2" type="button" id="mas" precio="${producto.precio}">+</button>
-
+                                        <label for="cant">Cant:</label>
+                                        
+                                        <select class="cantCarr" >
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="4">4</option>
+                                          <option value="4">5</option>
+                                        </select>
         
                                             <div class="eliminar">
                                                 <div class="papeleraBtn" codigo="${producto.cod_articulo}"> <img src="Imagenes/E-Commerce/papelera.png" alt="" class="imgPapelera" codigo="${producto.cod_articulo}"></div>
@@ -236,17 +228,25 @@ const imprimirCarro=()=>{
             listadoCarrito.append(artDiv)
             localStorage.setItem('claveCarro',JSON.stringify(carrito))
             
+           
+        
             
-
             
         })
-        agregaBtnsEliminar()
-        agregaBtnsMas()
+
+           
+     
         
+
+
+      
+        agregaBtnsEliminar()
+       
+       
 }
 
 const ExisteArtenCarro=(artrecibido)=>{
-    const variable = carrito.some((aux)=>aux.cod_articulo==artrecibido.cod_articulo)
+    const variable = carrito.some((aux)=>aux.cod_articulo==artrecibido.cod_articulo) 
     return variable
 }
 
@@ -259,51 +259,51 @@ const EliminarDeCarrito=(e)=>{
 
     carrito.splice(indice,1)
     localStorage.setItem('claveCarro', JSON.stringify(carrito)) 
-    EliminarValorTotalCarrito(artiSeleccionado)
     imprimirCarro()
 
 
 }
 
-const EliminarValorTotalCarrito=(articulo)=>{
-let cantidadInput=document.getElementById('cantidad').value
-
-let precioEliminar=articulo.precio*cantidadInput
-let totalEliminar=totalFinal-precioEliminar
-totalFinal=totalEliminar
-document.getElementById('spanTotal').textContent=totalFinal 
-localStorage.setItem('TotalFinal',totalFinal)
 
 
-
-}
-
-const ActualizarTotal=(precio,cantidadRecibida)=>{
+const ActualizarTotal=(artrecibido)=>{
     
-    
-let total= precio * cantidadRecibida
- totalFinal+=total
-
+totalFinal=+ artrecibido.precio
 document.getElementById('spanTotal').textContent=totalFinal 
-
-
-   
 }
 
 
-const AlertaDescuentos=()=>{
+//esto creo que tengo que eliminarlo
+const ActualizarTotalMas=(precio,cantidadRecibida)=>{
+    let totalAmostrar
+    let totRecibido
+    totalAmostrar=document.getElementById('spanTotal')
+    
+    totRecibido=precio*cantidadRecibida     
+    console.log(totRecibido,cantidadRecibida    )
+    totalAmostrar =+totRecibido
+    console.log(totalAmostrar)
+    totalAmostrar = -precio
+    document.getElementById('spanTotal').textContent=totalAmostrar
+    console.log(totalAmostrar)
+    }
+
+
+AlertaDescuentos=()=>{
   
     Swal.fire({
         title: '15 % OFF!',
         text: 'En todas las prendas Outlet',
+        textColor: '#F12E05',
         imageUrl: 'Imagenes/E-Commerce/Outlet.jpg',
-        imageWidth: 600,
-        imageHeight: 340,
+        imageWidth: 500,
+        imageHeight: 300,
         imageAlt: 'Outlet',
         confirmButton: false,
         showConfirmButton:false,
         allowEnterKey:true, 
         allowOutsideClick:true,
+        
         })
 }
 
@@ -320,6 +320,13 @@ toastCarrito=()=>{
         }).showToast();
 }
 
+
+const   ultimoItemCarrito = (art) => { 
+    let ultArt=carrito[carrito.length-1];  
+    console.log(`Last element is ${ultArt}`); 
+    
+  }  
+
 //EventListeners    
 //---------------------------------------------------------------------------------------------------------
 
@@ -329,6 +336,8 @@ toastCarrito=()=>{
 //---------------------------------------------------------------------------------------------------------
 
 renderizarListProductos()
-localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() || agregaBtnsCantidad() ||  AlertaDescuentos()
+localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() ||  AlertaDescuentos() || 
+cantidadElegidaCarr() 
+  
 
 
