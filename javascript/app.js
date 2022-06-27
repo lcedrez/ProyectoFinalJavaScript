@@ -4,6 +4,7 @@
 
 
 let totalFinal=0
+let contador=0  
 let cantidad=1
 let cantidadMas=1
 let precioPorCantidad=0
@@ -20,6 +21,7 @@ const listadoCarrito=document.querySelector('#contenedorCarro')
 const cuotas=document.querySelector('.parrafoCuotas')
 const subTotal=document.querySelector('#spanTotal')
 const cantidades=document.querySelectorAll('#cantidad')
+
 
 
 
@@ -63,18 +65,29 @@ const renderizarListProductos=()=>{
         if(!ExisteArtenCarro(artiSeleccionado))
         {
             carrito.push(artiSeleccionado)
-           
             ActualizarTotal(artiSeleccionado)
+            console.log(totalFinal)
             toastCarrito()
             imprimirCarro()
+            
         }
         /*
         !ExisteArtenCarro(artiSeleccionado)&& carrito.push(artiSeleccionado) && totales.push(artiSeleccionado.cod_articulo,artiSeleccionado.precio,cantidad,precioPorCantidad) && ActualizarTotal(artiSeleccionado.precio,cantidad) &&localStorage.setItem('TotalFinal',totalFinal)
         toastCarrito()
         imprimirCarro()
         */
-        console.log(totales)
+        
 }   
+
+// creo esta funcion para actualizar el la cantidad y el total del pedido
+
+const   cantActualizaCarro=(e)=>{
+    console.log('llegaOk')
+   
+    const precioCantidad = document.getElementsByClassName("cantCarr").value
+    console.log(precioCantidad)
+}
+
 
 
 
@@ -92,44 +105,34 @@ const agregarListennersBtns =()=>{
 }
 
 //creo funcion para eliminar articulos del carrito
-const agregaBtnsEliminar =()=>{
+const agregaBtnsEliminarCant =()=>{
 
     const eliminaBoton=document.querySelectorAll('.imgPapelera')
+    const cantEleg=document.querySelectorAll('.cantCarr')
  
     eliminaBoton.forEach((boton)=>{
     boton.addEventListener('click',EliminarDeCarrito)
     })
-   
-
-
-}
-
-const cantidadElegidaCarr=()=>{
-    
-    const cantElig=document.querySelectorAll('.cantCarr')
-    cantElig.forEach((cant)=>{
-        cant.addEventListener('change',prueba)
+    cantEleg.forEach((cant)=>{
+        cant.addEventListener('change',ActualizaTotalCarrito)
         })
        
-    
- 
+
+
 }
 
-// creo esta funcion para actualizar el la cantidad y el total del pedido
 
-const prueba=()=>{
-console.log('prueba OK')
-}
 
 
 
 const ActualizaTotalCarrito =(e)=>{
     
-    const precioArt = e.target.getAttribute('precio')
-    
-    const cantidadSeleccionada = document.getElementById('cantidad').value
+    const precioArt = e.target.getAttribute('precio') 
+    const id=e.target.getAttribute('id')
+    console.log(id)
+    const cantidadSeleccionada = document.getElementById(id).value
    
-    ActualizarTotal(precioArt,cantidadSeleccionada)
+  
 
     
 }
@@ -146,7 +149,7 @@ const recuperarCarrito=()=>{
 
 const recuperarTotal=()=>{
     
-    totalFinal = JSON.parse(localStorage.getItem('TotalFinal')) 
+   totalFinal = JSON.parse(localStorage.getItem('TotalFinal')) 
     
     document.getElementById('spanTotal').textContent=totalFinal
 }
@@ -159,7 +162,7 @@ const imprimirCarro=()=>{
             listadoCarrito.innerHTML=""
             carrito.forEach((producto)=>{
             const artDiv = document.createElement('div')
-          
+            contador ++
             artDiv.className='contenedorPadre'
             artDiv.innerHTML=` <div class="contenedorPadre">
             <div id="contenedorCarrito" class="contieneTodoElCarrito">
@@ -191,7 +194,7 @@ const imprimirCarro=()=>{
 
                                         <label for="cant">Cant:</label>
                                         
-                                        <select class="cantCarr" >
+                                        <select id="${contador}" class="cantCarr" precio="${producto.precio}" >
                                           <option value="1">1</option>
                                           <option value="2">2</option>
                                           <option value="3">3</option>
@@ -223,11 +226,10 @@ const imprimirCarro=()=>{
         </div>  
             `
             
-    
+            
             listadoCarrito.append(artDiv)
             localStorage.setItem('claveCarro',JSON.stringify(carrito))
-            cantidadElegidaCarr() 
-            
+            localStorage.setItem('contador',contador)  
            
         
             
@@ -239,11 +241,15 @@ const imprimirCarro=()=>{
         
 
 
-      
-        agregaBtnsEliminar()
+       
+            
+        agregaBtnsEliminarCant()
        
        
 }
+
+
+
 
 const ExisteArtenCarro=(artrecibido)=>{
     const variable = carrito.some((aux)=>aux.cod_articulo==artrecibido.cod_articulo) 
@@ -254,9 +260,7 @@ const EliminarDeCarrito=(e)=>{
     const idSeleccionado = e.target.getAttribute('codigo')
     
     const artiSeleccionado =carrito.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
-
     let indice = carrito.indexOf(artiSeleccionado)//obtengo Indice
-
     carrito.splice(indice,1)
     localStorage.setItem('claveCarro', JSON.stringify(carrito)) 
     imprimirCarro()
@@ -268,8 +272,9 @@ const EliminarDeCarrito=(e)=>{
 
 const ActualizarTotal=(artrecibido)=>{
 totalFinal+= artrecibido.precio
-localStorage.setItem('TotalFinal',totalFinal)   
 document.getElementById('spanTotal').textContent=totalFinal 
+localStorage.setItem('TotalFinal',totalFinal)  
+console.log(totalFinal)
 }
 
 
