@@ -65,7 +65,7 @@ const renderizarListProductos=()=>{
         if(!ExisteArtenCarro(artiSeleccionado))
         {
             carrito.push(artiSeleccionado)
-            ActualizarTotal(artiSeleccionado)
+            ActualizarTotal(artiSeleccionado.precio)
             console.log(totalFinal)
             toastCarrito()
             imprimirCarro()
@@ -78,18 +78,6 @@ const renderizarListProductos=()=>{
         */
         
 }   
-
-// creo esta funcion para actualizar el la cantidad y el total del pedido
-
-const   cantActualizaCarro=(e)=>{
-    console.log('llegaOk')
-   
-    const precioCantidad = document.getElementsByClassName("cantCarr").value
-    console.log(precioCantidad)
-}
-
-
-
 
 
 
@@ -126,16 +114,27 @@ const agregaBtnsEliminarCant =()=>{
 
 
 const ActualizaTotalCarrito =(e)=>{
-    
+    //obtengo los datos del DOM para actualizar Sub Total y carrito
     const precioArt = e.target.getAttribute('precio') 
     const id=e.target.getAttribute('id')
-    console.log(id)
+    const codigo = e.target.getAttribute('codigo')
     const cantidadSeleccionada = document.getElementById(id).value
+    
+    const artiSeleccionado =carrito.find((auxiliar)=> auxiliar.cod_articulo==codigo)
+    let indice = carrito.indexOf(artiSeleccionado)//obtengo Indice
+
+    let subTot=precioArt*cantidadSeleccionada  
+    //le paso al array el nuevo dato de sub total
+    carrito[indice].subTotal=subTot
+    //sumo el subtotal del Array para actualizar el Resumen del pedido
+    const suma = carrito.map(item => item.subTotal).reduce((prev, curr) => prev + curr, 0);
+    document.getElementById('spanTotal').textContent=suma
    
+  }
+
   
 
-    
-}
+
 
 
 //creo una funcion para recuperar el carrito del local storage y poder mostrarlo
@@ -194,12 +193,12 @@ const imprimirCarro=()=>{
 
                                         <label for="cant">Cant:</label>
                                         
-                                        <select id="${contador}" class="cantCarr" precio="${producto.precio}" >
+                                        <select id="${contador}" class="cantCarr" precio="${producto.precio}" codigo="${producto.cod_articulo}" >
                                           <option value="1">1</option>
                                           <option value="2">2</option>
                                           <option value="3">3</option>
                                           <option value="4">4</option>
-                                          <option value="4">5</option>
+                                          <option value="5">5</option>
                                         </select>
         
                                             <div class="eliminar">
@@ -210,10 +209,12 @@ const imprimirCarro=()=>{
         
                                             <div class="precio">
                                                 <span class="carritoPrecio">
-                                                    <span class="precioDolar">
-                                                   U$S  ${producto.precio}</span>
+                                                    <span id="precio${contador}" class="precioDolar">
+                                                   U$S ${producto.precio}</span>
+
+
                                                 
-                                                    </span>
+                                                </span>
                                             </div>
                                 </div>
         
@@ -263,6 +264,7 @@ const EliminarDeCarrito=(e)=>{
     let indice = carrito.indexOf(artiSeleccionado)//obtengo Indice
     carrito.splice(indice,1)
     localStorage.setItem('claveCarro', JSON.stringify(carrito)) 
+
     imprimirCarro()
 
 
@@ -270,11 +272,11 @@ const EliminarDeCarrito=(e)=>{
 
 
 
-const ActualizarTotal=(artrecibido)=>{
-totalFinal+= artrecibido.precio
+const ActualizarTotal=(valorRecibido)=>{
+totalFinal+= valorRecibido
 document.getElementById('spanTotal').textContent=totalFinal 
 localStorage.setItem('TotalFinal',totalFinal)  
-console.log(totalFinal)
+
 }
 
 
