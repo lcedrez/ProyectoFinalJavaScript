@@ -16,7 +16,7 @@ let totales=[]
 //Query De Elementos
 //-------------------------------------------------------------------------------------------------------
 const listadoProductos=document.querySelector('#contenedorCards')
-
+const listProductosOut=document.querySelector('#contenedorCardsOut')
 const listadoCarrito=document.querySelector('#contenedorCarro')
 const cuotas=document.querySelector('.parrafoCuotas')
 const subTotal=document.querySelector('#spanTotal')
@@ -33,7 +33,7 @@ const totalItems=document.querySelector('#cart-items-qty')
 
 
 //Creo funcion para mostrar todos los articulos del array artVentas
-const renderizarListProductos=()=>{
+const renderizarListProductos=(artVentas)=>{
     
     artVentas.forEach((producto)=>{
        
@@ -58,7 +58,62 @@ const renderizarListProductos=()=>{
 
 }
 
+
+const renderizarListProductosOut=(dato)=>{
     
+    dato.forEach((producto)=>{
+       
+        const artDiv = document.createElement('div')
+        
+        artDiv.className='card-body'
+        artDiv.innerHTML=`<h4 class="card-title">${producto.nombre}</h4>
+        <img src=${producto.imagen} alt="${producto.descripcion}">
+            <p class="card-text">U$s ${producto.precio}</p>
+            <p class="card-text"></p>
+        <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
+        
+        
+      </div>
+        `
+
+        listProductosOut.append(artDiv)
+    })
+        agregarListennersBtns()
+
+
+
+}
+
+//Creo renderizacion Para Fetch ya que son otros aritculos
+
+const renderizarListProdOut=(datos)=>{
+    
+    datos.forEach((producto)=>{
+       
+        const artDiv = document.createElement('div')
+        
+        artDiv.className='card-body'
+        artDiv.innerHTML=`<h4 class="card-title">${producto.nombre}</h4>
+        <img src=${producto.imagen} alt="${producto.descripcion}">
+            <p class="card-text">U$s ${producto.precio}</p>
+            <p class="card-text"></p>
+        <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
+        
+        
+      </div>
+        `
+
+        listProductosOut.append(artDiv)
+    })
+        agregarListennersBtns()
+
+
+
+}
+
+
+
+
 
 
     const renderizarArticulos= (e) => {
@@ -141,11 +196,14 @@ const ActualizaTotalCarrito =(e)=>{
     
     //sumo el subtotal del Array para actualizar el Resumen del pedido
     const suma = carrito.map(item => item.subTotal).reduce((prev, curr) => prev + curr, 0);
+   
     document.getElementById('spanTotal').textContent=suma
+    
     totalFinal=suma
     
     localStorage.setItem('ClaveCarro',carrito)
     localStorage.setItem('TotalFinal',totalFinal)
+   
     ActualizaItems()
     
 
@@ -357,7 +415,22 @@ toastCarrito=()=>{
 }
 
 
+fetch('../json/articulos.json')
+.then((res)=>res.json())
+.then((data)=>renderizarListProdOut(data))
 
+
+
+
+
+fetch('../json/articulos.json')
+  .then(response => {
+      if (!response.ok) throw Error(response.status);
+
+      return response;
+  })
+  .then(response => console.log("ok"))
+  .catch(error => console.log(error)); 
 
 
 
@@ -369,7 +442,10 @@ toastCarrito=()=>{
 //Ejecuciones   
 //---------------------------------------------------------------------------------------------------------
 
-renderizarListProductos()
+renderizarListProductos(artVentas)
+
+
+
 localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() ||  AlertaDescuentos() 
 
   
