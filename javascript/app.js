@@ -423,14 +423,8 @@ fetch('../json/articulos.json')
 
 
 
-fetch('../json/articulos.json')
-  .then(response => {
-      if (!response.ok) throw Error(response.status);
-
-      return response;
-  })
-  .then(response => console.log("ok"))
-  .catch(error => console.log(error)); 
+  
+  
 
 
 

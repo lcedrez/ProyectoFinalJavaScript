@@ -948,8 +948,7 @@ header{
     background-color: black;
 }
 .pie-pagina .grupo-1{
-    width: 100%;
-    max-width: 1200px;
+   
     margin: auto;
     display:grid;
     grid-template-columns: repeat(3, 1fr);
@@ -2081,7 +2080,15 @@ font-size: 70px;
     flex-direction: row-reverse;
 }
 
+.carousel{
+    padding-bottom: 200px;
+}
 
+.tituloOutlet{
+    text-align: center;
+    padding-top: 80px;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
 .itemDescripcion ul li{
 
