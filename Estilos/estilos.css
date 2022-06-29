@@ -188,6 +188,18 @@ a:hover {
 }
 
 
+#productoNombreComponenteId{
+    font-size:35px;
+}
+
+#productoPrecioComponenteId{
+    font-size: 30px;
+}
+
+
+
+
+
 
 /*-------------------------------------------------------*/
 /*
@@ -208,7 +220,12 @@ color: white;
 .row{
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
 }
 
 .col{
@@ -440,8 +457,12 @@ flex-direction: row;
     font-size: 20px;
     color:#4f4f50;
     
-}
+} 
+  
 
+#bloqueImg img{
+    width:500px;
+}
 
 
 
@@ -2249,11 +2270,35 @@ body {
 }
 
 
+/*Botones*/
 
+#btnCarro {
+    min-width: 130px;
+    height: 40px;
+    
+    color: rgb(19, 18, 18);
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid #57cc99;
+    background: #327e35 ;
+  }
+  #btnCarro:hover {
+    background: #fff;
+    color: #57cc99
+  }
 
-
-
-
+#bloqueImg{
+    
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
+}
 
 
 

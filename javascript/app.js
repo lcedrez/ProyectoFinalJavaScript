@@ -44,7 +44,7 @@ const renderizarListProductos=(datos)=>{
         
         artDiv.className='card-body'
         artDiv.innerHTML=`
-        <img src=${producto.imagen} alt="${producto.descripcion}">
+        <a href="../Paginas/Articulos.html"><img src=${producto.imagen} alt="${producto.descripcion}"></a>
             <h4 class="card-title">${producto.nombre}</h4>
             <p class="card-text2">U$s ${producto.precio}</p>
             <p class="card-text2"></p>
@@ -67,34 +67,6 @@ const renderizarListProductos=(datos)=>{
 
 
 //Creo renderizacion Para Fetch ya que son otros aritculos
-
-const renderizarListProdOut=(datos)=>{
-    
-    datos.forEach((producto)=>{
-       console.log(datos)
-        const artDivar = document.createElement('div')
-        
-        artDivar.className='card-body'
-        artDivar.innerHTML=`<h4 class="card-title">${producto.nombre}</h4>
-        <img src=${producto.imagen} alt="${producto.descripcion}">
-            <p class="card-text">U$s ${producto.precio}</p>
-            <p class="card-text"></p>
-        <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
-        
-        
-      </div>
-        `
-        console.log(artDivar)
-        listProductosOut.append(artDivar)
-        
-    })
-        agregarListennersBtns()
-
-
-
-}
-
-
 
 
 
@@ -429,7 +401,7 @@ toastCarrito=()=>{
 
 
 //traigo mis articulos del archivo json
-fetch('../json/articulos.json')
+fetch('https://lcedrez.github.io/ProyectoFinalJavaScript//json/articulos.json')
 .then((res)=>res.json())    
 .then((jreponse)=>{
 datos=jreponse.data
