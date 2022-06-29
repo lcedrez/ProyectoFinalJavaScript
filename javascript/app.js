@@ -156,13 +156,9 @@ const ActualizaItems=()=>{
 
     
     const items = carrito.map(item => item.cantidad).reduce((prev, curr) => prev + curr, 0);
-   
-
-  
-
-
     console.log(items)
     document.getElementById('cart-items-qty').textContent=items
+    
 
 }
 
@@ -444,7 +440,7 @@ renderizarListProductos(jreponse.data)})
 
 
 
-localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() ||  AlertaDescuentos() 
+localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() ||  AlertaDescuentos() ||  ActualizaItems()
 
   
 
