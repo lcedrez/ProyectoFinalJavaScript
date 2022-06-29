@@ -43,8 +43,9 @@ const renderizarListProductos=(datos)=>{
         const artDiv = document.createElement('div')
         
         artDiv.className='card-body'
-        artDiv.innerHTML=`<h4 class="card-title">${producto.nombre}</h4>
+        artDiv.innerHTML=`
         <img src=${producto.imagen} alt="${producto.descripcion}">
+            <h4 class="card-title">${producto.nombre}</h4>
             <p class="card-text2">U$s ${producto.precio}</p>
             <p class="card-text2"></p>
         <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
@@ -440,7 +441,7 @@ renderizarListProductos(jreponse.data)})
 
 
 
-localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() ||  AlertaDescuentos() ||  ActualizaItems()
+localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() ||  AlertaDescuentos() ||  ActualizaItems  ()
 
   
 
