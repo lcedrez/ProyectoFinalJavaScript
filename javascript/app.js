@@ -44,7 +44,7 @@ const renderizarListProductos=(datos)=>{
         
         artDiv.className='card-body'
         artDiv.innerHTML=`
-        <a href="../Paginas/Articulos.html"><img src=${producto.imagen} alt="${producto.descripcion}"></a>
+        <a href="Paginas/Articulos.html"><img src=${producto.imagen} alt="${producto.descripcion}"></a>
             <h4 class="card-title">${producto.nombre}</h4>
             <p class="card-text2">U$s ${producto.precio}</p>
             <p class="card-text2"></p>
