@@ -12,6 +12,9 @@ const artVentas=[articulo1,articulo2,articulo3,articulo4,articulo5,articulo6,art
 const usuSistema=[usuario1,usuario2,usuario3,usuario4]
 let carrito=[]
 let totales=[]
+let datos
+
+  
 
 //Query De Elementos
 //-------------------------------------------------------------------------------------------------------
@@ -33,60 +36,7 @@ const totalItems=document.querySelector('#cart-items-qty')
 
 
 //Creo funcion para mostrar todos los articulos del array artVentas
-const renderizarListProductos=(artVentas)=>{
-    
-    artVentas.forEach((producto)=>{
-       
-        const artDiv = document.createElement('div')
-        
-        artDiv.className='card-body'
-        artDiv.innerHTML=`<h4 class="card-title">${producto.nombre}</h4>
-        <img src=${producto.imagen} alt="${producto.descripcion}">
-            <p class="card-text">U$s ${producto.precio}</p>
-            <p class="card-text"></p>
-        <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
-        
-        
-      </div>
-        `
-
-        listadoProductos.append(artDiv)
-    })
-        agregarListennersBtns()
-
-
-
-}
-
-
-const renderizarListProductosOut=(dato)=>{
-    
-    dato.forEach((producto)=>{
-       
-        const artDiv = document.createElement('div')
-        
-        artDiv.className='card-body'
-        artDiv.innerHTML=`<h4 class="card-title">${producto.nombre}</h4>
-        <img src=${producto.imagen} alt="${producto.descripcion}">
-            <p class="card-text">U$s ${producto.precio}</p>
-            <p class="card-text"></p>
-        <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
-        
-        
-      </div>
-        `
-
-        listProductosOut.append(artDiv)
-    })
-        agregarListennersBtns()
-
-
-
-}
-
-//Creo renderizacion Para Fetch ya que son otros aritculos
-
-const renderizarListProdOut=(datos)=>{
+const renderizarListProductos=(datos)=>{
     
     datos.forEach((producto)=>{
        
@@ -95,6 +45,37 @@ const renderizarListProdOut=(datos)=>{
         artDiv.className='card-body'
         artDiv.innerHTML=`<h4 class="card-title">${producto.nombre}</h4>
         <img src=${producto.imagen} alt="${producto.descripcion}">
+            <p class="card-text2">U$s ${producto.precio}</p>
+            <p class="card-text2"></p>
+        <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
+        
+        
+      </div>
+        `
+
+        listadoProductos.append(artDiv)
+        
+    })
+        agregarListennersBtns()
+
+
+
+}
+
+
+
+
+//Creo renderizacion Para Fetch ya que son otros aritculos
+
+const renderizarListProdOut=(datos)=>{
+    
+    datos.forEach((producto)=>{
+       console.log(datos)
+        const artDivar = document.createElement('div')
+        
+        artDivar.className='card-body'
+        artDivar.innerHTML=`<h4 class="card-title">${producto.nombre}</h4>
+        <img src=${producto.imagen} alt="${producto.descripcion}">
             <p class="card-text">U$s ${producto.precio}</p>
             <p class="card-text"></p>
         <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
@@ -102,8 +83,9 @@ const renderizarListProdOut=(datos)=>{
         
       </div>
         `
-
-        listProductosOut.append(artDiv)
+        console.log(artDivar)
+        listProductosOut.append(artDivar)
+        
     })
         agregarListennersBtns()
 
@@ -118,11 +100,13 @@ const renderizarListProdOut=(datos)=>{
 
     const renderizarArticulos= (e) => {
     const idSeleccionado = e.target.getAttribute('codigo')
-    const artiSeleccionado  =artVentas.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
+    
+    const artiSeleccionado  =datos.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
         
         if(!ExisteArtenCarro(artiSeleccionado))
         {
             carrito.push(artiSeleccionado)
+           
             ActualizarTotal(artiSeleccionado.precio)
             ActualizaItems()
             toastCarrito()
@@ -169,7 +153,15 @@ const agregaBtnsEliminarCant =()=>{
 
 const ActualizaItems=()=>{
 
+
+    
     const items = carrito.map(item => item.cantidad).reduce((prev, curr) => prev + curr, 0);
+   
+
+  
+
+
+    console.log(items)
     document.getElementById('cart-items-qty').textContent=items
 
 }
@@ -179,24 +171,27 @@ const ActualizaItems=()=>{
 const ActualizaTotalCarrito =(e)=>{
     //obtengo los datos del DOM para actualizar Sub Total y carrito
 
-    const precioArt = e.target.getAttribute('precio') 
+    const precioArt =e.target.getAttribute('precio')
+    console.log(precioArt)
     const id=e.target.getAttribute('id')
     const codigo = e.target.getAttribute('codigo')
-    const cantidadSeleccionada = document.getElementById(id).value
+    const cantidadSeleccionada =parseInt(document.getElementById(id).value)
     
     const artiSeleccionado =carrito.find((auxiliar)=> auxiliar.cod_articulo==codigo)
     let indice = carrito.indexOf(artiSeleccionado)//obtengo Indice
    
 
-    let subTot=precioArt*cantidadSeleccionada  
+    let subTot=precioArt*cantidadSeleccionada
     //le paso al array el nuevo dato de sub total
-
-    carrito[indice].subTotal=subTot 
+    
+    carrito[indice].subTotal= subTot 
     carrito[indice].cantidad=cantidadSeleccionada 
+
+    
     
     //sumo el subtotal del Array para actualizar el Resumen del pedido
-    const suma = carrito.map(item => item.subTotal).reduce((prev, curr) => prev + curr, 0);
-   
+    const suma =carrito.map(item => item.subTotal).reduce((prev, curr) => prev + curr, 0);
+    
     document.getElementById('spanTotal').textContent=suma
     
     totalFinal=suma
@@ -360,9 +355,10 @@ const EliminarDeCarrito=(e)=>{
 
 
 const ActualizarTotal=(valorRecibido)=>{
-totalFinal+= valorRecibido
+totalFinal+=parseInt(valorRecibido) 
 document.getElementById('spanTotal').textContent=totalFinal 
 localStorage.setItem('TotalFinal',totalFinal)  
+
 
 }
 
@@ -415,9 +411,6 @@ toastCarrito=()=>{
 }
 
 
-fetch('../json/articulos.json')
-.then((res)=>res.json())
-.then((data)=>renderizarListProdOut(data))
 
 
 
@@ -436,7 +429,18 @@ fetch('../json/articulos.json')
 //Ejecuciones   
 //---------------------------------------------------------------------------------------------------------
 
-renderizarListProductos(artVentas)
+
+
+//traigo mis articulos del archivo json
+fetch('../json/articulos.json')
+.then((res)=>res.json())    
+.then((jreponse)=>{
+datos=jreponse.data
+renderizarListProductos(jreponse.data)})  
+
+    
+
+   
 
 
 

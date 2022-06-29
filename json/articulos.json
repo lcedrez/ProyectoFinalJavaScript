@@ -1,10 +1,16 @@
+{
+
+"data": 
 [
-    {"cod_articulo":"5555","nombre":"Help! Scarf","descripcion":"This custom jacquard knit scarf features the iconic imagery from Help!","precio":"38.00","descuento":"15","categoria":"Outlet","color":"White - Red","imagen":"../Imagenes/E-Commerce/OutHelpScarf.jfif"},
-    {"cod_articulo":"6655","nombre":"Snowy Abbey Road Tote Bag","descripcion":"Celebrate The Beatles with this iconic tote!","precio":"15.00","descuento":"15","categoria":"Outlet","color":"White","imagen":"../Imagenes/E-Commerce/OutSnowyAbbeyRoad.jfif"},
-    {"cod_articulo":"7755","nombre":"Varsity Bomber Jacket","descripcion":"This Beatles Alpha Bomber Jacket is constructed of mid-weight flight nylon with water resistance.","precio":"80.00","descuento":"15","categoria":"Outlet","color":"Black","imagen":"../Imagenes/E-Commerce/OutTheBeatlesLogoVarsityBomberJacket.jfif"},
-    {"cod_articulo":"8855","nombre":"Sgt. Pepper Denim Jacket","descripcion":"Show your love for The Beatles with this denim jacket!","precio":"55.00","descuento":"15","categoria":"Outlet","color":"Blue","imagen":"../Imagenes/E-Commerce/OutJacket.jpg"}
+    {"cod_articulo":"5555","nombre":"Help! Scarf","descripcion":"This custom jacquard knit scarf features the iconic imagery from Help!","precio":38.00,"descuento":"15","categoria":"Outlet","color":"White - Red","imagen":"../Imagenes/E-Commerce/OutHelpScarf.jfif","cantidad":1,"subTotal":38.00},
+
+    {"cod_articulo":"6655","nombre":"Snowy Abbey Road Tote Bag","descripcion":"Celebrate The Beatles with this iconic tote!","precio":15.00,"descuento":"15","categoria":"Outlet","color":"White","imagen":"../Imagenes/E-Commerce/OutSnowyAbbeyRoad.jfif","cantidad":1,"subTotal":15.00},
+
+    {"cod_articulo":"7755","nombre":"Varsity Bomber Jacket","descripcion":"This Beatles Alpha Bomber Jacket is constructed of mid-weight flight nylon with water resistance.","precio":80.00,"descuento":"15","categoria":"Outlet","color":"Black","imagen":"../Imagenes/E-Commerce/OutTheBeatlesLogoVarsityBomberJacket.jfif","cantidad":1,"subTotal":80.00},
+
+    {"cod_articulo":"8855","nombre":"Sgt. Pepper Denim Jacket","descripcion":"Show your love for The Beatles with this denim jacket!","precio":55.00,"descuento":"15","categoria":"Outlet","color":"Blue","imagen":"../Imagenes/E-Commerce/OutJacket.jpg","cantidad":1,"subTotal":55.00}
 
 
 ]
 
-
+}

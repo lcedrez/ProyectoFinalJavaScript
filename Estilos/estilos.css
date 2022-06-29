@@ -396,7 +396,22 @@ flex-direction: row;
 }
 
 .card-text{
+    font-size: 20px;
+    text-decoration:line-through;
+    color: red;
+    
+}
+
+.card-text2{
     font-size: 30px;
+   
+    
+}
+
+.card-textOut{
+    font-size: 20px;
+    text-decoration:line-through;
+    color: red;
 }
 
 .card-body img:hover{
@@ -2155,6 +2170,12 @@ font-size: 70px;
     width:30px;
 }
 
+#tachado{
+    
+    text-decoration:line-through;
+    color: red;
+    
+}
 
 
 
