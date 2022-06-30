@@ -18,7 +18,41 @@
     
 }
 
+#boxCodigo{
+    font-size: 18px;
+}
 
+#boxPrecio{
+    font-size: 25   px;
+}
+
+#productoNombre{
+    padding: 0;
+}
+.containerGrid{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 1em;
+}
+
+.parrafoDetalle{
+   
+    display: inline-block;
+    vertical-align: top;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#4f4f50
+}
+
+.lineaH{
+    height: 0px; 
+    border: none; 
+    border-top: 1px solid black;
+
+
+    background-color: rgb(2, 138, 36);
+
+}
 
 /*---------------------------------------------------------------*/
 
@@ -2270,14 +2304,37 @@ body {
     width: 350px;
 }
 
+/*Detalle*/
+
+.contenedorDetalle{
+    display: flex;
+}
+.flex-item{
+    display: flex;
+}
+.flex-itemTitulo{
+    display: flex;
+}
+.flex-itemPrecio{
+    display: flex;
+}
+.flex-itemDetalle
+ {
+    display: flex;
+}
+
+
+
+
+
+
 
 /*Botones*/
 
 #btnCarro {
-    min-width: 130px;
-    height: 40px;
-    
-    color: rgb(19, 18, 18);
+    width: 130px;
+    height: 50px;
+    color: rgb(252, 245, 245);
     padding: 5px 10px;
     font-weight: bold;
     cursor: pointer;
@@ -2286,12 +2343,12 @@ body {
     display: inline-block;
     outline: none;
     border-radius: 20px;
-    border: 2px solid #57cc99;
-    background: #327e35 ;
+    
+    background: #0c0c0c ;
   }
   #btnCarro:hover {
     background: #fff;
-    color: #57cc99
+    color: #0f0f0f
   }
 
 #bloqueImg{
