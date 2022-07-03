@@ -8,10 +8,9 @@ let contador=0
 let cantidad=1
 let cantidadMas=1
 let precioPorCantidad=0
-const artVentas=[articulo1,articulo2,articulo3,articulo4,articulo5,articulo6,articulo7,articulo11]
-const usuSistema=[usuario1,usuario2,usuario3,usuario4]
 let carrito=[]
 let totales=[]
+let articuloDetalle
 let datos
 
   
@@ -22,6 +21,7 @@ const listadoProductos=document.querySelector('#contenedorCards')
 const listProductosOut=document.querySelector('#contenedorCardsOut')
 const listadoCarrito=document.querySelector('#contenedorCarro')
 const cuotas=document.querySelector('.parrafoCuotas')
+const articuloDetallado=document.querySelector('#ContenedorGr')
 const subTotal=document.querySelector('#spanTotal')
 const cantidades=document.querySelectorAll('#cantidad')
 const totalItems=document.querySelector('#cart-items-qty')
@@ -35,16 +35,19 @@ const totalItems=document.querySelector('#cart-items-qty')
 //---------------------------------------------------------------------------------------------------------
 
 
-//Creo funcion para mostrar todos los articulos del array artVentas
-const renderizarListProductos=(datos)=>{
-    
+//Creo funcion para mostrar todos los articulos
+const   renderizarListProductos=(datos)=>{
+
+ 
+
+    console.log(datos)
     datos.forEach((producto)=>{
        
         const artDiv = document.createElement('div')
         
         artDiv.className='card-body'
         artDiv.innerHTML=`
-        <a href="Paginas/Articulos.html"><img src=${producto.imagen} alt="${producto.descripcion}"></a>
+        <a href="Paginas/Articulos.html"><img src=${producto.imagen} alt="${producto.descripcion}" codigo="${producto.cod_articulo}"></a>
             <h4 class="card-title">${producto.nombre}</h4>
             <p class="card-text2">U$s ${producto.precio}</p>
             <p class="card-text2"></p>
@@ -53,15 +56,108 @@ const renderizarListProductos=(datos)=>{
         
       </div>
         `
-
+//<a href="Paginas/Articulos.html"><img src=${producto.imagen} alt="${producto.descripcion}"></a>
         listadoProductos.append(artDiv)
         
     })
         agregarListennersBtns()
+       
+       
 
 
 
 }
+
+
+
+const renderizarCategoria=(datos)=>{
+    
+    datos.forEach((producto)=>{
+       
+        const artDiv = document.createElement('div')
+        
+        artDiv.className='card-body'
+        artDiv.innerHTML=`
+        <a href="Paginas/Articulos.html"><img src=${producto.imagen} alt="${producto.descripcion}" codigo="${producto.cod_articulo}"></a>
+            <h4 class="card-title">${producto.nombre}</h4>
+            <p class="card-text2">U$s ${producto.precio}</p>
+            <p class="card-text2"></p>
+        <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
+        
+        
+      </div>
+        `
+//<a href="Paginas/Articulos.html"><img src=${producto.imagen} alt="${producto.descripcion}"></a>
+        listadoProductos.append(artDiv)
+        
+    })
+        agregarListennersBtns()
+       
+       
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+const renderizararticuloDetalle=(artRecibido,idRecibido)=>{
+    console.log("idRecibido" + "" +idRecibido)
+
+    let artEncontrado = artRecibido.find(auxiliar => auxiliar.cod_articulo === idRecibido);
+    
+        console.log(artEncontrado)
+        const artDivDet = document.createElement('div')
+        
+        artDivDet.className='flex-item'
+        artDivDet.innerHTML=`
+        <img src="${artEncontrado.imagen}" alt="">
+            <div class="flex-itemDetalles">
+                <div class="flex-itemTitulo">
+                    <div id="productoNombreComponenteId" class="productoNombreComponente">
+                                      
+                        <div>${artEncontrado.nombre}</div>
+                       
+                    </div>
+                </div>
+                <div class="contenedorPrecDet">
+                        <div class="flex-itemPrecio">
+                            <div id="productoPrecioComponenteId" class="productoPrecioComponente">
+                                <div id="boxPrecio"> ${artEncontrado.precio}</div>
+                                <div id="boxCodigo">codigo:${artEncontrado.codigo}</div>
+                                <button id="btnCarro" type="button" class="btn btn-primary">AGREGAR AL CARRITO</button>
+                            </div>
+                            
+                        </div>
+                        <div class="flex-itemDetalle">
+                            <div id="productoDetalleDesc" class="productoDescripcion">
+                                
+                                    <hr class="lineaH">
+                                    <p class="parrafoDetalle"> ${artEncontrado.descripcion}</p>
+                                
+
+                            </div>
+                        </div>
+                </div>    
+        `
+
+        articuloDetallado.append(artDivDet)
+        
+        agregarListennDetalleArt()
+        
+
+
+
+}
+
+
 
 
 
@@ -107,6 +203,22 @@ const agregarListennersBtns =()=>{
 
 }
 
+const agregarListennDetalleArt =(e)=>{
+    const idSeleccionado = e.target.getAttribute('codigo')
+    console.log(idSeleccionado)
+
+    const detalleArt=document.querySelectorAll('.imgDetalle')
+    detalleArt.forEach((imagen)=>{
+    imagen.addEventListener('click',renderizararticuloDetalle(imagen,idSeleccionado))
+    })
+    
+    }
+   
+
+
+
+
+
 //creo funcion para eliminar articulos del carrito
 const agregaBtnsEliminarCant =()=>{
 
@@ -129,7 +241,7 @@ const ActualizaItems=()=>{
 
     
     const items = carrito.map(item => item.cantidad).reduce((prev, curr) => prev + curr, 0);
-    console.log(items)
+  
     document.getElementById('cart-items-qty').textContent=items
     
 
@@ -400,12 +512,37 @@ toastCarrito=()=>{
 
 
 
-//traigo mis articulos del archivo json
-fetch('https://lcedrez.github.io/ProyectoFinalJavaScript//json/articulos.json')
-.then((res)=>res.json())    
-.then((jreponse)=>{
-datos=jreponse.data
-renderizarListProductos(jreponse.data)})  
+const cargarCatalogo = async ()=>{
+    try{
+   const respuesta=await fetch("https://demo4551182.mockable.io/catalogo")
+   
+   if(respuesta.status=== 200){
+    const datos =await respuesta.json();
+
+    //convierto mi objerto en un array
+    Object.keys(datos).forEach(key => {
+         
+        let nuevoArray = datos[key]; 
+        
+        renderizarListProductos(nuevoArray)
+       
+      });
+
+
+   
+   }
+ 
+    }
+    catch(error)
+    {
+        console.log(error)
+    }
+}
+
+cargarCatalogo()
+
+
+
 
     
 
@@ -413,7 +550,8 @@ renderizarListProductos(jreponse.data)})
 
 
 
-localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() ||  AlertaDescuentos() ||  ActualizaItems  ()
+localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() ||  AlertaDescuentos() ||  ActualizaItems() 
+        
 
   
 

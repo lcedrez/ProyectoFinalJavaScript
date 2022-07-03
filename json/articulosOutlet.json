@@ -1,0 +1,43 @@
+{
+
+"dataOut": 
+[
+   
+
+     {"cod_articulo":"1144","nombre":"Let It Be Special Edition","descripcion":"Let It Be Special Edition (Standard): 12 tracks 1CD in digipak (new stereo mix of original album)","precio":35.00,"descuento":0,"categoria":"Media","color":"Black","imagen":"../Imagenes/E-Commerce/LetitbeCD.jpg","cantidad":1,"subTotal":35.00},
+     
+     {"cod_articulo":"2244","nombre":"Let It Be Embroidered Blue","descripcion":"Show your love for The Beatles with this crewneck sweatshirt!","precio":65.00,"descuento":0,"categoria":"Outfit","color":"Blue","imagen":"../Imagenes/E-Commerce/LetitBeCanguro.jfif","cantidad":1,"subTotal":65.00},
+
+     {"cod_articulo":"3344","nombre":"Let It Be Photo Red","descripcion":"Show your love for The Beatles with this crewneck sweatshirt!","precio":50.00,"descuento":0,"categoria":"Outfit","color":"Red","imagen":"../Imagenes/E-Commerce/LetItbeCanguroRojojfif.jfif","cantidad":1,"subTotal":50.00},
+
+     {"cod_articulo":"4444","nombre":"Let It Be Igloo Cooler","descripcion":"You'll LOVE keeping your favorite foods and drinks fresh with your own special-edition Beatles and Yellow Submarine-inspired Igloo Coolers. Each design is featured on Igloo's 7qt Little Playmate Silhouette.","precio":40.00,"descuento":0,"categoria":"Home","color":"Black - White","imagen":"../Imagenes/E-Commerce/Launchera.jfif","cantidad":1,"subTotal":40.00},
+
+     {"cod_articulo":"5544","nombre":"Pantomime:Christmas Tote","descripcion":"This 12oz, 100% cotton canvas tote features art from the 1964 record Pantomime: Everywhere It’s Christmas.","precio":20.00,"descuento":0,"categoria":"Accesories","color":"Yellow - Blue","imagen":"../Imagenes/E-Commerce/bolso.jpg","cantidad":1,"subTotal":20.00},
+
+     {"cod_articulo":"6644","nombre":"Abbey Road Ukulele","descripcion":"Totally unique, with iconic graphics from 1965 to 1970, the Beatles nylon strung ukuleles make an ideal beginner's instrument, or are perfect for avid fans and collectors.","precio":60.00,"descuento":0,"categoria":"Accesories","color":"Blue","imagen":"../Imagenes/E-Commerce/UkuleleAbbey.jfif","cantidad":1,"subTotal":60.00},
+
+     {"cod_articulo":"7744","nombre":"Yellow Submarine Port Hole","descripcion":"Warm, cozy, and stylish navy blue beanie with embroidered patches of the guys in their Yellow Submarine.","precio":40.00,"descuento":0,"categoria":"Accesories","color":"Black,Red,White","imagen":"../Imagenes/E-Commerce/gorroYsub.jfif","cantidad":1,"subTotal":40.00},
+
+     {"cod_articulo":"8844","nombre":"I Love The Beatles Pin","descripcion":"I Love The Beatles Pin.","precio":15.00,"descuento":15,"categoria":"Accesories","color":"Red,White","imagen":"../Imagenes/E-Commerce/PIN.jfif","cantidad":1,"subTotal":15.00},
+
+    
+     {"cod_articulo":"1155","nombre":"Hornby London Bus","descripcion":"Hornby London Bus.","precio":50.00,"descuento":0,"categoria":"Toy","color":"Red,Black","imagen":"../Imagenes/E-Commerce/BusBeatles.jpg","cantidad":1,"subTotal":50.00},
+    
+     {"cod_articulo":"2255","nombre":"Let It Be Cookie Jar","descripcion":"Show your love for The Beatles with this iconic cookie jar!","precio":59.00,"descuento":0,"categoria":"Accesories","color":"Black","imagen":"../Imagenes/E-Commerce/letitbecockjair.jfif","cantidad":1,"subTotal":59.00},
+
+     {"cod_articulo":"3355","nombre":"Embroidered Olive Beanie","descripcion":"Embroidered Olive Beanie","precio":25.00,"descuento":0,"categoria":"Outfit","color":"Olive","imagen":"../Imagenes/E-Commerce/Gorralet.jfif","cantidad":1,"subTotal":25.00},
+
+     {"cod_articulo":"4455","nombre":"Let It Be Color Faces","descripcion":"Show your love for The Beatles with this raglan tee!","precio":30.00,"descuento":0,"categoria":"Outfit","color":"Black-White","imagen":"../Imagenes/E-Commerce/Y3CTBE219.jfif","cantidad":1,"subTotal":30.00},
+
+     {"cod_articulo":"1166","nombre":"Abbey Road Coaches Jacket","descripcion":"Up your game with this classic long-sleeve raglan coaches jacket. Nylon construction features a pointed collar with a full-length snap button front closure and two slanted front welt pockets finished with an adjustable hemline and banded sleeve cuffs. The jacket features The Beatles printed on front left chest and full size printed Abbey Road ","precio":52.00,"descuento":0,"categoria":"Outfit","color":"Black-White","imagen":"../Imagenes/E-Commerce/AbbeyJacket.jfif","cantidad":1,"subTotal":52.00}
+
+
+
+
+
+
+
+
+]
+
+}
