@@ -18,7 +18,6 @@ let datos
 //Query De Elementos
 //-------------------------------------------------------------------------------------------------------
 const listadoProductos=document.querySelector('#contenedorCards')
-const listProductosOut=document.querySelector('#contenedorCardsOut')
 const listadoCarrito=document.querySelector('#contenedorCarro')
 const cuotas=document.querySelector('.parrafoCuotas')
 const articuloDetallado=document.querySelector('#ContenedorGr')
@@ -36,18 +35,15 @@ const totalItems=document.querySelector('#cart-items-qty')
 
 
 //Creo funcion para mostrar todos los articulos
-const   renderizarListProductos=(datos)=>{
+const renderizarListProductos=(datos)=>{
 
- 
-
-    console.log(datos)
     datos.forEach((producto)=>{
        
         const artDiv = document.createElement('div')
         
         artDiv.className='card-body'
         artDiv.innerHTML=`
-        <a href="Paginas/Articulos.html"><img src=${producto.imagen} alt="${producto.descripcion}" codigo="${producto.cod_articulo}"></a>
+        <img class="imgDetalle" src=${producto.imagen} alt="${producto.descripcion}" cod="${producto.cod_articulo}">
             <h4 class="card-title">${producto.nombre}</h4>
             <p class="card-text2">U$s ${producto.precio}</p>
             <p class="card-text2"></p>
@@ -56,42 +52,13 @@ const   renderizarListProductos=(datos)=>{
         
       </div>
         `
-//<a href="Paginas/Articulos.html"><img src=${producto.imagen} alt="${producto.descripcion}"></a>
+
         listadoProductos.append(artDiv)
         
     })
         agregarListennersBtns()
-       
-       
-
-
-
-}
-
-
-
-const renderizarCategoria=(datos)=>{
-    
-    datos.forEach((producto)=>{
-       
-        const artDiv = document.createElement('div')
-        
-        artDiv.className='card-body'
-        artDiv.innerHTML=`
-        <a href="Paginas/Articulos.html"><img src=${producto.imagen} alt="${producto.descripcion}" codigo="${producto.cod_articulo}"></a>
-            <h4 class="card-title">${producto.nombre}</h4>
-            <p class="card-text2">U$s ${producto.precio}</p>
-            <p class="card-text2"></p>
-        <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
-        
-        
-      </div>
-        `
-//<a href="Paginas/Articulos.html"><img src=${producto.imagen} alt="${producto.descripcion}"></a>
-        listadoProductos.append(artDiv)
-        
-    })
-        agregarListennersBtns()
+        agregarListennerImagen()
+      
        
        
 
@@ -107,6 +74,10 @@ const renderizarCategoria=(datos)=>{
 
 
 
+
+
+
+/*
 
 const renderizararticuloDetalle=(artRecibido,idRecibido)=>{
     console.log("idRecibido" + "" +idRecibido)
@@ -157,7 +128,7 @@ const renderizararticuloDetalle=(artRecibido,idRecibido)=>{
 
 }
 
-
+*/
 
 
 
@@ -169,7 +140,7 @@ const renderizararticuloDetalle=(artRecibido,idRecibido)=>{
 
     const renderizarArticulos= (e) => {
     const idSeleccionado = e.target.getAttribute('codigo')
-    
+
     const artiSeleccionado  =datos.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
         
         if(!ExisteArtenCarro(artiSeleccionado))
@@ -196,6 +167,7 @@ const agregarListennersBtns =()=>{
 
     const articuloBoton=document.querySelectorAll('.btn')
     articuloBoton.forEach((boton)=>{
+        
     boton.addEventListener('click',renderizarArticulos)
     })
    
@@ -203,17 +175,20 @@ const agregarListennersBtns =()=>{
 
 }
 
-const agregarListennDetalleArt =(e)=>{
-    const idSeleccionado = e.target.getAttribute('codigo')
-    console.log(idSeleccionado)
-
-    const detalleArt=document.querySelectorAll('.imgDetalle')
-    detalleArt.forEach((imagen)=>{
-    imagen.addEventListener('click',renderizararticuloDetalle(imagen,idSeleccionado))
-    })
-    
-    }
+const agregarListennerImagen =()=>{
+   // const idSeleccionado = e.target.getAttribute('cod')
    
+    const clickImagen=document.querySelectorAll('.imgDetalle')
+    clickImagen.forEach((img)=>{
+        
+    img.addEventListener('click',redireccion)
+    })
+   
+
+
+}
+
+
 
 
 
@@ -492,7 +467,77 @@ toastCarrito=()=>{
 }
 
 
+function redireccion(e){
+  
+    const idSeleccionado = e.target.getAttribute('cod')
+     console.log(idSeleccionado)
+    let url= "https://demo4551182.mockable.io/catalogo"
+     fetch(url)
+     .then(response=>response.json())
+     .then(data=>mostrarData(data))
+     .catch(error=>console.log(error))
+     const mostrarData=(data)=>{
+        console.log(data)
 
+        Object.keys(data).forEach(key => {
+         
+            let arrayProductos = data[key]; 
+            
+           console.log(arrayProductos)
+           
+           let artEncontrado = arrayProductos.find(auxiliar => auxiliar.cod_articulo === idSeleccionado);
+           console.log(artEncontrado)
+
+           const productoDetalle=document.querySelector('#ContenedorGr')
+
+           const artDetalle = document.createElement('div')
+           productoDetalle.innerHTML=""
+           artDetalle.className='card-body'
+           artDetalle.innerHTML=`
+           <img src="${artEncontrado.imagen}" alt="">
+           <div class="flex-itemDetalles">
+               <div class="flex-itemTitulo">
+                   <div id="productoNombreComponenteId" class="productoNombreComponente">
+                                     
+                       <div>${artEncontrado.nombre}</div>
+                      
+                   </div>
+               </div>
+               <div class="contenedorPrecDet">
+                       <div class="flex-itemPrecio">
+                           <div id="productoPrecioComponenteId" class="productoPrecioComponente">
+                               <div id="boxPrecio"> U$S ${artEncontrado.precio}</div>
+                               <div id="boxCodigo">codigo:${artEncontrado.cod_articulo}</div>
+                               <button id="btnCarro" type="button" class="btn btn-primary">AGREGAR AL CARRITO</button>
+                           </div>
+                           
+                       </div>
+                       <div class="flex-itemDetalle">
+                           <div id="productoDetalleDesc" class="productoDescripcion">
+                               
+                                   <hr class="lineaH">
+                                   <p class="parrafoDetalle"> ${artEncontrado.descripcion}</p>
+                               
+       
+                           </div>
+                       </div>
+               </div>    
+       
+               `
+               
+               productoDetalle.append(artDetalle)
+               
+           
+          });
+
+
+
+     }
+
+  
+   
+       
+}
 
 
 
@@ -526,6 +571,7 @@ const cargarCatalogo = async ()=>{
         
         renderizarListProductos(nuevoArray)
        
+       
       });
 
 
@@ -540,6 +586,7 @@ const cargarCatalogo = async ()=>{
 }
 
 cargarCatalogo()
+
 
 
 
