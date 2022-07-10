@@ -10,6 +10,7 @@ let cantidadMas=1
 let precioPorCantidad=0
 let carrito=[]
 let totales=[]
+let catalogo=[]
 let articuloDetalle
 let datos
 
@@ -26,20 +27,45 @@ const cantidades=document.querySelectorAll('#cantidad')
 const totalItems=document.querySelector('#cart-items-qty')
 
 
-
+//Barra de Busqueda
+//------------------------------------------------------------------------------------------------------
+const searchBar=document.querySelector('#searchBar')
+const searchButton=document.querySelector('#searchButton')
 
 
 
 //Funciones
 //---------------------------------------------------------------------------------------------------------
 
+const busquedaArticulos=(e)=>{
+
+    
+  let  catalog = JSON.parse(localStorage.getItem('catalogo')) ||  []
+    
+    const busqueda=searchBar.value
+    let expresion = new RegExp(`${busqueda}.*`, "i");
+    let result = catalog.filter(catalog => expresion.test(catalog.nombre));
+
+    
+              
+     renderizarArtEncontrado(result)
+   
+  }
+
+    
+        
+        
+    
+
+
+
 
 //Creo funcion para mostrar todos los articulos
 const renderizarListProductos=(datos)=>{
-
+   
+    
     datos.forEach((producto)=>{
-       
-        const artDiv = document.createElement('div')
+       const artDiv = document.createElement('div')
         
         artDiv.className='card-body'
         artDiv.innerHTML=`
@@ -65,6 +91,41 @@ const renderizarListProductos=(datos)=>{
 
 
 }
+
+
+
+
+
+const renderizarArtEncontrado=(datos)=>{
+   
+    listadoProductos.innerHTML=""
+    datos.forEach((producto)=>{
+       const artDiv = document.createElement('div') 
+        artDiv.className='card-body'
+        artDiv.innerHTML=`
+        <img class="imgDetalle" src=${producto.imagen} alt="${producto.descripcion}" cod="${producto.cod_articulo}">
+            <h4 class="card-title">${producto.nombre}</h4>
+            <p class="card-text2">U$s ${producto.precio}</p>
+            <p class="card-text2"></p>
+        <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
+        
+        
+      </div>
+        `
+
+        listadoProductos.append(artDiv)
+        
+    })
+       
+    agregarListennersBtns()
+    agregarListennerImagen()
+  
+       
+
+
+
+}
+
 
 
 
@@ -140,7 +201,7 @@ const renderizararticuloDetalle=(artRecibido,idRecibido)=>{
 
     const renderizarArticulos= (e) => {
     const idSeleccionado = e.target.getAttribute('codigo')
-
+    
     const artiSeleccionado  =datos.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
         
         if(!ExisteArtenCarro(artiSeleccionado))
@@ -468,9 +529,9 @@ toastCarrito=()=>{
 
 
 function redireccion(e){
-  
+   
     const idSeleccionado = e.target.getAttribute('cod')
-     console.log(idSeleccionado)
+    
     let url= "https://demo4551182.mockable.io/catalogo"
      fetch(url)
      .then(response=>response.json())
@@ -483,10 +544,10 @@ function redireccion(e){
          
             let arrayProductos = data[key]; 
             
-           console.log(arrayProductos)
+           
            
            let artEncontrado = arrayProductos.find(auxiliar => auxiliar.cod_articulo === idSeleccionado);
-           console.log(artEncontrado)
+         
 
            const productoDetalle=document.querySelector('#ContenedorGr')
 
@@ -494,35 +555,64 @@ function redireccion(e){
            productoDetalle.innerHTML=""
            artDetalle.className='card-body'
            artDetalle.innerHTML=`
-           <img src="${artEncontrado.imagen}" alt="">
-           <div class="flex-itemDetalles">
-               <div class="flex-itemTitulo">
-                   <div id="productoNombreComponenteId" class="productoNombreComponente">
-                                     
-                       <div>${artEncontrado.nombre}</div>
-                      
-                   </div>
-               </div>
-               <div class="contenedorPrecDet">
-                       <div class="flex-itemPrecio">
-                           <div id="productoPrecioComponenteId" class="productoPrecioComponente">
-                               <div id="boxPrecio"> U$S ${artEncontrado.precio}</div>
-                               <div id="boxCodigo">codigo:${artEncontrado.cod_articulo}</div>
-                               <button id="btnCarro" type="button" class="btn btn-primary">AGREGAR AL CARRITO</button>
-                           </div>
+            <div class="container" >
+
+            <div class="row">
+                <div id="bloqueCat" class="col-xs-6">
+                    <div class="row">
+                        <div id="bloqueImg" class="col-xs-6">
+                            <img src="${artEncontrado.imagen}" alt="">
+                        </div>
                            
-                       </div>
-                       <div class="flex-itemDetalle">
-                           <div id="productoDetalleDesc" class="productoDescripcion">
-                               
-                                   <hr class="lineaH">
-                                   <p class="parrafoDetalle"> ${artEncontrado.descripcion}</p>
-                               
-       
-                           </div>
-                       </div>
-               </div>    
-       
+                        <div id="bloqueDetalle" class="col-xs-6">
+                            <div class="row">
+                                <div id="productoNombre" class="hidden-xs col-sm-6">
+                                    <div id="productoNombreComponenteId" class="productoNombreComponente">
+                                      
+                                             <div>${artEncontrado.nombre}</div>
+                                             <hr class="lineaH">
+                                             <div id="boxColor" >Color: ${artEncontrado.color}</div>
+                                             <div id="boxCat" >Categoria: ${artEncontrado.categoria}</div>
+                                             
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="productoPrecio" class="hidden-xs col-sm-6">
+                                    <div id="productoPrecioComponenteId" class="productoPrecioComponente">
+                                        <div id="boxPrecio"> U$S ${artEncontrado.precio}</div>
+                                        <div id="boxCodigo">codigo: ${artEncontrado.cod_articulo}</div>
+                                        <button id="btnCarro" type="button" class="btn btn-primary"> Agregar al Carrito</button>
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div id="productoDetalle" class="hidden-xs col-sm-6">
+                                    <div id="productoDetalleDesc" class="productoDescripcion">
+                                        <div>
+                                            <hr class="lineaH">
+                                            <p class="parrafoDetalle"> ${artEncontrado.descripcion}</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+
+        </div>
+
+
+
+    </div>
+
+
                `
                
                productoDetalle.append(artDetalle)
@@ -549,7 +639,7 @@ function redireccion(e){
 
 //EventListeners    
 //---------------------------------------------------------------------------------------------------------
-
+searchButton.addEventListener('click',busquedaArticulos)
 
 
 //Ejecuciones   
@@ -568,8 +658,15 @@ const cargarCatalogo = async ()=>{
     Object.keys(datos).forEach(key => {
          
         let nuevoArray = datos[key]; 
+
+       console.log(nuevoArray)
+        
+       localStorage.setItem('catalogo', JSON.stringify(nuevoArray));
         
         renderizarListProductos(nuevoArray)
+
+       
+      
        
        
       });
@@ -589,9 +686,44 @@ cargarCatalogo()
 
 
 
+const todosMisArticulos = async ()=>{
+    try{
+   const respuesta=await fetch("https://demo4551182.mockable.io/catalogo")
+   
+   if(respuesta.status=== 200){
+    const datos =await respuesta.json();
+
+    //convierto mi objerto en un array
+    Object.keys(datos).forEach(key => {
+         
+        let nuevoArray = datos[key]; 
+        
+         catalogo=nuevoArray
+
+         console.log(catalogo)
+       
+      
+       
+       
+      });
 
 
-    
+   
+   }
+ 
+    }
+    catch(error)
+    {
+        console.log(error)
+    }
+}
+
+
+
+
+
+
+
 
    
 

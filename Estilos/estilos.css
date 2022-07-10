@@ -10,25 +10,30 @@
     
 }
 
+#conGridDetalle{
+    display: grid;
+    grid-template-columns: repeat(2,calc(50% - 45px));
+    grid-column-gap: 100px;
+    align-items: flex-start;
+}
 
 
 .navbar-brand img{
     width: 50px;
-    height: 55px;
+    height: 56px;
     
 }
 
 #boxCodigo{
     font-size: 18px;
+    
 }
 
 #boxPrecio{
     font-size: 25   px;
 }
 
-#productoNombre{
-    padding: 0;
-}
+
 .containerGrid{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -43,6 +48,23 @@
     font-family:Arial, Helvetica, sans-serif;
     color:#4f4f50
 }
+
+#boxCat{
+    font-family:Arial, Helvetica, sans-serif;
+    color:#4f4f50;
+    font-size: 18px;
+}
+
+#boxColor{
+    font-family:Arial, Helvetica, sans-serif;
+    color:#4f4f50;
+    font-size: 18px;
+}
+
+
+
+
+
 
 .lineaH{
     height: 0px; 
@@ -912,8 +934,9 @@ grid-template-columns: repeat(5,1fr);
 }
      
 header{
-    background-color: black;
-    padding-top: 25px;
+    background-color: rgb(248, 245, 245);
+    padding:0;
+    margin:0;
 }
 .contenedor {
     background-color: black;
