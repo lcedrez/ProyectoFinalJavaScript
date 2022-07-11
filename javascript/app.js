@@ -25,6 +25,7 @@ const articuloDetallado=document.querySelector('#ContenedorGr')
 const subTotal=document.querySelector('#spanTotal')
 const cantidades=document.querySelectorAll('#cantidad')
 const totalItems=document.querySelector('#cart-items-qty')
+const itemsCarrito=document.querySelector('#cantidadItem')
 
 
 //Barra de Busqueda
@@ -44,7 +45,7 @@ const busquedaArticulos=(e)=>{
     
     const busqueda=searchBar.value
     let expresion = new RegExp(`${busqueda}.*`, "i");
-    let result = catalog.filter(catalog => expresion.test(catalog.nombre));
+    let result = catalog.filter(catalog => expresion.test(catalog.nombre)||expresion.test(catalog.cod_articulo)||expresion.test(catalog.categoria) );
 
     
               
@@ -119,7 +120,7 @@ const renderizarArtEncontrado=(datos)=>{
        
     agregarListennersBtns()
     agregarListennerImagen()
-  
+
        
 
 
@@ -201,8 +202,10 @@ const renderizararticuloDetalle=(artRecibido,idRecibido)=>{
 
     const renderizarArticulos= (e) => {
     const idSeleccionado = e.target.getAttribute('codigo')
+    let  catalogo = JSON.parse(localStorage.getItem('catalogo')) ||  []
+
     
-    const artiSeleccionado  =datos.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
+    const artiSeleccionado  =catalogo.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
         
         if(!ExisteArtenCarro(artiSeleccionado))
         {
@@ -279,6 +282,8 @@ const ActualizaItems=()=>{
     const items = carrito.map(item => item.cantidad).reduce((prev, curr) => prev + curr, 0);
   
     document.getElementById('cart-items-qty').textContent=items
+    document.getElementById('cantidadItem').textContent=items
+    
     
 
 }
@@ -464,6 +469,7 @@ const EliminarDeCarrito=(e)=>{
     localStorage.setItem('claveCarro', JSON.stringify(carrito)) 
     //actualizo cantidad de Items
     ActualizaItems()
+   
     imprimirCarro()
 
 
@@ -700,7 +706,6 @@ const todosMisArticulos = async ()=>{
         
          catalogo=nuevoArray
 
-         console.log(catalogo)
        
       
        

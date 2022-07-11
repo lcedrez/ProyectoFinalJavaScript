@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/30ad0d4992.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Estilos/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
@@ -55,23 +57,53 @@
                         
                         
                         </ul>
-                        <form class="d-flex">
-                        <a class="navbar2" href="index.html"><img src="Imagenes/E-Commerce/Carrook.png" alt=""></a>
-                        
-                        </form>
+                       
                     </div>
                     </div>
                 </nav>
+                <div class="menuBusqueda">
+                    <div class="searchBox">
+                        <input type="text" name="searchBar" id="searchBar" placeholder="Buscar por nombre,código o categoria" >
+                        <button id="searchButton" class="btn btn-primary" ><i class="fa fa-search"></i></button>
+                     </div>
+                </div>
             </div>
     </header>
-    <div class="menu">
-        <div class="searchBox">
-            <input type="text" name="searchBar" id="searchBar">
-            <button id="searchButton" class="searchButton" title="Buscar">&#128270;</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+
+    
+    <section>
+        <div class="barraPedidosCarrito">
+            <div class="pedidos">
+                <div class="iconoCarrito">
+                    <div class="textCarrito">
+                        <span>Pedido en curso</span>
+                        <h3>U$S <span id="spanTotal">0.00</span></h3>
+                        
+                    </div>
+                  
+                    <div class="carritoIcono">
+                      <label class="cantItem" id="cantidadItem">0</label>
+                      <i class="fa-solid fa-cart-shopping"></i>
+                       
+                    </div>
+                   
+                </div>
+            </div>
+    
         </div>
-    </div>
+      </section>
 
 
+  
     <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -93,10 +125,15 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+
+     
+
+
       <div>
         <h1 class="tituloOutlet">SHOP THE GET BACK & LET IT BE COLLECTIONS</h1>
       </div>
 
+      
 
 
 
@@ -112,9 +149,7 @@
        
         </div>  
         
-
-       
-       
+      
 
 
 
@@ -183,7 +218,7 @@
                     </div>
                     <div class="box">
                         <h2>SOBRE NOSOTROS</h2>
-                        <p>Somos un grupo de personsa que decidimos dedicar esta Web como tributo a The Beatles por su innegable aporte musical y cultural que hicieron al mundo.</p>
+                        <p>Somos un grupo de personas que decidimos dedicar esta Web como tributo a The Beatles por su innegable aporte musical y cultural que hicieron al mundo.</p>
                         
                     </div>
                     <div class="box">
@@ -208,6 +243,10 @@
     <script src="javascript/claseUsuario.js"></script>
     <script src="javascript/datos.js"></script>
     <script src="javascript/app.js"></script>
+   
+    
+    
+
 
 </body>
 </html>

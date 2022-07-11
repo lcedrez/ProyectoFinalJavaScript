@@ -17,6 +17,39 @@
     align-items: flex-start;
 }
 
+.menuBusqueda{
+    width:100%;
+    padding: 20px;
+   
+    
+}
+.barraPedidosCarrito{
+    background-color:rgb(243, 239, 239);
+}
+
+#searchBar{
+    margin-left: 10%;
+    
+    padding:10px;
+    border-radius: 8px;
+    height: 50px;
+    width: 1000px;
+   
+}
+.icon{
+    width: 50px;
+    height: 50px;
+    background: #2b303b;
+    border: none;
+    font-size: 13pt;
+    
+    color: #fff;
+   
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
 
 .navbar-brand img{
     width: 50px;
@@ -515,7 +548,55 @@ flex-direction: row;
     color:#4f4f50;
     
 } 
+
+.iconoCarrito{
+    display: flex;
+    padding: 10px;
+    font-size: 35px;
+    flex-direction: row-reverse;
+    padding-right: 160px;
+
+}
   
+.textCarrito{
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.carritoIcono{
+   display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: flex-start;
+    align-items: flex-end;
+   
+}
+.cantItem{
+ font-size: 20px;
+
+    
+}
+
+.itemContainer{
+   
+    width: 25px;
+    height: 25px;
+   
+    border-radius: 35%;
+
+    
+}
+
+.carritoIcono{
+    padding-top: 12px;
+    padding-right: 20px;
+}
 
 #bloqueImg img{
     width:500px;
@@ -640,9 +721,12 @@ body{
 
 header{
     
+    width:100%;
+    background-color: #409647c2;
+    padding: 20px;
+    position: fixed;
+    z-index: 1000;
   
-   position:relative;
-
 }
 
 
@@ -2380,6 +2464,7 @@ body {
     flex-wrap: nowrap;
     flex-direction: row-reverse;
 }
+
 
 
 
