@@ -26,6 +26,7 @@ const subTotal=document.querySelector('#spanTotal')
 const cantidades=document.querySelectorAll('#cantidad')
 const totalItems=document.querySelector('#cart-items-qty')
 const itemsCarrito=document.querySelector('#cantidadItem')
+const clickCarrito=document.querySelector('#carritoSearch')
 
 
 //Barra de Busqueda
@@ -37,6 +38,15 @@ const searchButton=document.querySelector('#searchButton')
 
 //Funciones
 //---------------------------------------------------------------------------------------------------------
+
+const paginaCarrito=()=>{
+    console.log("llega")
+    window.location.href = "Paginas/carrito.html";
+    recuperarCarrito()
+    ActualizaItems()
+    imprimirCarro()
+
+}
 
 const busquedaArticulos=(e)=>{
 
@@ -212,9 +222,10 @@ const renderizararticuloDetalle=(artRecibido,idRecibido)=>{
             carrito.push(artiSeleccionado)
            
             ActualizarTotal(artiSeleccionado.precio)
-            ActualizaItems()
+           
             toastCarrito()
-            imprimirCarro()
+            AlertaAgregaCarrito(artiSeleccionado)
+            
             
         }
         /*
@@ -339,7 +350,7 @@ const recuperarCarrito=()=>{
        
     carrito = JSON.parse(localStorage.getItem('claveCarro')) ||  []
     
-    imprimirCarro()
+    
 
 }
 
@@ -369,7 +380,7 @@ const imprimirCarro=()=>{
                 
                     <div class="contTodoCarro">
                             <div class="conedorDeItems">
-                                <div class="itemImagen"> <img src=${producto.imagen} alt="" class="imgCarrrito"></div>
+                                <div class="itemImagen"> <img src=../${producto.imagen} alt="" class="imgCarrrito"></div>
                                 <div class="itemsGral">
                                         <h2 class="item_name">
                                         <a href="">
@@ -502,24 +513,54 @@ const ActualizarTotalMas=(precio,cantidadRecibida)=>{
     }
 
 
-AlertaDescuentos=()=>{
-  
+
+
+AlertaAgregaCarrito=(articuloRecibido)=>{
     Swal.fire({
-        title: '15 % OFF!',
-        text: 'En todas las prendas Outlet',
-        textColor: '#F12E05',
-        imageUrl: 'Imagenes/E-Commerce/Outlet.jpg',
-        imageWidth: 500,
-        imageHeight: 300,
-        imageAlt: 'Outlet',
-        confirmButton: false,
-        showConfirmButton:false,
-        allowEnterKey:true, 
-        allowOutsideClick:true,
+        html: `
         
-        })
+        <div class="contenedorAlerta">
+        
+        <h4 class="card-title">El articulo:<span class="spanAlertaNombre">${articuloRecibido.nombre}</span> fue agregado al carrito</h4>
+        
+        <h5 class="card-title">Codigo:  <span class="spanAlertaCarrito">${articuloRecibido.cod_articulo}</span></h5>
+        </div>
+        <br>
+        <br>
+        <div class="btnAlerta">
+        <button  type="button" class="btn btn-primary" href="#"> SEGUIR COMPRANDO</button>
+        <button  type="button" class="btn btn-primary"> IR AL CARRITO</button>
+        </div>
+           
+       
+        `,
+        showConfirmButton: false,
+        height:100,
+        width: 700,
+        imageWidth: 180,
+        imageHeight: 180,
+       
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      })
 }
 
+/*
+AlertaAgregaCarrito=(articuloRecibido)=>{
+    console.log(articuloRecibido)
+    Swal.fire({
+        title: `El articulo:${articuloRecibido.nombre} fue agregado al carrito`,
+        imageUrl: `${articuloRecibido.imagen}`,
+        imageWidth: 200,
+        imageHeight: 200,
+        imageAlt: `${articuloRecibido.imageAlt}`,
+      })
+}
+*/
 
 toastCarrito=()=>{
     Toastify({
@@ -646,6 +687,7 @@ function redireccion(e){
 //EventListeners    
 //---------------------------------------------------------------------------------------------------------
 searchButton.addEventListener('click',busquedaArticulos)
+clickCarrito.addEventListener('click',paginaCarrito)
 
 
 //Ejecuciones   
@@ -734,7 +776,7 @@ const todosMisArticulos = async ()=>{
 
 
 
-localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() ||  AlertaDescuentos() ||  ActualizaItems() 
+localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() 
         
 
   
