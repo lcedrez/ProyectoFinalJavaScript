@@ -20,11 +20,21 @@
 .menuBusqueda{
     width:100%;
     padding: 20px;
+  
    
     
 }
 .barraPedidosCarrito{
     background-color:rgb(243, 239, 239);
+}
+
+#carritoSearch{
+   
+    font-size: 28px;
+}
+
+.searchFlex{
+    display: flex;
 }
 
 #searchBar{
@@ -577,10 +587,20 @@ flex-direction: row;
     align-items: flex-end;
    
 }
-.cantItem{
+#cantidadItem{
  font-size: 20px;
+ padding-left: 130px;
+ color: red;
+ border-radius: 5px 30px 45px 60px;
 
     
+}
+::placeholder{
+    font-size: 20px;
+}
+#spanTotal{
+    font-size: 23px;
+    padding-right: 90px;
 }
 
 .itemContainer{
