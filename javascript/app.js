@@ -220,10 +220,10 @@ const renderizararticuloDetalle=(artRecibido,idRecibido)=>{
         if(!ExisteArtenCarro(artiSeleccionado))
         {
             carrito.push(artiSeleccionado)
-           
+            localStorage.setItem('claveCarro',JSON.stringify(carrito))
             ActualizarTotal(artiSeleccionado.precio)
            
-            toastCarrito()
+            
             AlertaAgregaCarrito(artiSeleccionado)
             
             
@@ -350,7 +350,7 @@ const recuperarCarrito=()=>{
        
     carrito = JSON.parse(localStorage.getItem('claveCarro')) ||  []
     
-    
+   
 
 }
 

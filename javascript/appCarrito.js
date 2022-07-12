@@ -1,5 +1,7 @@
 
 let contador=0 
+let carrito=[]
+
 const listadoCarrito=document.querySelector('#contenedorCarro')
 //Declaraciones
 //---------------------------------------------------------------------------------------------------
@@ -189,7 +191,7 @@ const ActualizaTotalCarrito =(e)=>{
 const recuperarCarrito=()=>{
        
     carrito = JSON.parse(localStorage.getItem('claveCarro')) ||  []
-    
+    imprimirCarro()
     
 
 }
@@ -202,7 +204,6 @@ const recuperarTotal=()=>{
 }
 
 
-
+console.log(localStorage.getItem('claveCarro'))
 localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() 
 
-imprimirCarro()
