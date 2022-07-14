@@ -126,9 +126,11 @@ const EliminarDeCarrito=(e)=>{
     let indice = carrito.indexOf(artiSeleccionado)//obtengo Indice
     carrito.splice(indice,1)
     localStorage.setItem('claveCarro', JSON.stringify(carrito)) 
+    const suma =carrito.map(item => item.subTotal).reduce((prev, curr) => prev + curr, 0);
+    document.getElementById('spanTotal').textContent=suma
+    document.getElementById('spanTotal2').textContent=suma
     //actualizo cantidad de Items
     ActualizaItems()
-    ActualizaTotalCarrito()
     imprimirCarro()
 
 
