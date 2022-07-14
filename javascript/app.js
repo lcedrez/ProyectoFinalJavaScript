@@ -223,7 +223,7 @@ const renderizararticuloDetalle=(artRecibido,idRecibido)=>{
             localStorage.setItem('claveCarro',JSON.stringify(carrito))
             ActualizarTotal(artiSeleccionado.precio)
            
-            
+            ActualizaItems()
             AlertaAgregaCarrito(artiSeleccionado)
             
             

@@ -129,6 +129,7 @@ const EliminarDeCarrito=(e)=>{
     const suma =carrito.map(item => item.subTotal).reduce((prev, curr) => prev + curr, 0);
     document.getElementById('spanTotal').textContent=suma
     document.getElementById('spanTotal2').textContent=suma
+    localStorage.setItem('TotalFinal',suma)  
     //actualizo cantidad de Items
     ActualizaItems()
     imprimirCarro()
