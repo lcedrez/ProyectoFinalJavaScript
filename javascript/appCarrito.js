@@ -56,7 +56,7 @@ const imprimirCarro=()=>{
 
                                     <div class="eliminar">
                                         <div class="papeleraBtn" codigo="${producto.cod_articulo}"> <img src="../Imagenes/E-Commerce/papelera.png" alt="" class="imgPapelera" codigo="${producto.cod_articulo}"></div>
-                                        
+                                     
                                     </div>
                                 </div>
 
@@ -128,7 +128,7 @@ const EliminarDeCarrito=(e)=>{
     localStorage.setItem('claveCarro', JSON.stringify(carrito)) 
     //actualizo cantidad de Items
     ActualizaItems()
-   
+    ActualizaTotalCarrito()
     imprimirCarro()
 
 
@@ -159,11 +159,14 @@ const ActualizaTotalCarrito =(e)=>{
     const suma =carrito.map(item => item.subTotal).reduce((prev, curr) => prev + curr, 0);
     
     document.getElementById('spanTotal').textContent=suma
+    document.getElementById('spanTotal2').textContent=suma
+  
     
     totalFinal=suma
     
     localStorage.setItem('ClaveCarro',carrito)
     localStorage.setItem('TotalFinal',totalFinal)
+
    
     ActualizaItems()
     
@@ -205,5 +208,4 @@ const recuperarTotal=()=>{
 
 
 console.log(localStorage.getItem('claveCarro'))
-localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() 
-
+localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() || ActualizaItems()

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/30ad0d4992.js" crossorigin="anonymous"></script>   
     <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Estilos/bootstrap.min.css">
     <script src="../js/bootstrap.min.js"></script>
@@ -32,13 +34,13 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../Paginas/QuienesSomos.html">Coleccion Día de la Madre</a>
+                            <a class="nav-link" href="../Paginas/Articulos.html">Coleccion Día de la Madre</a>  
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../Paginas/Integrantes.html">Beatles Outlet</a>
+                            <a class="nav-link" href="../Paginas/BeatlesOutlet.html">Beatles Outlet</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../Paginas/Tienda.html">Media</a>
@@ -52,26 +54,30 @@
                         <li class="nav-item">
                             <a class="nav-link" href="../Paginas/Contacto.html">Contacto</a>
                         </li>
-                        
+                        <li>
+                            
+                        </li>
                         
                         </ul>
-                        <form class="d-flex">
-                        <a class="navbar2" href="index.html"><img src="../Imagenes/E-Commerce/Carrook.png" alt=""></a>
+                        <label class="cantItem" id="cantidadItem">0</label>
+                        <a href="Paginas/carrito.html"><i id="carritoSearch"class="fa-solid fa-cart-shopping"></i></a>
                         
-                        </form>
+                         <label for="">U$S</label>  <span id="spanTotal">0.00</span>
                     </div>
                     </div>
                 </nav>
-            </div>
     </header>
 
 
 
-    <div id="ContenedorGr" class="containerGrid">
-       
-    
-    
-    </div>  
+        <div id="ContenedorGr" class="containerGrid">
+           
+
+            
+
+    </div>
+        
+  
 
 
 
@@ -199,7 +205,7 @@
     <script src="../javascript/claseArticulo.js"></script>
     <script src="../javascript/claseUsuario.js"></script>
     <script src="../javascript/datos.js"></script>
-    <script src="../javascript/app.js"></script>
+    <script src="../javascript/appDetalleArt.js"></script>
 
    
 </body>
