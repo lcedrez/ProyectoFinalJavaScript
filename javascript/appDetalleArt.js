@@ -1,5 +1,6 @@
 let carrito=[]
 let cantidadE=0
+
 //Declaraciones
 //---------------------------------------------------------------------------------------------------
 const clickCarrito=document.querySelector('#carritoSearch')
@@ -22,7 +23,7 @@ const agregarArticuloCarrito= (e) => {
             carrito.push(artiSeleccionado)
             console.log(carrito)
             localStorage.setItem('claveCarro',JSON.stringify(carrito))
-            ActualizarTotal(artiSeleccionado.precio)
+            ActualizarTotal(artiSeleccionado)
             ActualizaTotalCarrito(artiSeleccionado)
             ActualizaItems()
             AlertaAgregaCarrito(artiSeleccionado)
@@ -373,9 +374,12 @@ const ActualizaItems=()=>{
 }
 
 const ActualizarTotal=(valorRecibido)=>{
-    totalFinal+=parseInt(valorRecibido) 
+    totalFinal+=parseInt(valorRecibido.precio*valorRecibido.cantidad) 
+    
     document.getElementById('spanTotal').textContent=totalFinal 
-    localStorage.setItem('TotalFinal',totalFinal)  
+    localStorage.setItem('TotalFinal',totalFinal)
+
+    document.getElementById('spanTotal').textContent=totalFinal
     
     
     }
@@ -401,12 +405,11 @@ const ActualizarTotal=(valorRecibido)=>{
         //sumo el subtotal del Array para actualizar el Resumen del pedido
         const suma =carrito.map(item => item.subTotal).reduce((prev, curr) => prev + curr, 0);
         
-        document.getElementById('spanTotal').textContent=suma
         
         totalFinal=suma
         
         localStorage.setItem('ClaveCarro',carrito)
-        localStorage.setItem('TotalFinal',totalFinal)
+        
        
         ActualizaItems()
         
