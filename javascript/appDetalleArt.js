@@ -20,7 +20,12 @@ const agregarArticuloCarrito= (e) => {
         
     artiSeleccionado.cantidad=parseInt(cantidadE) 
     artiSeleccionado.size=size 
-    console.log(artiSeleccionado)
+    if(artiSeleccionado.categoria==="Outfit" && artiSeleccionado.size===0)
+    {
+        alert("Debe Elegir una Talla")
+    }
+    else
+    {
         if(!ExisteArtenCarro(artiSeleccionado))
         {
             carrito.push(artiSeleccionado)
@@ -34,7 +39,10 @@ const agregarArticuloCarrito= (e) => {
             
             
         }
-    
+        else{
+            alert("Ya Existe!!")
+        }
+    }
 }   
 
 
@@ -318,7 +326,7 @@ const paginaCarrito=()=>{
 }
 
 const ExisteArtenCarro=(artrecibido)=>{
-    const variable = carrito.some((aux)=>aux.cod_articulo==artrecibido.cod_articulo) 
+    const variable = carrito.some((aux)=>aux.cod_articulo==artrecibido.cod_articulo && aux.size===artrecibido.size) 
     return variable
 }
 
@@ -447,12 +455,6 @@ const ActualizarTotal=(valorRecibido)=>{
 
 imprimirDetalle()
 
-if (localStorage.getItem('claveCarro')!== null)
-{
-console.log("llega aca abajo")
-    recuperarCarrito()
-    recuperarTotal()
-    ActualizaItems()
-}
 
-//localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() || ActualizaItems()
+
+localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() || ActualizaItems()
