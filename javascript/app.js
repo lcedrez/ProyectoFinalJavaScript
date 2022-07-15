@@ -149,58 +149,7 @@ const renderizarArtEncontrado=(datos)=>{
 
 
 
-/*
 
-const renderizararticuloDetalle=(artRecibido,idRecibido)=>{
-    console.log("idRecibido" + "" +idRecibido)
-
-    let artEncontrado = artRecibido.find(auxiliar => auxiliar.cod_articulo === idRecibido);
-    
-        console.log(artEncontrado)
-        const artDivDet = document.createElement('div')
-        
-        artDivDet.className='flex-item'
-        artDivDet.innerHTML=`
-        <img src="${artEncontrado.imagen}" alt="">
-            <div class="flex-itemDetalles">
-                <div class="flex-itemTitulo">
-                    <div id="productoNombreComponenteId" class="productoNombreComponente">
-                                      
-                        <div>${artEncontrado.nombre}</div>
-                       
-                    </div>
-                </div>
-                <div class="contenedorPrecDet">
-                        <div class="flex-itemPrecio">
-                            <div id="productoPrecioComponenteId" class="productoPrecioComponente">
-                                <div id="boxPrecio"> ${artEncontrado.precio}</div>
-                                <div id="boxCodigo">codigo:${artEncontrado.codigo}</div>
-                                <button id="btnCarro" type="button" class="btn btn-primary">AGREGAR AL CARRITO</button>
-                            </div>
-                            
-                        </div>
-                        <div class="flex-itemDetalle">
-                            <div id="productoDetalleDesc" class="productoDescripcion">
-                                
-                                    <hr class="lineaH">
-                                    <p class="parrafoDetalle"> ${artEncontrado.descripcion}</p>
-                                
-
-                            </div>
-                        </div>
-                </div>    
-        `
-
-        articuloDetallado.append(artDivDet)
-        
-        agregarListennDetalleArt()
-        
-
-
-
-}
-
-*/
 
 
 

@@ -23,52 +23,51 @@ const imprimirCarro=()=>{
                         <div class="itemImagen"> <img src=../${producto.imagen} alt="" class="imgCarrrito"></div>
                         <div class="itemsGral">
                                 <h2 class="item_name">
-                                <a href="">
+
                                 ${producto.descripcion} </a>
                                 </h2>
                                 <div class="itemDescripcion">
                                     <ul class="itemListado">
                                         <li>
-                                        Codigo : <em>${producto.cod_articulo}</em>
+                                         <em class="textDescr">Codigo : ${producto.cod_articulo}</em>
                                         </li>
                                         <li>
-                                        Categoria : <em>${producto.categoria}</em>
+                                         <em class="textDescr">Categoria : ${producto.categoria}</em>
                                         </li>
                                         <li>
-                                        Color :
-                                        <em>${producto.color}</em>
+                                        
+                                        <em class="textDescr">Color : ${producto.color}</em>
                                         </li>
                                         </ul>
                                 </div>
                          
 
+                                <div class="itemDetalle">
+                                    <label for="cant">Cant:</label>
+                                    
+                                    <select id="${contador}" class="cantCarr" precio="${producto.precio}" codigo="${producto.cod_articulo}">
+                                        <option hidden value="default">${producto.cantidad}</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
 
-                                <label for="cant">Cant:</label>
-                                
-                                <select id="${contador}" class="cantCarr" precio="${producto.precio}" codigo="${producto.cod_articulo}">
-                                <option hidden value="default">${producto.cantidad}</option>
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                                </select>
-
-                                    <div class="eliminar">
-                                        <div class="papeleraBtn" codigo="${producto.cod_articulo}"> <img src="../Imagenes/E-Commerce/papelera.png" alt="" class="imgPapelera" codigo="${producto.cod_articulo}"></div>
-                                     
-                                    </div>
+                                        <div class="eliminar">
+                                            <div class="papeleraBtn" codigo="${producto.cod_articulo}"> <img src="../Imagenes/E-Commerce/papelera.png" alt="Eliminar" class="imgPapelera" codigo="${producto.cod_articulo}"></div>
+                                        
+                                        </div>
                                 </div>
 
                                     <div class="precio">
                                         <span class="carritoPrecio">
                                             <span id="precio${contador}" class="precioDolar">
                                            U$S ${producto.precio}</span>
-
-
-                                        
                                         </span>
                                     </div>
+                                    <br>
+                                    <br>
                         </div>
 
 
@@ -141,7 +140,6 @@ const ActualizaTotalCarrito =(e)=>{
     //obtengo los datos del DOM para actualizar Sub Total y carrito
 
     const precioArt =e.target.getAttribute('precio')
-    console.log(precioArt)
     const id=e.target.getAttribute('id')
     const codigo = e.target.getAttribute('codigo')
     const cantidadSeleccionada =parseInt(document.getElementById(id).value)
@@ -207,8 +205,16 @@ const recuperarTotal=()=>{
    totalFinal = JSON.parse(localStorage.getItem('TotalFinal')) 
     
     document.getElementById('spanTotal').textContent=totalFinal
+    document.getElementById('spanTotal2').textContent=totalFinal
 }
 
 
-console.log(localStorage.getItem('claveCarro'))
+
+
+
+
+
+
+
+
 localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() || ActualizaItems()

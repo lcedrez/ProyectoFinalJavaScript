@@ -1,12 +1,12 @@
-let carrito=[]
+
 //Declaraciones
 //---------------------------------------------------------------------------------------------------
 const clickCarrito=document.querySelector('#carritoSearch')
 
-const productoDetalle=document.querySelector('#ContenedorGr')
+
 
 const agregarArticuloCarrito= (e) => {
-    
+    console.log("llega al click")
     const idSeleccionado = e.target.getAttribute('codigo')
     let  catalogo = JSON.parse(localStorage.getItem('catalogo')) ||  []
 
@@ -28,17 +28,24 @@ const agregarArticuloCarrito= (e) => {
 }   
 
 
-const agregaBtnDetalle =()=>{
-    const articuloBoton=document.querySelectorAll('.btn')
-    articuloBoton.forEach((boton)=>{
-        
-    boton.addEventListener('click',agregarArticuloCarrito)
-    })
-}
 
+const productoDetalle=document.querySelector('#ContenedorGr')
       
 
 
+
+const agregarListennerImagen =()=>{
+    // const idSeleccionado = e.target.getAttribute('cod')
+    
+     const clickImagen=document.querySelectorAll('.imgDetalle')
+     clickImagen.forEach((img)=>{
+         
+     img.addEventListener('click',imprimirDetalle)
+     })
+    
+ 
+ 
+ }
 
 
 
@@ -58,7 +65,7 @@ const agregaBtnDetalle =()=>{
      .then(data=>mostrarData(data))
      .catch(error=>console.log(error))
      const mostrarData=(data)=>{
-        
+        console.log(data)
 
         Object.keys(data).forEach(key => {
          
@@ -68,7 +75,7 @@ const agregaBtnDetalle =()=>{
            
            let artEncontrado = arrayProductos.find(auxiliar => auxiliar.cod_articulo === idSeleccionado);
          
-           
+            console.log(artEncontrado.categoria)
            if(artEncontrado.categoria==="Outfit"){
             const artDetalle = document.createElement('div')
             productoDetalle.innerHTML=""
@@ -126,8 +133,7 @@ const agregaBtnDetalle =()=>{
                                      <div id="productoPrecioComponenteId" class="productoPrecioComponente">
                                          <div id="boxPrecio">U$S ${artEncontrado.precio}</div>
                                          <div id="boxCodigo">codigo: ${artEncontrado.cod_articulo}</div>
-                                         <button  codigo="${artEncontrado.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
-                                        
+                                         <button codigo="${artEncontrado.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
                                      </div>
                                      
                                  </div>
@@ -158,8 +164,7 @@ const agregaBtnDetalle =()=>{
                 `
                 
                 productoDetalle.append(artDetalle)
-                agregaBtnDetalle()
-     
+             
                
            }
            else
@@ -212,7 +217,6 @@ const agregaBtnDetalle =()=>{
                                          <div id="boxPrecio">U$S ${artEncontrado.precio}</div>
                                          <div id="boxCodigo">codigo: ${artEncontrado.cod_articulo}</div>
                                          <button codigo="${artEncontrado.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
-                                         
                                      </div>
                                      
                                  </div>
@@ -243,9 +247,7 @@ const agregaBtnDetalle =()=>{
                 `
                 
                 productoDetalle.append(artDetalle)
-                agregaBtnDetalle()
-                agregaBtnsCant()
-     
+               
 
            }
 
@@ -259,9 +261,13 @@ const agregaBtnDetalle =()=>{
 
      }
     
-    
+     
+     
        
 }
+
+
+
 
 
 
@@ -272,112 +278,36 @@ const paginaCarrito=()=>{
 
 }
 
-const ExisteArtenCarro=(artrecibido)=>{
-    const variable = carrito.some((aux)=>aux.cod_articulo==artrecibido.cod_articulo) 
-    return variable
-}
+
 
 
 clickCarrito.addEventListener('click',paginaCarrito)
 
 
-const recuperarCarrito=()=>{
-       
-    carrito = JSON.parse(localStorage.getItem('claveCarro')) ||  []
-    
-   
-
-}
-
-
-const agregaBtnsCant =()=>{
-
-    
-    const cantEleg=document.querySelectorAll('.cantCarr')
- 
-   
-    cantEleg.forEach((cant)=>{
-        cant.addEventListener('change',ActualizaTotalCarrito)
-        })
-       
-
-
-}
-
-
-
-
-const recuperarTotal=()=>{
-    
-   totalFinal = JSON.parse(localStorage.getItem('TotalFinal')) 
-    
-    document.getElementById('spanTotal').textContent=totalFinal
-}
-
-
-const ActualizaItems=()=>{
-
-
-    
-    const items = carrito.map(item => item.cantidad).reduce((prev, curr) => prev + curr, 0);
-    
-   
-    document.getElementById('cantidadItem').textContent=items
-    
-    
-}
-
-const ActualizarTotal=(valorRecibido)=>{
-    totalFinal+=parseInt(valorRecibido) 
-    document.getElementById('spanTotal').textContent=totalFinal 
-    localStorage.setItem('TotalFinal',totalFinal)  
-    
-    
-    }
-
-    const ActualizaTotalCarrito =(e)=>{
-        //obtengo los datos del DOM para actualizar Sub Total y carrito
-    
-        const precioArt =e.target.getAttribute('precio')
-        const id=e.target.getAttribute('id')
-        const codigo = e.target.getAttribute('codigo')
-        const cantidadSeleccionada =parseInt(document.getElementById(id).value)
-        
-        const artiSeleccionado =carrito.find((auxiliar)=> auxiliar.cod_articulo==codigo)
-        let indice = carrito.indexOf(artiSeleccionado)//obtengo Indice
-       
-    
-        let subTot=precioArt*cantidadSeleccionada
-        //le paso al array el nuevo dato de sub total
-        
-        carrito[indice].subTotal= subTot 
-        carrito[indice].cantidad=cantidadSeleccionada 
-    
-        
-        
-        //sumo el subtotal del Array para actualizar el Resumen del pedido
-        const suma =carrito.map(item => item.subTotal).reduce((prev, curr) => prev + curr, 0);
-        
-        document.getElementById('spanTotal').textContent=suma
-        
-        totalFinal=suma
-        
-        localStorage.setItem('ClaveCarro',carrito)
-        localStorage.setItem('TotalFinal',totalFinal)
-       
-        ActualizaItems()
-        
-    
-       
-    
-       
-      }
-    
-    
 
 
 
 imprimirDetalle()
 
 
-localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() || ActualizaItems()
+const agregarBtns =()=>{
+    // const idSeleccionado = e.target.getAttribute('cod')
+    
+     const clickBoton=document.querySelectorAll('.btn')
+
+         console.log(clickBoton)
+    clickBoton.addEventListener('click',agregarArticuloCarrito)
+    
+    
+ 
+ 
+ }
+
+ agregarBtns()   
+
+
+
+
+
+
+agregarListennerImagen()
