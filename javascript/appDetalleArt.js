@@ -1,4 +1,5 @@
 let carrito=[]
+let cantidadE=0
 //Declaraciones
 //---------------------------------------------------------------------------------------------------
 const clickCarrito=document.querySelector('#carritoSearch')
@@ -8,19 +9,24 @@ const productoDetalle=document.querySelector('#ContenedorGr')
 const agregarArticuloCarrito= (e) => {
     
     const idSeleccionado = e.target.getAttribute('codigo')
+  
     let  catalogo = JSON.parse(localStorage.getItem('catalogo')) ||  []
 
     
     const artiSeleccionado  =catalogo.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
         
+    artiSeleccionado.cantidad=parseInt(cantidadE) 
+    console.log(artiSeleccionado)
         if(!ExisteArtenCarro(artiSeleccionado))
         {
             carrito.push(artiSeleccionado)
+            console.log(carrito)
             localStorage.setItem('claveCarro',JSON.stringify(carrito))
             ActualizarTotal(artiSeleccionado.precio)
-           
+            ActualizaTotalCarrito(artiSeleccionado)
             ActualizaItems()
             AlertaAgregaCarrito(artiSeleccionado)
+          
             
             
         }
@@ -38,6 +44,39 @@ const agregaBtnDetalle =()=>{
 
       
 
+AlertaAgregaCarrito=(articuloRecibido)=>{
+    Swal.fire({
+        html: `
+        
+        <div class="contenedorAlerta">
+        
+        <h4 class="card-title">El articulo:<span class="spanAlertaNombre">${articuloRecibido.nombre}</span> fue agregado al carrito</h4>
+        
+        <h5 class="card-title">Codigo:  <span class="spanAlertaCarrito">${articuloRecibido.cod_articulo}</span></h5>
+        </div>
+        <br>
+        <br>
+        <div class="btnAlerta">
+        <button  type="button" class="btn btn-primary" href="#"> SEGUIR COMPRANDO</button>
+        <button  type="button" class="btn btn-primary"> IR AL CARRITO</button>
+        </div>
+           
+       
+        `,
+        showConfirmButton: false,
+        height:100,
+        width: 700,
+        imageWidth: 180,
+        imageHeight: 180,
+       
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      })
+}
 
 
 
@@ -100,8 +139,8 @@ const agregaBtnDetalle =()=>{
                                          
                                      </div>
                                      <br>
-                                     <select id="dropCant" class="cantCarrDet">
-                                         <option hidden value="default">1</option>
+                                     <select id="dropCant" class="cantCarrDet" precio="${artEncontrado.precio}" codigo="${artEncontrado.cod_articulo}">
+                                         <option hidden value="1">1</option>
                                            <option value="1">1</option>
                                            <option value="2">2</option>
                                            <option value="3">3</option>
@@ -159,6 +198,7 @@ const agregaBtnDetalle =()=>{
                 
                 productoDetalle.append(artDetalle)
                 agregaBtnDetalle()
+                agregaBtnsCant()
      
                
            }
@@ -186,7 +226,7 @@ const agregaBtnDetalle =()=>{
                                      </div>
                                      <br>
                                      <select id="dropCant" class="cantCarrDet">
-                                         <option hidden value="default">1</option>
+                                         <option hidden value="1">1</option>
                                            <option value="1">1</option>
                                            <option value="2">2</option>
                                            <option value="3">3</option>
@@ -241,7 +281,7 @@ const agregaBtnDetalle =()=>{
  
  
                 `
-                
+              
                 productoDetalle.append(artDetalle)
                 agregaBtnDetalle()
                 agregaBtnsCant()
@@ -293,17 +333,22 @@ const recuperarCarrito=()=>{
 const agregaBtnsCant =()=>{
 
     
-    const cantEleg=document.querySelectorAll('.cantCarr')
- 
+    const cantEleg=document.querySelectorAll('.cantCarrDet')
    
     cantEleg.forEach((cant)=>{
-        cant.addEventListener('change',ActualizaTotalCarrito)
+        cant.addEventListener('change',cantElegida)
         })
        
 
 
 }
 
+const cantElegida=()=>{
+    const cantidadSeleccionada =document.getElementById('dropCant').value
+    
+    cantidadE= cantidadSeleccionada
+
+}
 
 
 
@@ -335,23 +380,21 @@ const ActualizarTotal=(valorRecibido)=>{
     
     }
 
-    const ActualizaTotalCarrito =(e)=>{
-        //obtengo los datos del DOM para actualizar Sub Total y carrito
-    
-        const precioArt =e.target.getAttribute('precio')
-        const id=e.target.getAttribute('id')
-        const codigo = e.target.getAttribute('codigo')
-        const cantidadSeleccionada =parseInt(document.getElementById(id).value)
+    const ActualizaTotalCarrito =(artRecibido)=>{
         
-        const artiSeleccionado =carrito.find((auxiliar)=> auxiliar.cod_articulo==codigo)
-        let indice = carrito.indexOf(artiSeleccionado)//obtengo Indice
+       
+        //const codigo = e.target.getAttribute('codigo')
+        
+      
+        console.log(artRecibido)
+        let indice = carrito.indexOf(artRecibido)//obtengo Indice
        
     
-        let subTot=precioArt*cantidadSeleccionada
+        let subTot=artRecibido.precio*artRecibido.cantidad
         //le paso al array el nuevo dato de sub total
         
         carrito[indice].subTotal= subTot 
-        carrito[indice].cantidad=cantidadSeleccionada 
+        carrito[indice].cantidad=artRecibido.cantidad 
     
         
         

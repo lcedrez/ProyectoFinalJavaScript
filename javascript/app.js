@@ -253,7 +253,7 @@ const ActualizaTotalCarrito =(e)=>{
     //obtengo los datos del DOM para actualizar Sub Total y carrito
 
     const precioArt =e.target.getAttribute('precio')
-    console.log(precioArt)
+    
     const id=e.target.getAttribute('id')
     const codigo = e.target.getAttribute('codigo')
     const cantidadSeleccionada =parseInt(document.getElementById(id).value)
