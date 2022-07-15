@@ -1,5 +1,7 @@
 let carrito=[]
-let cantidadE=0
+let cantidadE=1
+let size=0
+
 
 //Declaraciones
 //---------------------------------------------------------------------------------------------------
@@ -17,11 +19,12 @@ const agregarArticuloCarrito= (e) => {
     const artiSeleccionado  =catalogo.find((auxiliar)=> auxiliar.cod_articulo==idSeleccionado)
         
     artiSeleccionado.cantidad=parseInt(cantidadE) 
+    artiSeleccionado.size=size 
     console.log(artiSeleccionado)
         if(!ExisteArtenCarro(artiSeleccionado))
         {
             carrito.push(artiSeleccionado)
-            console.log(carrito)
+            
             localStorage.setItem('claveCarro',JSON.stringify(carrito))
             ActualizarTotal(artiSeleccionado)
             ActualizaTotalCarrito(artiSeleccionado)
@@ -130,10 +133,10 @@ AlertaAgregaCarrito=(articuloRecibido)=>{
                                          <div>${artEncontrado.nombre}</div>
                                          <select id="dropDetalle" class="dropDet" >
                                              <option hidden value="default">Size</option>
-                                               <option value="1">Small</option>
-                                               <option value="2">medium</option>
-                                               <option value="3">Large</option>
-                                               <option value="4">X-Large</option>
+                                               <option value="Small">Small</option>
+                                               <option value="Medium">Medium</option>
+                                               <option value="Large">Large</option>
+                                               <option value="X-Large">X-Large</option>
                                                
                                          </select>
  
@@ -200,6 +203,7 @@ AlertaAgregaCarrito=(articuloRecibido)=>{
                 productoDetalle.append(artDetalle)
                 agregaBtnDetalle()
                 agregaBtnsCant()
+                agregaBtnsSize()
      
                
            }
@@ -335,19 +339,36 @@ const agregaBtnsCant =()=>{
 
     
     const cantEleg=document.querySelectorAll('.cantCarrDet')
-   
-    cantEleg.forEach((cant)=>{
-        cant.addEventListener('change',cantElegida)
+
+   cantEleg.forEach((cant)=>{
+      cant.addEventListener('change',cantElegida)
         })
        
+       
 
+}
 
+const agregaBtnsSize=()=>{
+    const cantSize=document.querySelectorAll('.dropDet')
+
+    cantSize.forEach((size)=>{
+       size.addEventListener('change',sizeElegido)
+         })
+        
 }
 
 const cantElegida=()=>{
     const cantidadSeleccionada =document.getElementById('dropCant').value
     
     cantidadE= cantidadSeleccionada
+    console.log(cantidadE)
+
+}
+
+const sizeElegido=()=>{
+    const sizeSeleccionado =document.getElementById('dropDetalle').value
+    
+    size= sizeSeleccionado
 
 }
 
@@ -374,8 +395,9 @@ const ActualizaItems=()=>{
 }
 
 const ActualizarTotal=(valorRecibido)=>{
+    console.log("llega al Total")
     totalFinal+=parseInt(valorRecibido.precio*valorRecibido.cantidad) 
-    
+ 
     document.getElementById('spanTotal').textContent=totalFinal 
     localStorage.setItem('TotalFinal',totalFinal)
 
@@ -407,7 +429,7 @@ const ActualizarTotal=(valorRecibido)=>{
         
         
         totalFinal=suma
-        
+        console.log(suma)
         localStorage.setItem('ClaveCarro',carrito)
         
        
@@ -425,5 +447,12 @@ const ActualizarTotal=(valorRecibido)=>{
 
 imprimirDetalle()
 
+if (localStorage.getItem('claveCarro')!== null)
+{
+console.log("llega aca abajo")
+    recuperarCarrito()
+    recuperarTotal()
+    ActualizaItems()
+}
 
-localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() || ActualizaItems()
+//localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() || ActualizaItems()
