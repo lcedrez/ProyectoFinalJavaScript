@@ -9,7 +9,7 @@ const renderizarListProductos=()=>{
     let  catalog = JSON.parse(localStorage.getItem('catalogo')) ||  []
     
     catalog.forEach((producto)=>{
-        if(producto.categoria==="Media"){
+        if(producto.categoria==="Toy"){
         
 
         
@@ -56,8 +56,28 @@ const agregarListennerImagen =()=>{
     window.location.href = "../Paginas/Articulos.html";
 
      }
+     const recuperarTotal=()=>{
+    
+        totalFinal = JSON.parse(localStorage.getItem('TotalFinal')) 
+         
+         document.getElementById('spanTotal').textContent=totalFinal
+     }
 
+     const ActualizaItems=()=>{
 
+        carrito = JSON.parse(localStorage.getItem('claveCarro')) ||  []
+    
+            
+                const items = carrito.map(item => item.cantidad).reduce((prev, curr) => prev + curr, 0);
+        
+                
+                document.getElementById('cantidadItem').textContent=items
+            
+        
+    }
+        
 
 
  renderizarListProductos()
+
+ localStorage.getItem('claveCarro')!== null &&  recuperarTotal() || ActualizaItems()

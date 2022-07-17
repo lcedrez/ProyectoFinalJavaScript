@@ -9,7 +9,7 @@ const renderizarListProductos=()=>{
     let  catalog = JSON.parse(localStorage.getItem('catalogo')) ||  []
     
     catalog.forEach((producto)=>{
-        if(producto.subCategoria==="Outlet"){
+        if(producto.categoria==="Outfit"){
         
 
         
@@ -56,7 +56,6 @@ const agregarListennerImagen =()=>{
     window.location.href = "../Paginas/Articulos.html";
 
      }
-
 
 
 
