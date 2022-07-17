@@ -627,7 +627,9 @@ flex-direction: row;
     width:500px;
 }
 
-
+.imgDetalle{
+    cursor: pointer;
+}
 
 aside:hover{
 
@@ -670,7 +672,7 @@ body{
 }
 
 .contenedorAlerta{
-    border: 3px solid #26b126;
+    border: 3px solid #234623;
     background-color: #ebe7d6;
 }
 

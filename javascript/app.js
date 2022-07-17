@@ -83,8 +83,8 @@ const renderizarListProductos=(datos)=>{
         <img class="imgDetalle" src=${producto.imagen} alt="${producto.descripcion}" cod="${producto.cod_articulo}">
             <h4 class="card-title">${producto.nombre}</h4>
             <p class="card-text2">U$s ${producto.precio}</p>
-            <p class="card-text2"></p>
-        <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
+           
+      
         
         
       </div>
@@ -96,11 +96,6 @@ const renderizarListProductos=(datos)=>{
         agregarListennersBtns()
         agregarListennerImagen()
       
-       
-       
-
-
-
 }
 
 
@@ -277,7 +272,7 @@ const ActualizaTotalCarrito =(e)=>{
     
     totalFinal=suma
     
-    localStorage.setItem('ClaveCarro',carrito)
+    localStorage.setItem('claveCarro',carrito)
     localStorage.setItem('TotalFinal',totalFinal)
    
     ActualizaItems()
@@ -636,7 +631,6 @@ const todosMisArticulos = async ()=>{
 
 
    
-
 
 
 localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() || ActualizaItems()

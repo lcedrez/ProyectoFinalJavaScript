@@ -12,84 +12,177 @@ const imprimirCarro=()=>{
             
     listadoCarrito.innerHTML=""
     carrito.forEach((producto)=>{
-    const artDiv = document.createElement('div')
-    contador ++
-    artDiv.className='contenedorPadre'
-    artDiv.innerHTML=` <div class="contenedorPadre">
-    <div id="contenedorCarrito" class="contieneTodoElCarrito">
-        
-            <div class="contTodoCarro">
-                    <div class="conedorDeItems">
-                        <div class="itemImagen"> <img src=../${producto.imagen} alt="" class="imgCarrrito"></div>
-                        <div class="itemsGral">
-                                <h2 class="item_name">
 
-                                ${producto.descripcion} </a>
-                                </h2>
-                                <div class="itemDescripcion">
-                                    <ul class="itemListado">
-                                        <li>
-                                         <em class="textDescr">Codigo : ${producto.cod_articulo}</em>
-                                        </li>
-                                        <li>
-                                         <em class="textDescr">Categoria : ${producto.categoria}</em>
-                                        </li>
-                                        <li>
+        if(producto.categoria==="Outfit")
+        {
+            
+
+                    const artDiv = document.createElement('div')
+                    contador ++
+                    artDiv.className='contenedorPadre'
+                    artDiv.innerHTML=` <div class="contenedorPadre">
+                    <div id="contenedorCarrito" class="contieneTodoElCarrito">
+                        
+                            <div class="contTodoCarro">
+                                    <div class="conedorDeItems">
+                                        <div class="itemImagen"> <img src=../${producto.imagen} alt="" class="imgCarrrito"></div>
+                                        <div class="itemsGral">
+                                                <h2 class="item_name">
+
+                                                ${producto.descripcion} </a>
+                                                </h2>
+                                                <div class="itemDescripcion">
+                                                    <ul class="itemListado">
+                                                        <li>
+                                                        <em class="textDescr">Codigo : ${producto.cod_articulo}</em>
+                                                        </li>
+                                                        <li>
+                                                        <em class="textDescr">Categoria : ${producto.categoria}</em>
+                                                        </li>
+                                                        <li>
+                                                        
+                                                        <em class="textDescr">Color : ${producto.color}</em>
+                                                        </li>
+                                                        <li>
+                                                        
+                                                        <em class="textDescr">Size : ${producto.size}</em>
+                                                        </li>
+                                                        </ul>
+                                                </div>
                                         
-                                        <em class="textDescr">Color : ${producto.color}</em>
-                                        </li>
-                                        </ul>
-                                </div>
-                         
 
-                                <div class="itemDetalle">
-                                    <label for="cant">Cant:</label>
-                                    
-                                    <select id="${contador}" class="cantCarr" precio="${producto.precio}" codigo="${producto.cod_articulo}">
-                                        <option hidden value="default">${producto.cantidad}</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
+                                                <div class="itemDetalle">
+                                                    <label for="cant">Cant:</label>
+                                                    
+                                                    <select id="${contador}" class="cantCarr" precio="${producto.precio}" codigo="${producto.cod_articulo}">
+                                                        <option hidden value="default">${producto.cantidad}</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
 
-                                        <div class="eliminar">
-                                            <div class="papeleraBtn" codigo="${producto.cod_articulo}"> <img src="../Imagenes/E-Commerce/papelera.png" alt="Eliminar" class="imgPapelera" codigo="${producto.cod_articulo}"></div>
-                                        
+                                                        <div class="eliminar">
+                                                            <div class="papeleraBtn" codigo="${producto.cod_articulo}"> <img src="../Imagenes/E-Commerce/papelera.png" alt="Eliminar" class="imgPapelera" codigo="${producto.cod_articulo}"></div>
+                                                        
+                                                        </div>
+                                                </div>
+
+                                                    <div class="precio">
+                                                        <span class="carritoPrecio">
+                                                            <span id="precio${contador}" class="precioDolar">
+                                                        U$S ${producto.precio}</span>
+                                                        </span>
+                                                    </div>
+                                                    <br>
+                                                    <br>
                                         </div>
-                                </div>
 
-                                    <div class="precio">
-                                        <span class="carritoPrecio">
-                                            <span id="precio${contador}" class="precioDolar">
-                                           U$S ${producto.precio}</span>
-                                        </span>
+
                                     </div>
-                                    <br>
-                                    <br>
-                        </div>
 
-
-                    </div>
-
+                                    
+                            </div>            
                     
-            </div>            
+                </div>  
+                    `
+                    
+                    
+                    listadoCarrito.append(artDiv)
+                    localStorage.setItem('claveCarro',JSON.stringify(carrito))
+                    localStorage.setItem('contador',contador)  
+
+        }
+        else
+        {
+
+        
+
+
+                    const artDiv = document.createElement('div')
+                    contador ++
+                    artDiv.className='contenedorPadre'
+                    artDiv.innerHTML=` <div class="contenedorPadre">
+                    <div id="contenedorCarrito" class="contieneTodoElCarrito">
+                        
+                            <div class="contTodoCarro">
+                                    <div class="conedorDeItems">
+                                        <div class="itemImagen"> <img src=../${producto.imagen} alt="" class="imgCarrrito"></div>
+                                        <div class="itemsGral">
+                                                <h2 class="item_name">
+
+                                                ${producto.descripcion} </a>
+                                                </h2>
+                                                <div class="itemDescripcion">
+                                                    <ul class="itemListado">
+                                                        <li>
+                                                        <em class="textDescr">Codigo : ${producto.cod_articulo}</em>
+                                                        </li>
+                                                        <li>
+                                                        <em class="textDescr">Categoria : ${producto.categoria}</em>
+                                                        </li>
+                                                        <li>
+                                                        
+                                                        <em class="textDescr">Color : ${producto.color}</em>
+                                                        </li>
+                                                        </ul>
+                                                </div>
+                                        
+
+                                                <div class="itemDetalle">
+                                                    <label for="cant">Cant:</label>
+                                                    
+                                                    <select id="${contador}" class="cantCarr" precio="${producto.precio}" codigo="${producto.cod_articulo}">
+                                                        <option hidden value="default">${producto.cantidad}</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+
+                                                        <div class="eliminar">
+                                                            <div class="papeleraBtn" codigo="${producto.cod_articulo}"> <img src="../Imagenes/E-Commerce/papelera.png" alt="Eliminar" class="imgPapelera" codigo="${producto.cod_articulo}"></div>
+                                                        
+                                                        </div>
+                                                </div>
+
+                                                    <div class="precio">
+                                                        <span class="carritoPrecio">
+                                                            <span id="precio${contador}" class="precioDolar">
+                                                        U$S ${producto.precio}</span>
+                                                        </span>
+                                                    </div>
+                                                    <br>
+                                                    <br>
+                                        </div>
+
+
+                                    </div>
+
+                                    
+                            </div>            
+                    
+                </div>  
+                    `
+                    
+                    
+                    listadoCarrito.append(artDiv)
+                    localStorage.setItem('claveCarro',JSON.stringify(carrito))
+                    localStorage.setItem('contador',contador)  
     
-</div>  
-    `
-    
-    
-    listadoCarrito.append(artDiv)
-    localStorage.setItem('claveCarro',JSON.stringify(carrito))
-    localStorage.setItem('contador',contador)  
-    
-   
+}
 
     
     

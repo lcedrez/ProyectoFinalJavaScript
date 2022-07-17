@@ -46,6 +46,7 @@ const agregarArticuloCarrito= (e) => {
 }   
 
 
+
 const agregaBtnDetalle =()=>{
     const articuloBoton=document.querySelectorAll('.btn')
     articuloBoton.forEach((boton)=>{
@@ -61,7 +62,7 @@ AlertaAgregaCarrito=(articuloRecibido)=>{
         html: `
         
         <div class="contenedorAlerta">
-        
+      
         <h4 class="card-title">El articulo:<span class="spanAlertaNombre">${articuloRecibido.nombre}</span> fue agregado al carrito</h4>
         
         <h5 class="card-title">Codigo:  <span class="spanAlertaCarrito">${articuloRecibido.cod_articulo}</span></h5>
@@ -69,8 +70,7 @@ AlertaAgregaCarrito=(articuloRecibido)=>{
         <br>
         <br>
         <div class="btnAlerta">
-        <button  type="button" class="btn btn-primary" href="#"> SEGUIR COMPRANDO</button>
-        <button  type="button" class="btn btn-primary"> IR AL CARRITO</button>
+        
         </div>
            
        
@@ -88,6 +88,7 @@ AlertaAgregaCarrito=(articuloRecibido)=>{
           popup: 'animate__animated animate__fadeOutUp'
         }
       })
+     
 }
 
 

@@ -21,7 +21,7 @@
      {"cod_articulo":"8844","nombre":"I Love The Beatles Pin","descripcion":"I Love The Beatles Pin.","precio":15.00,"descuento":15,"categoria":"Accesories","color":"Red,White","imagen":"Imagenes/E-Commerce/PIN.jfif","cantidad":1,"subTotal":15.00},
 
     
-     {"cod_articulo":"1155","nombre":"Hornby London Bus","descripcion":"Hornby London Bus.","precio":50.00,"descuento":0,"categoria":"Toy","color":"Red,Black","imagen":"Imagenes/E-Commerce/BusBeatles.jpg","cantidad":1,"subTotal":50.00},
+     {"cod_articulo":"1155","nombre":"Hornby London Bus","descripcion":"Released on the 8th May 1970, ‘Let It Be’ was the final album offering from The Beatles. The album, originally produced under the title ‘Get Back’, features beautifully written tracks such as ‘Don’t let me Down’ and ‘The Long and Winding Road’. Sharing its name with the album, the song ‘Let it Be’ acts as a homage to McCartney’s late mother, and is heralded as a song of positivity and perseverance.","precio":50.00,"descuento":0,"categoria":"Toy","color":"Red,Black","imagen":"Imagenes/E-Commerce/BusBeatles.jpg","cantidad":1,"subTotal":50.00},
     
      {"cod_articulo":"2255","nombre":"Let It Be Cookie Jar","descripcion":"Show your love for The Beatles with this iconic cookie jar!","precio":59.00,"descuento":0,"categoria":"Accesories","color":"Black","imagen":"Imagenes/E-Commerce/letitbecockjair.jfif","cantidad":1,"subTotal":59.00},
 
@@ -29,14 +29,37 @@
 
      {"cod_articulo":"4455","nombre":"Let It Be Color Faces","descripcion":"Show your love for The Beatles with this raglan tee!","precio":30.00,"descuento":0,"categoria":"Outfit","color":"Black-White","imagen":"Imagenes/E-Commerce/Y3CTBE219.jfif","cantidad":1,"subTotal":30.00},
 
-     {"cod_articulo":"1166","nombre":"Abbey Road Coaches Jacket","descripcion":"Up your game with this classic long-sleeve raglan coaches jacket. Nylon construction features a pointed collar with a full-length snap button front closure and two slanted front welt pockets finished with an adjustable hemline and banded sleeve cuffs. The jacket features The Beatles printed on front left chest and full size printed Abbey Road ","precio":52.00,"descuento":0,"categoria":"Outfit","color":"Black-White","imagen":"Imagenes/E-Commerce/AbbeyJacket.jfif","cantidad":1,"subTotal":52.00}
+     {"cod_articulo":"1166","nombre":"Abbey Road Coaches Jacket","descripcion":"Up your game with this classic long-sleeve raglan coaches jacket. Nylon construction features a pointed collar with a full-length snap button front closure and two slanted front welt pockets finished with an adjustable hemline and banded sleeve cuffs. The jacket features The Beatles printed on front left chest and full size printed Abbey Road ","precio":52.00,"descuento":0,"categoria":"Outfit","color":"Black-White","imagen":"Imagenes/E-Commerce/AbbeyJacket.jfif","cantidad":1,"subTotal":52.00},
 
 
 
+     {"cod_articulo":"9944","nombre":"All Together Now Onesie","descripcion":"40% off the original price of price of $25 Part of the All Together Now Collection!","precio":15.00,"descuento":0,"categoria":"Outfit","color":"White","imagen":"Imagenes/E-Commerce/ropaBebe.jpg","cantidad":1,"subTotal":15.00,"size":0,"subCategoria":"Outlet"},
+
+     {"cod_articulo":"1177","nombre":"All Together Now Zip Hoodie","descripcion":"43% off the original price of price of $70 Part of the All Together Now Collection!","precio":40.00,"descuento":0,"categoria":"Outfit","color":"Black","imagen":"Imagenes/E-Commerce/AllTogheter.jpg","cantidad":1,"subTotal":40.00,"size":0,"subCategoria":"Outlet"},
+
+     {"cod_articulo":"2277","nombre":"All Together Now Character Tote","descripcion":"28% off the original price of price of $25 Part of the All Together Now Collection!","precio":18.00,"descuento":0,"categoria":"Accesories","color":"Black","imagen":"Imagenes/E-Commerce/alltogheterTote.jpg","cantidad":1,"subTotal":18.00,"size":0,"subCategoria":"Outlet"},
+   
+
+     {"cod_articulo":"3377","nombre":"All Together Now Cartoon Hoodie","descripcion":"36% off the original price of price of $70 Part of the All Together Now Collection!","precio":45.00,"descuento":0,"categoria":"Outfit","color":"Gray","imagen":"Imagenes/E-Commerce/CanguroGray.jpg","cantidad":1,"subTotal":45.00,"size":0,"subCategoria":"Outlet"},
 
 
+     
+     {"cod_articulo":"4477","nombre":"Inner Light Grey T-Shirt","descripcion":"50% off the original price of price of $30! Grey t-shirt featuring an iconic image of The Beatles with The Inner Light printed in black.","precio":15.00,"descuento":0,"categoria":"Outfit","color":"Gray","imagen":"Imagenes/E-Commerce/ShirtGray.jpg","cantidad":1,"subTotal":15.00,"size":0,"subCategoria":"Outlet"},
 
+     {"cod_articulo":"5577","nombre":"Help! Scarf","descripcion":"37% off the original price of price of $35 This custom jacquard knit scarf features the iconic imagery from Help!","precio":22.00,"descuento":0,"categoria":"Outfit","color":"Red-White","imagen":"Imagenes/E-Commerce/Bufanda.jpg","cantidad":1,"subTotal":22.00,"size":0,"subCategoria":"Outlet"},
 
+     {"cod_articulo":"6677","nombre":"Snowy Abbey Road Sherpa Zip Hoodie","descripcion":"30% off the original price of price of $100 Show your love for The Beatles with this hoodie!","precio":70.00,"descuento":0,"categoria":"Outfit","color":"Black","imagen":"Imagenes/E-Commerce/snowy.jpg","cantidad":1,"subTotal":70.00,"size":0,"subCategoria":"Outlet"},
+
+     
+     {"cod_articulo":"7777","nombre":"Hornby Hello, Goodbye London Taxi","descripcion":"Hornby Hello, Goodbye London Taxi","precio":70.00,"descuento":0,"categoria":"Toy","color":"Yellow - light blue","imagen":"Imagenes/E-Commerce/juguete.jpg","cantidad":1,"subTotal":70.00,"size":0,"subCategoria":"Outlet"},
+
+     {"cod_articulo":"8877","nombre":"Lady Madonna London Taxi","descripcion":"Lady Madonna London Taxi","precio":25.00,"descuento":0,"categoria":"Toy","color":"Black","imagen":"Imagenes/E-Commerce/JugueteAuto.jpg","cantidad":1,"subTotal":25.00,"size":0,"subCategoria":"Outlet"},
+
+     {"cod_articulo":"9977","nombre":"TITANS 4.5 Yellow Submarine George","descripcion":"The Fab Four went on a fantastic adventure in Yellow Submarine Dressed in their iconic classic outfits, the music legends are going vinyl as 4 1/2-inches figures! The Beatles Yellow Submarine George 4 1/2-Inch Titan Vinyl Figure comes packaged in a window display box.","precio":15.00,"descuento":0,"categoria":"Toy","color":"Black-Brown","imagen":"Imagenes/E-Commerce/ToyGeorge.jpg","cantidad":1,"subTotal":15.00,"size":0,"subCategoria":"Outlet"},
+
+     {"cod_articulo":"9911","nombre":"Titans 4.5 Yellow Submarine Ringo","descripcion":"The Fab Four went on a fantastic adventure in Yellow Submarine Dressed in their iconic classic outfits, the music legends are going vinyl as 4 1/2-inches figures! The Beatles Yellow Submarine Ringo 4 1/2-Inch Titan Vinyl Figure comes packaged in a window display box.","precio":15.00,"descuento":0,"categoria":"Toy","color":"Black-Red-Blue","imagen":"Imagenes/E-Commerce/ToyPaul.jpg","cantidad":1,"subTotal":15.00,"size":0,"subCategoria":"Outlet"},
+
+     {"cod_articulo":"9922","nombre":"TITANS: 4.5 B&W Paul","descripcion":"After the incredible success of Titan Merchandise's 3 Blind-Boxed Yellow Submarine: All Together Now TITANS vinyl collection, The Beatles and their Yellow Submarine are back - now as upsized 4.5 photorealistic TITANS! Each figure is sold individually in a standalone window-boxed package.","precio":15.00,"descuento":0,"categoria":"Toy","color":"Black-White","imagen":"Imagenes/E-Commerce/TyRingo.jpg","cantidad":1,"subTotal":15.00,"size":0,"subCategoria":"Outlet"}
 
 ]
 
