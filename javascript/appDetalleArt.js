@@ -1,6 +1,7 @@
 let carrito=[]
 let cantidadE=1
 let size=0
+let cantidad=0
 
 
 //Declaraciones
@@ -327,8 +328,10 @@ const paginaCarrito=()=>{
 }
 
 const ExisteArtenCarro=(artrecibido)=>{
+    
     const variable = carrito.some((aux)=>aux.cod_articulo==artrecibido.cod_articulo && aux.size===artrecibido.size) 
     return variable
+
 }
 
 
@@ -393,18 +396,21 @@ const recuperarTotal=()=>{
 
 const ActualizaItems=()=>{
 
+    carrito = JSON.parse(localStorage.getItem('claveCarro')) ||  []
 
+        
+            const items = carrito.map(item => item.cantidad).reduce((prev, curr) => prev + curr, 0);
     
-    const items = carrito.map(item => item.cantidad).reduce((prev, curr) => prev + curr, 0);
-    
-   
-    document.getElementById('cantidadItem').textContent=items
-    
+            
+            document.getElementById('cantidadItem').textContent=items
+        
     
 }
+    
+
 
 const ActualizarTotal=(valorRecibido)=>{
-    console.log("llega al Total")
+    
     totalFinal+=parseInt(valorRecibido.precio*valorRecibido.cantidad) 
  
     document.getElementById('spanTotal').textContent=totalFinal 
@@ -417,7 +423,7 @@ const ActualizarTotal=(valorRecibido)=>{
 
     const ActualizaTotalCarrito =(artRecibido)=>{
         
-       
+      
         //const codigo = e.target.getAttribute('codigo')
         
       
@@ -444,11 +450,11 @@ const ActualizarTotal=(valorRecibido)=>{
        
         ActualizaItems()
         
-    
+    }
        
     
        
-      }
+      
     
     
 
