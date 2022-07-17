@@ -20,84 +20,49 @@
 </head>
 <body>
     <div class="bodyTienda">
+
+        
   
-    <header>
+    <header id="headFin">
 
         <div class="row">
-            <div class="col-md-12">
+            <div id="colFin" class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
+                    <div id="navFinalizar" class="container-fluid">
                     <a class="navbar-brand" href="../Tienda.html"><img src="../Imagenes/LogoStoreUruguay.svg" alt=""></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="../index.html">Inicio</a>
-                            </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../Paginas/BeatlesOutlet.html">Beatles Outlet</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="../Paginas/Media.html">Media</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../Paginas/Toys.html">Toys & Games</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../Paginas/Home.html">Home</a>
-                          </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../Paginas/Accesories.html">Accesories</a>
-                        </li>
-                      
-                        <li class="nav-item">
-                            <a class="nav-link" href="../Paginas/Outfit.html">Outfit</a>
-                        </li>
-                        <li>
-                            
-                        </li>
-                        
-                        </ul>
-                        <label class="cantItem" id="cantidadItem">0</label>
-                        <i id="carritoSearch"class="fa-solid fa-cart-shopping"></i>
-                        
-                         <label for="">U$S</label>  <span id="spanTotal">0.00</span>
-                    </div>
-                    </div>
+                   
                 </nav>
     </header>
-    <br>
-    <br>
-    <br>
- 
-
-        <div id="ContenedorGr" class="containerGrid">
-           
-
-            
-
-    </div>
-        
-  
+<br>
+<br>
+<br>
 
 
-
-        <div id="contenedorCards" class="container">
-
-             
-            
-            
+<div id="contenedor">
+    <div id="central">
+        <div id="login">
+            <div class="titulo">
+                Bienvenido
+            </div>
+            <form id="loginform">
+                <input id="usuario" type="text" name="usuario" placeholder="User" required>
+                
+                <input id="pass" type="password" placeholder="Password" name="password" required>
+                
+                <button id="log" type="submit" title="Ingresar" name="Ingresar">Login</button>
+            </form>
+            <div class="pie-form">
+                <a href="#">¿Perdiste tu contraseña?</a>
+                <a href="#">¿No tienes Cuenta? Registrate</a>
+            </div>
         </div>
-
-
-
-
-
-
-        
-
+        <div class="inferior">
+            <a href="#">Volver</a>
+        </div>
+    </div>
+</div>
+  <button class="btn">login</button>
+  
      
 
     <div id= " pie" class="row">
@@ -139,7 +104,7 @@
     <script src="../javascript/claseArticulo.js"></script>
     <script src="../javascript/claseUsuario.js"></script>
     <script src="../javascript/datos.js"></script>
-    <script src="../javascript/Media.js"></script>
+    <script src="../javascript/login.js "></script>
 
    
 </body>

@@ -3,6 +3,7 @@ let contador=0
 let carrito=[]
 
 const listadoCarrito=document.querySelector('#contenedorCarro')
+const btnFinalizaCompra=document.querySelector('#btnFinalizaCompra')
 //Declaraciones
 //---------------------------------------------------------------------------------------------------
 
@@ -196,7 +197,7 @@ const imprimirCarro=()=>{
 
     
 agregaBtnsEliminarCant()
-
+agregaBtnFinalizaCompra()
 
 }
 
@@ -213,6 +214,15 @@ const agregaBtnsEliminarCant =()=>{
         })
        
 
+
+}
+
+
+const agregaBtnFinalizaCompra =()=>{
+
+ 
+    
+    btnFinalizaCompra.addEventListener('click',finalizar)
 
 }
 
@@ -308,7 +318,13 @@ const recuperarTotal=()=>{
 
 
 
+function finalizar(){
+   
+   
 
+    window.location.href = "../Paginas/FinalizarCompra.html";
+
+     }
 
 
 

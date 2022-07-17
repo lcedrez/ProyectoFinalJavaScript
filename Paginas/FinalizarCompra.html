@@ -20,6 +20,8 @@
 </head>
 <body>
     <div class="bodyTienda">
+
+        
   
     <header>
 
@@ -33,27 +35,28 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="../index.html">Inicio</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="../index.html">Inicio</a>
+                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="../Paginas/BeatlesOutlet.html">Beatles Outlet</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="../Paginas/Media.html">Media</a>
+                            <a class="nav-link" href="../Paginas/Media.html">Media</a>
                         </li>
+                       
                         <li class="nav-item">
                             <a class="nav-link" href="../Paginas/Toys.html">Toys & Games</a>
-                        </li>
+                          </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../Paginas/Home.html">Home</a>
                           </li>
-                        <li class="nav-item">
+                          <li class="nav-item">
                             <a class="nav-link" href="../Paginas/Accesories.html">Accesories</a>
                         </li>
-                      
                         <li class="nav-item">
-                            <a class="nav-link" href="../Paginas/Outfit.html">Outfit</a>
+                            <a class="nav-link active" href="../Paginas/FinalizarCompra.html">Outfit</a>
                         </li>
                         <li>
                             
@@ -68,31 +71,68 @@
                     </div>
                 </nav>
     </header>
-    <br>
-    <br>
-    <br>
- 
-
-        <div id="ContenedorGr" class="containerGrid">
-           
-
-            
-
-    </div>
-        
-  
+<br>
+<br>
+<br>
+<br>
 
 
+<div id="contenedorFin">
+    <div id="centralFin">
+        <div id="login">
+           <h1>Datos de Envío</h1>
+            <form id="loginform">
+                <h3>Dirección <span>*</span></h3>
+                <input id="direccion" type="text" name="Direccion" placeholder="Dirección" required>
+                <h3>Esquina</h3>
+                <input id="Esquina" type="text" name="Esquina" placeholder="Esquina">
+                
+                <h3>Departamento <span>*</span></h3>
+                <select id="Departamento" class="dropDepto">
+                    <option hidden value="Montevideo">Montevideo</option>
+                      <option value="Artigas">Artigas</option>
+                      <option value="Durazno">Durazno</option>
+                      <option value="Flores">Flores</option>
+                      <option value="Florida">Florida</option>
+                      <option value="Maldonado">Maldonado</option>
+                      <option value="Montevideo">Montevideo</option>
+                      <option value="Paysandú">Paysandú</option>
+                      <option value="Rivera">Rivera</option>
+                      <option value="Salto">Salto</option>
+                      <option value="Tacuarembó">Tacuarembó</option>
 
-        <div id="contenedorCards" class="container">
+                      
+                    </select>
+                    <br>
+                    <br>
+                    <h3>Ciudad / Barrio<span>*</span></h3>
+                    <input id="CiudBarr" type="text" name="Ciudad" placeholder="Ciudad / Barrio" required>
+                    <h3>Telefono / Celular <span>*</span></h3>
+                    <input id="telFin" type="text" name="Telefono" placeholder="Telefono / Celular" required>
 
-             
-            
+                    <h3>Metodo De Pago<span>*</span></h3>
+                    <select id="metodPago" class="metPago">
+                        <option hidden value="VISA">VISA</option>
+                          <option value="VISA">VISA</option>
+                          <option value="MASTERCARD">MASTERCARD</option>
+                          <option value="MAESTRO">MAESTRO</option>
+                          <option value="AMERICAN EXPRESS">AMERICAN EXPRESS</option>
+                         
+    
+                          
+                        </select>
+                        <br>
+                        <br>
+                    
+                    <button id="finCompra" type="submit" title="Finalizar Compra" name="Finalizar Compra">FINALIZAR COMPRA</button>
+            </form>
             
         </div>
-
-
-
+        <div class="inferior">
+            <a href="#">Volver</a>
+        </div>
+    </div>
+</div>
 
 
 
@@ -139,7 +179,7 @@
     <script src="../javascript/claseArticulo.js"></script>
     <script src="../javascript/claseUsuario.js"></script>
     <script src="../javascript/datos.js"></script>
-    <script src="../javascript/Media.js"></script>
+    <script src="../javascript/FinalizarCompra.js"></script>
 
    
 </body>
