@@ -234,6 +234,10 @@ const EliminarDeCarrito=(e)=>{
     carrito.splice(indice,1)
     localStorage.setItem('claveCarro', JSON.stringify(carrito)) 
     const suma =carrito.map(item => item.subTotal).reduce((prev, curr) => prev + curr, 0);
+    let cuotas=Math.round(suma/12)
+    
+    document.getElementById('parrafoCuotas').textContent=cuotas
+    
     document.getElementById('spanTotal').textContent=suma
     document.getElementById('spanTotal2').textContent=suma
     localStorage.setItem('TotalFinal',suma)  
@@ -266,10 +270,10 @@ const ActualizaTotalCarrito =(e)=>{
     
     //sumo el subtotal del Array para actualizar el Resumen del pedido
     const suma =carrito.map(item => item.subTotal).reduce((prev, curr) => prev + curr, 0);
-    
+    let cuotas=Math.round(suma/12)
     document.getElementById('spanTotal').textContent=suma
     document.getElementById('spanTotal2').textContent=suma
-  
+    document.getElementById('parrafoCuotas').textContent=cuotas
     
     totalFinal=suma
     
@@ -314,6 +318,8 @@ const recuperarTotal=()=>{
     
     document.getElementById('spanTotal').textContent=totalFinal
     document.getElementById('spanTotal2').textContent=totalFinal
+    let cuotas=Math.round(totalFinal/12)
+    document.getElementById('parrafoCuotas').textContent=cuotas
 }
 
 

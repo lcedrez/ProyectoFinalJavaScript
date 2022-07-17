@@ -3,6 +3,7 @@ let contador=0
 let carrito=[]
 
 const listadoProductos=document.querySelector('#contenedorCards')
+const clickCarrito=document.querySelector('#carritoSearch')
 
 
 const renderizarListProductos=()=>{
@@ -49,6 +50,13 @@ const agregarListennerImagen =()=>{
  
  }
 
+ const paginaCarrito=()=>{
+    
+    window.location.href = "../Paginas/carrito.html";
+   
+ 
+ }
+
  function redireccion(e){
     const idSeleccionado = e.target.getAttribute('cod')
     localStorage.setItem('idSeleccionado',idSeleccionado)  
@@ -80,6 +88,11 @@ const agregarListennerImagen =()=>{
         
     }
         
+
+
+    //Evente Listeners
+
+    clickCarrito.addEventListener('click',paginaCarrito)
 
 
  renderizarListProductos()

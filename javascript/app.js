@@ -76,7 +76,35 @@ const renderizarListProductos=(datos)=>{
    
     
     datos.forEach((producto)=>{
+        if(producto.descuento > 0)
+        {
        const artDiv = document.createElement('div')
+       let precio=producto.precio
+        let precDescuento=(producto.descuento/100)*producto.precio
+
+        producto.precio-=precDescuento
+        artDiv.className='card-body'
+        artDiv.innerHTML=`
+        <img class="imgDetalle" src=${producto.imagen} alt="${producto.descripcion}" cod="${producto.cod_articulo}">
+            <h4 class="card-title">${producto.nombre}</h4>
+            <div class="precioActualizado">
+            <p class="card-text3"><del>U$s ${precio}</del></p>
+            <p class="card-text2">U$s${producto.precio}</p>
+            </div>
+            <div class="descuento">
+            <p class="card-text2">${producto.descuento}% OFF</p>
+            <img class="imgDescuento" src="Imagenes/E-Commerce/Sale.jpg" alt="sale">
+            </div>
+        
+        
+      </div>
+        `
+
+        listadoProductos.append(artDiv)
+    }
+    else
+    {
+        const artDiv = document.createElement('div')
         
         artDiv.className='card-body'
         artDiv.innerHTML=`
@@ -91,7 +119,8 @@ const renderizarListProductos=(datos)=>{
         `
 
         listadoProductos.append(artDiv)
-        
+
+    }
     })
         agregarListennersBtns()
         agregarListennerImagen()
@@ -172,12 +201,7 @@ const renderizarArtEncontrado=(datos)=>{
             
             
         }
-        /*
-        !ExisteArtenCarro(artiSeleccionado)&& carrito.push(artiSeleccionado) && totales.push(artiSeleccionado.cod_articulo,artiSeleccionado.precio,cantidad,precioPorCantidad) && ActualizarTotal(artiSeleccionado.precio,cantidad) &&localStorage.setItem('TotalFinal',totalFinal)
-        toastCarrito()
-        imprimirCarro()
-        */
-        
+      
 }   
 
 
@@ -495,30 +519,8 @@ AlertaAgregaCarrito=(articuloRecibido)=>{
       })
 }
 
-/*
-AlertaAgregaCarrito=(articuloRecibido)=>{
-    console.log(articuloRecibido)
-    Swal.fire({
-        title: `El articulo:${articuloRecibido.nombre} fue agregado al carrito`,
-        imageUrl: `${articuloRecibido.imagen}`,
-        imageWidth: 200,
-        imageHeight: 200,
-        imageAlt: `${articuloRecibido.imageAlt}`,
-      })
-}
-*/
 
-toastCarrito=()=>{
-    Toastify({
 
-        text: "Articulo Agregado" ,
-        position: "left",   
-        duration: 2000,
-        style: {
-            background: "linear-gradient(to right, #00b09b, #96c93d)",
-          }
-        }).showToast();
-}
 
 
 function redireccion(e){

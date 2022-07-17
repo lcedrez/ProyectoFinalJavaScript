@@ -23,7 +23,7 @@ const agregarArticuloCarrito= (e) => {
     artiSeleccionado.size=size 
     if(artiSeleccionado.categoria==="Outfit" && artiSeleccionado.size===0)
     {
-        alert("Debe Elegir una Talla")
+        toastTalla()
     }
     else
     {
@@ -41,7 +41,7 @@ const agregarArticuloCarrito= (e) => {
             
         }
         else{
-            alert("Ya Existe!!")
+            toastYaExiste()
         }
     }
 }   
@@ -54,6 +54,32 @@ const agregaBtnDetalle =()=>{
         
     boton.addEventListener('click',agregarArticuloCarrito)
     })
+}
+
+
+toastTalla=()=>{
+    Toastify({
+
+        text: "Debe elegir una Talla!!" ,
+        position: "center",   
+        duration: 2000,
+        style: {
+            background: "linear-gradient(to right, #ff9800, #c06500)",
+          }
+        }).showToast();
+}
+
+toastYaExiste=()=>{
+    Toastify({
+
+        text: "Ya Agrego este articulo al Carrito!!" ,
+        position: "center",   
+        duration: 2000,
+        style: {
+            background: "linear-gradient(to right, #ff9800, #c06500)",
+            
+          }
+        }).showToast();
 }
 
       
