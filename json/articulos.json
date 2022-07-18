@@ -74,7 +74,30 @@
 
      {"cod_articulo":"22318","nombre":"Abbey Road (Stereo 180 Gram Vinyl) Abbey Road (Stereo 180 Gram Vinyl)","descripcion":"Abbey Road (Stereo 180 Gram Vinyl) Abbey Road (Stereo 180 Gram Vinyl)","precio":25.00,"descuento":0,"categoria":"Media","color":"Black-Green","imagen":"Imagenes/E-Commerce/abbey.jpg","cantidad":1,"subTotal":25.00,"size":0,"subCategoria":"Media"},
 
-     {"cod_articulo":"22319","nombre":"The Beatles 1964 Limited Edition Turntable","descripcion":"The year is 1964, and Beatlemania has swept the globe! That’s how you’ll feel with The Beatles 1964 Limited Edition Turntable, commemorating the band’s legendary 1964 US tour with artwork showing tickets of their performances. The record player’s sound is both thrilling and relaxing, musical and detailed, just like the music of The Beatles. This one-of-a-kind masterpiece is limited to 1500 pieces worldwide.","precio":750.00,"descuento":0,"categoria":"Media","color":"White","imagen":"Imagenes/E-Commerce/vinblancojpg.jpg","cantidad":1,"subTotal":750.00,"size":0,"subCategoria":"Media"}
+     {"cod_articulo":"22319","nombre":"The Beatles 1964 Limited Edition Turntable","descripcion":"The year is 1964, and Beatlemania has swept the globe! That’s how you’ll feel with The Beatles 1964 Limited Edition Turntable, commemorating the band’s legendary 1964 US tour with artwork showing tickets of their performances. The record player’s sound is both thrilling and relaxing, musical and detailed, just like the music of The Beatles. This one-of-a-kind masterpiece is limited to 1500 pieces worldwide.","precio":750.00,"descuento":0,"categoria":"Media","color":"White","imagen":"Imagenes/E-Commerce/AbbeyRoad.png","cantidad":1,"subTotal":750.00,"size":0,"subCategoria":"Media"},
+
+
+
+     {"cod_articulo":"22411","nombre":"The Beatles Apple Ornament","descripcion":"This shiny green apple ornament celebrates Apple Records,which was founded by The Beatles in 1968.","precio":13.00,"descuento":0,"categoria":"Home","color":"Green","imagen":"Imagenes/E-Commerce/apple.jpg","cantidad":1,"subTotal":13.00,"size":0,"subCategoria":"Home"},
+
+     {"cod_articulo":"22412","nombre":"Sgt. Pepper Ceramic Cookie Jar","descripcion":"Show your love for The Beatles with this iconic cookie jar!","precio":70.00,"descuento":0,"categoria":"Home","color":"Blue-Red","imagen":"Imagenes/E-Commerce/peppers.jpg","cantidad":1,"subTotal":70.00,"size":0,"subCategoria":"Home"},
+
+     {"cod_articulo":"22413","nombre":"Sea Of Holes Sippy Cup","descripcion":"The Beatles Sea Of Holes Sippy Cup: Celebrate the fun and love The This rockin’ sippy cup is perfect for your rockin’ baby. Celebrate the album and film with an insulated “Yellow Submarine” Sippy Cup by The Beatles. It has a locking spill-proof lid, an easily-clean soft spout, and is made of strong, durable plastic.","precio":15.00,"descuento":0,"categoria":"Home","color":"Black-White","imagen":"Imagenes/E-Commerce/sea.jpg","cantidad":1,"subTotal":15.00,"size":0,"subCategoria":"Home"},
+
+     {"cod_articulo":"22414","nombre":"The Beatles Abbey Road Sculpted Ceramic Teapot","descripcion":"Vandor's beautiful and uniquely crafted teapots are the ideal way for any fan to enjoy their favorite tea. An ideal gift product, this highly-decorative teapot is bound to be brew lots of interest!","precio":57.00,"descuento":10,"categoria":"Home","color":"Black-White","imagen":"Imagenes/E-Commerce/tetera.jpg","cantidad":1,"subTotal":57.00,"size":0,"subCategoria":"Home"},
+
+     {"cod_articulo":"22416","nombre":"Sgt. Pepper Teapot Blue Series","descripcion":"Sgt. Pepper Teapot Blue Series","precio":60.00,"descuento":20,"categoria":"Home","color":"Blue-White","imagen":"Imagenes/E-Commerce/teteraB.jpg","cantidad":1,"subTotal":60.00,"size":0,"subCategoria":"Home"},
+
+     {"cod_articulo":"22415","nombre":"The Beatle's Guitar Ornament","descripcion":"Celebrate your holiday with a Beatles ornament!","precio":60.00,"descuento":10,"categoria":"Home","color":"Black-White","imagen":"Imagenes/E-Commerce/guitar.jpg","cantidad":1,"subTotal":60.00,"size":0,"subCategoria":"Home"},
+     
+     {"cod_articulo":"22417","nombre":"Let It Be 16oz Water Bottle","descripcion":"Stay hydrated with this iconic water bottle!!","precio":20.00,"descuento":0,"categoria":"Home","color":"Black-White","imagen":"Imagenes/E-Commerce/botella.jpg","cantidad":1,"subTotal":20.00,"size":0,"subCategoria":"Home"},
+
+     {"cod_articulo":"22418","nombre":"Beatles Up on the Roof TV OrnamentBeatles Up On The Roof TV Ornament","descripcion":"Beatles Up on the Roof TV Ornament Beatles Up On The Roof TV Ornament","precio":80.00,"descuento":18,"categoria":"Home","color":"Black-White","imagen":"Imagenes/E-Commerce/tv.jpg","cantidad":1,"subTotal":80.00,"size":0,"subCategoria":"Home"},
+
+     {"cod_articulo":"22419","nombre":"All You Need Is Love Custom Adult Folding Adirondack Chair","descripcion":"Sit-down with The Beatles in one of six Fab Four-inspired folding Adirondack chairs. These maintenance-free full-size sports chairs are made from recycled high density resin material, and are resistant to moisture, fading, warping & splintering. After A Hard Day’s Night, you’ll want to take a seat With The Beatles!","precio":399.00,"descuento":35,"categoria":"Home","color":"Blue-Red","imagen":"Imagenes/E-Commerce/silla.jpg","cantidad":1,"subTotal":399.00,"size":0,"subCategoria":"Home"},
+
+     {"cod_articulo":"22420","nombre":"White Album 12 Oz. Mug - Set Of 4","descripcion":"The Beatles White Album Square 4 pc. 12 oz. Ceramic Mug Set","precio":53.00,"descuento":0,"categoria":"Home","color":"Black-White","imagen":"Imagenes/E-Commerce/taza.jpg","cantidad":1,"subTotal":53.00,"size":0,"subCategoria":"Home"}
+
 ]
 
 }

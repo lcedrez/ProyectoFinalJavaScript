@@ -29,6 +29,7 @@ const itemsCarrito=document.querySelector('#cantidadItem')
 const clickCarrito=document.querySelector('#carritoSearch')
 
 
+
 //Barra de Busqueda
 //------------------------------------------------------------------------------------------------------
 const searchBar=document.querySelector('#searchBar')
@@ -135,6 +136,34 @@ const renderizarArtEncontrado=(datos)=>{
    
     listadoProductos.innerHTML=""
     datos.forEach((producto)=>{
+        if(producto.descuento>0)
+        {
+            const artDiv = document.createElement('div')
+            let precio=producto.precio
+             let precDescuento=(producto.descuento/100)*producto.precio
+     
+             producto.precio-=precDescuento
+             artDiv.className='card-body'
+             artDiv.innerHTML=`
+             <img class="imgDetalle" src=${producto.imagen} alt="${producto.descripcion}" cod="${producto.cod_articulo}" precioDesc="${producto.precio}">
+                 <h4 class="card-title">${producto.nombre}</h4>
+                 <div class="precioActualizado">
+                 <p class="card-text3"><del>U$s ${precio}</del></p>
+                 <p class="card-text2">U$s${producto.precio}</p>
+                 </div>
+                 <div class="descuento">
+                 <p class="card-text2">${producto.descuento}% OFF</p>
+                 <img class="imgDescuento" src="Imagenes/E-Commerce/Sale.jpg" alt="sale">
+                 </div>
+             
+             
+           </div>
+             `
+     
+             listadoProductos.append(artDiv)
+        }
+        else
+        {
        const artDiv = document.createElement('div') 
         artDiv.className='card-body'
         artDiv.innerHTML=`
@@ -142,14 +171,14 @@ const renderizarArtEncontrado=(datos)=>{
             <h4 class="card-title">${producto.nombre}</h4>
             <p class="card-text2">U$s ${producto.precio}</p>
             <p class="card-text2"></p>
-        <button codigo="${producto.cod_articulo}" type="button" class="btn btn-primary"> Agregar al Carrito</button>
+        
         
         
       </div>
         `
 
         listadoProductos.append(artDiv)
-        
+    }
     })
        
     agregarListennersBtns()
@@ -163,6 +192,38 @@ const renderizarArtEncontrado=(datos)=>{
 
 
 
+ 
+
+const agregarListennerEnter =()=>{
+    // const idSeleccionado = e.target.getAttribute('cod')
+    
+    
+ 
+    
+         
+     
+     searchBar.addEventListener('keypress',busquedaEnter)
+    
+    
+ 
+ 
+ }
+
+ const busquedaEnter =(e)=>{
+    
+    if (e.key ==="Enter") {
+        let  catalog = JSON.parse(localStorage.getItem('catalogo')) ||  []
+    
+        const busqueda=searchBar.value
+        let expresion = new RegExp(`${busqueda}.*`, "i");
+        let result = catalog.filter(catalog => expresion.test(catalog.nombre)||expresion.test(catalog.cod_articulo)||expresion.test(catalog.categoria) );
+    
+        
+                  
+         renderizarArtEncontrado(result)
+    
+}
+ }
 
 
 
@@ -632,7 +693,7 @@ const todosMisArticulos = async ()=>{
 
 
 
-   
+agregarListennerEnter()
 
 
 localStorage.getItem('claveCarro')!== null && recuperarCarrito() || recuperarTotal() || ActualizaItems()
