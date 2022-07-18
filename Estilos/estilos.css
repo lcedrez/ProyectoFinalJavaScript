@@ -47,6 +47,10 @@
     width: 1000px;
    
 }
+
+.loginBeatles img{
+    width:170px;
+}
 .icon{
     width: 50px;
     height: 50px;
@@ -708,6 +712,17 @@ body{
   color: white;
 
 }
+
+#log{
+    background-color: rgb(0, 0, 0);
+    border-width: 1px;
+  border-style: solid;
+  border-color: black;  
+  color: white;
+
+}
+
+
 
 .imgDescuento{
     padding-right: 10px;
