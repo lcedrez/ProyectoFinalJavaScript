@@ -150,6 +150,9 @@ AlertaAgregaCarrito=(articuloRecibido)=>{
            
            if(artEncontrado.categoria==="Outfit"){
             const artDetalle = document.createElement('div')
+            let precDescuento=(artEncontrado.descuento/100)*artEncontrado.precio
+
+            artEncontrado.precio-=precDescuento
             productoDetalle.innerHTML=""
             artDetalle.className='container'
             artDetalle.innerHTML=`
@@ -245,6 +248,8 @@ AlertaAgregaCarrito=(articuloRecibido)=>{
            }
            else
            {
+            let precDescuento=(artEncontrado.descuento/100)*artEncontrado.precio
+            artEncontrado.precio-=precDescuento
             const artDetalle = document.createElement('div')
             productoDetalle.innerHTML=""
             artDetalle.className='container'
@@ -437,8 +442,11 @@ const ActualizaItems=()=>{
 
 const ActualizarTotal=(valorRecibido)=>{
     
-    totalFinal+=parseInt(valorRecibido.precio*valorRecibido.cantidad) 
- 
+    let desc=valorRecibido.precio*valorRecibido.descuento/100
+    valorRecibido.precio-=desc
+    totalFinal+=parseInt(valorRecibido.precio*valorRecibido.cantidad)
+   
+    console.log(totalFinal)
     document.getElementById('spanTotal').textContent=totalFinal 
     localStorage.setItem('TotalFinal',totalFinal)
 
@@ -450,17 +458,19 @@ const ActualizarTotal=(valorRecibido)=>{
     const ActualizaTotalCarrito =(artRecibido)=>{
         
       
-        //const codigo = e.target.getAttribute('codigo')
+        
         
       
-        console.log(artRecibido)
+        
         let indice = carrito.indexOf(artRecibido)//obtengo Indice
        
     
         let subTot=artRecibido.precio*artRecibido.cantidad
         //le paso al array el nuevo dato de sub total
         
-        carrito[indice].subTotal= subTot 
+        let precDescuento=(artRecibido.descuento/100)*subTot
+        artRecibido.precio-=precDescuento
+        carrito[indice].subTotal= artRecibido.precio 
         carrito[indice].cantidad=artRecibido.cantidad 
     
         
@@ -470,7 +480,7 @@ const ActualizarTotal=(valorRecibido)=>{
         
         
         totalFinal=suma
-        console.log(suma)
+       
         localStorage.setItem('ClaveCarro',carrito)
         
        

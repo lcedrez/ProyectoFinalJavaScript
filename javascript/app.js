@@ -85,7 +85,7 @@ const renderizarListProductos=(datos)=>{
         producto.precio-=precDescuento
         artDiv.className='card-body'
         artDiv.innerHTML=`
-        <img class="imgDetalle" src=${producto.imagen} alt="${producto.descripcion}" cod="${producto.cod_articulo}">
+        <img class="imgDetalle" src=${producto.imagen} alt="${producto.descripcion}" cod="${producto.cod_articulo}" precioDesc="${producto.precio}">
             <h4 class="card-title">${producto.nombre}</h4>
             <div class="precioActualizado">
             <p class="card-text3"><del>U$s ${precio}</del></p>

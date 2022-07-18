@@ -16,7 +16,8 @@ const imprimirCarro=()=>{
 
         if(producto.categoria==="Outfit")
         {
-            
+            let precDescuento=(producto.descuento/100)*producto.precio
+            producto.precio-=precDescuento
 
                     const artDiv = document.createElement('div')
                     contador ++
@@ -104,7 +105,8 @@ const imprimirCarro=()=>{
         {
 
         
-
+            let precDescuento=(producto.descuento/100)*producto.precio
+            producto.precio-=precDescuento
 
                     const artDiv = document.createElement('div')
                     contador ++
@@ -262,6 +264,8 @@ const ActualizaTotalCarrito =(e)=>{
 
     let subTot=precioArt*cantidadSeleccionada
     //le paso al array el nuevo dato de sub total
+  
+    
     
     carrito[indice].subTotal= subTot 
     carrito[indice].cantidad=cantidadSeleccionada 
@@ -315,7 +319,7 @@ const recuperarCarrito=()=>{
 const recuperarTotal=()=>{
     
    totalFinal = JSON.parse(localStorage.getItem('TotalFinal')) 
-    
+    console.log(totalFinal)
     document.getElementById('spanTotal').textContent=totalFinal
     document.getElementById('spanTotal2').textContent=totalFinal
     let cuotas=Math.round(totalFinal/12)
